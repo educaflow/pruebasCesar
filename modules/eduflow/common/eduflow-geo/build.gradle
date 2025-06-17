@@ -1,0 +1,10 @@
+plugins {
+    id 'com.axelor.app'
+}
+
+group = 'com.eduflow.geo'
+version = '1.0.1'
+
+axelor {
+    title = "eduFlow :: Geo :: 1.0.1"
+}

@@ -1,0 +1,12 @@
+name: axelor
+
+services:
+  db:
+    image: postgres:12.2
+    container_name: eduflow
+    environment:
+      POSTGRES_USER: eduflow
+      POSTGRES_PASSWORD: eduflow
+      POSTGRES_DB: eduflow
+    ports:
+      - "5432:5432"
