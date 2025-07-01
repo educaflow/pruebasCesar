@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<domain-models xmlns="http://axelor.com/xml/ns/domain-models"
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:schemaLocation="http://axelor.com/xml/ns/domain-models http://axelor.com/xml/ns/domain-models/domain-models_5.1.xsd">
+
+    <module name="expedientes" package="com.educaflow.apps.expedientes.db"/>
+    <entity name="FormacionCentroTrabajo"  >
+        <string name="alumno" namecolumn="true" />
+        <many-to-one name="prueba" ref="Prueba" />
+        <one-to-one name="a2" title="PDF file" ref="com.axelor.meta.db.MetaFile" />
+        <one-to-one name="a2_firmado" title="PDF file" ref="com.axelor.meta.db.MetaFile" />
+        <one-to-one name="a3" title="PDF file" ref="com.axelor.meta.db.MetaFile" />
+        <one-to-one name="a3_firmado" title="PDF file" ref="com.axelor.meta.db.MetaFile" />
+    </entity>
+
+</domain-models>

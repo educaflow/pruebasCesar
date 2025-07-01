@@ -4,7 +4,86 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ccd46f0e-f435-4b47-96f5-fcd7b1844396" name="Changes" comment="" />
+    <list default="true" id="ccd46f0e-f435-4b47-96f5-fcd7b1844396" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/generate-manifest.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/common/build.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/common/src/main/java/com/educaflow/common/util/AxelorDBUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/common/src/main/java/com/educaflow/common/util/AxelorViewUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/common/src/main/java/com/educaflow/common/util/BeanUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/common/src/main/java/com/educaflow/common/util/ReflectionUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/common/src/main/java/com/educaflow/common/util/TextUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/common/src/main/java/com/educaflow/common/util/mapper/BeanMapperModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/common/src/main/java/com/educaflow/common/util/mapper/BeanMapperUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/common/src/main/java/com/educaflow/common/util/mapper/ModelListCompare.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/common/src/main/java/com/educaflow/common/util/mapper/ScalarMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/expedientes/build.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/expedientes/src/main/java/com/educaflow/apps/expedientes/common/.gitkeep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/expedientes/src/main/java/com/educaflow/apps/expedientes/common/EventContext.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/expedientes/src/main/java/com/educaflow/apps/expedientes/common/EventManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/expedientes/src/main/java/com/educaflow/apps/expedientes/common/Profile.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/expedientes/src/main/java/com/educaflow/apps/expedientes/common/annotations/OnEnterState.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/expedientes/src/main/java/com/educaflow/apps/expedientes/common/annotations/ViewForState.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/expedientes/src/main/java/com/educaflow/apps/expedientes/common/annotations/WhenEvent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/expedientes/src/main/java/com/educaflow/apps/expedientes/controller/ExpedienteController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/expedientes/src/main/java/com/educaflow/apps/expedientes/controller/ExpedienteTagController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/expedientes/src/main/java/com/educaflow/apps/expedientes/db/.gitkeep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/expedientes/src/main/java/com/educaflow/apps/expedientes/db/repo/.gitkeep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/expedientes/src/main/java/com/educaflow/apps/expedientes/eventmanagers/ComisionServicioEventManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/expedientes/src/main/java/com/educaflow/apps/expedientes/eventmanagers/FaltaJustificadaEventManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/expedientes/src/main/java/com/educaflow/apps/expedientes/eventmanagers/JustificacionFaltaProfesoradoEventManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/expedientes/src/main/java/com/educaflow/apps/expedientes/eventmanagers/PruebaEventManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/expedientes/src/main/java/com/educaflow/apps/expedientes/module/ExpedientesModule.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/expedientes/src/main/resources/META-INF/persistence.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/expedientes/src/main/resources/data-init/input/Profiles.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/expedientes/src/main/resources/data-init/input/TiposExpedientes.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/expedientes/src/main/resources/data-init/input/auth.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/expedientes/src/main/resources/domains/Expediente.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/expedientes/src/main/resources/domains/ExpedienteHistorialEstados.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/expedientes/src/main/resources/domains/ExpedienteProfile.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/expedientes/src/main/resources/domains/FormacionCentroTrabajo.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/expedientes/src/main/resources/domains/JustificacionFaltaProfesorado.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/expedientes/src/main/resources/domains/Profile.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/expedientes/src/main/resources/domains/Prueba.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/expedientes/src/main/resources/domains/TipoExpediente.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/expedientes/src/main/resources/expedientes/permiso_curso.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/expedientes/src/main/resources/view-templates/template.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/expedientes/src/main/resources/views/100_menus-alumnos.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/expedientes/src/main/resources/views/200_menus-profesor.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/expedientes/src/main/resources/views/300_menus-responsable.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/expedientes/src/main/resources/views/400_menus-director.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/expedientes/src/main/resources/views/500_menus-secretario.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/expedientes/src/main/resources/views/600_menus_auditor.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/expedientes/src/main/resources/views/Expedientes.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/expedientes/src/main/resources/views/JustificacionFaltaProfesorado.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/expedientes/src/main/resources/views/TiposExpedientes.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/expedientes/src/main/resources/views/historial-expedientes.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/expedientes/src/main/resources/views/prueba.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pruebascesar.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/includes/head.end.include.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/includes/head.start.include.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/js/eduflow_old.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/eduflow/common/eduflow-geo/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/eduflow/common/eduflow-geo/src/main/java/com/eduflow/modules/geo/FlowAction.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/eduflow/common/eduflow-geo/src/main/java/com/eduflow/modules/geo/GeoModule.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/eduflow/common/eduflow-geo/src/main/java/com/eduflow/modules/geo/MetaServiceImplEduFlow.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/eduflow/common/eduflow-geo/src/main/java/com/eduflow/modules/geo/ViewProcessorImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/eduflow/common/eduflow-geo/src/main/resources/data-init/input-config.xml" beforeDir="false" afterPath="$PROJECT_DIR$/modules/expedientes/src/main/resources/data-init/input-config.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/eduflow/common/eduflow-geo/src/main/resources/data-init/input/auth.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/eduflow/common/eduflow-geo/src/main/resources/data-init/input/datos.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/eduflow/common/eduflow-geo/src/main/resources/domains/Provincia.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/eduflow/common/eduflow-geo/src/main/resources/views/Menu.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/eduflow/common/eduflow-geo/src/main/resources/views/Provincia.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/axelor-config.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/axelor-config.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/eduflow.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/eduflow.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/js/eduflow.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/js/eduflow.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -15,33 +94,55 @@
       <ProjectState />
     </projectState>
   </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="pruebasCesar" type="f1a62948:ProjectNode" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
-        <option value="JavaScript File" />
         <option value="HTML File" />
+        <option value="TypeScript JSX File" />
+        <option value="JavaScript File" />
+        <option value="Class" />
+        <option value="TypeScript File" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "cesguiro"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;cesguiro&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "git@github.com:educaflow/pruebasCesar.git",
-    "accountId": "45160f01-49a5-4bb1-97d2-2206ba7a1446"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;git@github.com:educaflow/pruebasCesar.git&quot;,
+    &quot;accountId&quot;: &quot;45160f01-49a5-4bb1-97d2-2206ba7a1446&quot;
   }
-}]]></component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 8
-}]]></component>
+}</component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="jar://$MAVEN_REPOSITORY$/com/axelor/axelor-web/7.4.1-SNAPSHOT/axelor-web-7.4.1-SNAPSHOT-sources.jar!/com/axelor/web/service/RestService.java" root0="SKIP_INSPECTION" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 8
+}</component>
   <component name="ProjectId" id="2yd4yhvYOzTc094Ne2SWTjXPRAw" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -51,22 +152,73 @@
   "keyToString": {
     "DefaultHtmlFileTemplate": "HTML File",
     "Gradle.Build pruebasCesar.executor": "Run",
+    "Gradle.Download Sources.executor": "Run",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
+    "Shell Script.pruebasCesar.executor": "Run",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "/home/cesar/Mislata/eduflow/pruebasCesar",
+    "last_opened_file_path": "/home/cesar/Mislata/eduflow/pruebasCesar/src/main/webapp/js",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Project",
+    "onboarding.tips.debug.path": "/home/cesar/Mislata/eduflow/pruebasCesar/modules/common/src/main/java/com/eduFlow/Main.java",
+    "project.structure.last.edited": "Libraries",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "reference.settingsdialog.project.gradle",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/webapp/js" />
+      <recent name="$PROJECT_DIR$/modules/expedientes/src/main/resources" />
+      <recent name="$PROJECT_DIR$/modules/expedientes/src/main/java/com/educaflow/apps/expedientes" />
+      <recent name="$PROJECT_DIR$/modules/common/src/main/java/com/educaflow/common/util" />
+      <recent name="$PROJECT_DIR$/modules/expedientes/src/main/resources/widgets" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/modules/expedientes/src/main/resources/webapp" />
+      <recent name="$PROJECT_DIR$/modules/expedientes/src/main/resources/webapp/widgets" />
+      <recent name="$PROJECT_DIR$/modules/expedientes/src/main/resources/webapp/widgets/binary-eduFlow2" />
+      <recent name="$PROJECT_DIR$/src/main/webapp/js/react-components" />
+      <recent name="$PROJECT_DIR$/src/main/webapp/js" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.educaflow.apps.expedientes.eventmanagers" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="eduFlow" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="eduFlow" />
+      <option name="filePath" />
+      <method v="2" />
+    </configuration>
+    <configuration name="pruebasCesar" type="ShConfigurationType">
+      <option name="SCRIPT_TEXT" value="" />
+      <option name="INDEPENDENT_SCRIPT_PATH" value="true" />
+      <option name="SCRIPT_PATH" value="$PROJECT_DIR$/pruebascesar.sh" />
+      <option name="SCRIPT_OPTIONS" value="" />
+      <option name="INDEPENDENT_SCRIPT_WORKING_DIRECTORY" value="true" />
+      <option name="SCRIPT_WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="INDEPENDENT_INTERPRETER_PATH" value="true" />
+      <option name="INTERPRETER_PATH" value="/bin/bash" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="EXECUTE_IN_TERMINAL" value="true" />
+      <option name="EXECUTE_SCRIPT_FILE" value="true" />
+      <envs />
+      <method v="2" />
+    </configuration>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -82,7 +234,47 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1750151372680</updated>
-      <workItem from="1750151373736" duration="5520000" />
+      <workItem from="1750151373736" duration="6359000" />
+      <workItem from="1750256412805" duration="13522000" />
+      <workItem from="1750312601333" duration="2121000" />
+      <workItem from="1750316336714" duration="14064000" />
+      <workItem from="1750341978727" duration="3558000" />
+      <workItem from="1750402154953" duration="9795000" />
+      <workItem from="1750436867927" duration="1810000" />
+      <workItem from="1750487946854" duration="3295000" />
+      <workItem from="1750492233919" duration="336000" />
+      <workItem from="1750524285540" duration="1443000" />
+      <workItem from="1750579640674" duration="5010000" />
+      <workItem from="1750660492846" duration="2157000" />
+      <workItem from="1750689683128" duration="5147000" />
+      <workItem from="1750698937183" duration="1940000" />
+      <workItem from="1750746244667" duration="12331000" />
+      <workItem from="1750775365440" duration="8254000" />
+      <workItem from="1750785525975" duration="583000" />
+      <workItem from="1750833065326" duration="3719000" />
+      <workItem from="1750837096598" duration="4263000" />
+      <workItem from="1750841387398" duration="465000" />
+      <workItem from="1750841882205" duration="7299000" />
+      <workItem from="1750849651450" duration="29000" />
+      <workItem from="1750849854154" duration="1997000" />
+      <workItem from="1750859769424" duration="2123000" />
+      <workItem from="1750863820829" duration="3895000" />
+      <workItem from="1750871964352" duration="1656000" />
+      <workItem from="1750912763947" duration="10141000" />
+      <workItem from="1750947837250" duration="759000" />
+      <workItem from="1750954275992" duration="2375000" />
+      <workItem from="1751005935516" duration="5702000" />
+      <workItem from="1751012997803" duration="4597000" />
+      <workItem from="1751096653193" duration="1930000" />
+      <workItem from="1751267193478" duration="11224000" />
+      <workItem from="1751279575069" duration="6000" />
+      <workItem from="1751280083027" duration="1080000" />
+      <workItem from="1751281336785" duration="230000" />
+      <workItem from="1751281632275" duration="93000" />
+      <workItem from="1751281749679" duration="347000" />
+      <workItem from="1751282512289" duration="751000" />
+      <workItem from="1751291351055" duration="9554000" />
+      <workItem from="1751352771598" duration="7608000" />
     </task>
     <servers />
   </component>

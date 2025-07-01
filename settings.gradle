@@ -42,8 +42,8 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = 'eduFlow'
+rootProject.name = 'pruebasCesar'
 
 
-include 'modules:eduflow:common:eduflow-geo'
-//include 'modules:eduflow:common:geo2'
+include 'modules:expedientes'
+include 'modules:common'
