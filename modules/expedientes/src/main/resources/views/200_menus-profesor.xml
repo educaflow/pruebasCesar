@@ -29,7 +29,18 @@
         <context name="_profile" expr="CREADOR"/>
     </action-view>
 
-
+    <action-method name="profesores-firmar-justificante-action" model="com.educaflow.apps.expedientes.db.JustificacionFaltaProfesorado">
+        <call
+                class="com.educaflow.apps.expedientes.controller.JustificacionFaltaProfesoradoController"
+                method="firmarJustificante('documentoCompletoSinFirmar', 'documentoCompletoFirmadoUsuario', '_firmado_usuario', 1)"
+        />
+    </action-method>
+    <action-method name="responsable-firmar-justificante-action" model="com.educaflow.apps.expedientes.db.JustificacionFaltaProfesorado">
+        <call
+                class="com.educaflow.apps.expedientes.controller.JustificacionFaltaProfesoradoController"
+                method="firmarJustificante('documentoCompletoFirmadoUsuario', 'documentoCompletoFirmadoUsuarioDirector', '_firmado_director', 2)"
+        />
+    </action-method>
 
 
 

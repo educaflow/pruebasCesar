@@ -26,7 +26,6 @@ public class AxelorViewUtil {
             actionViewBuilder.context("newEntity", entity);
         }
 
-
         response.setView(actionViewBuilder.map());
     }
 

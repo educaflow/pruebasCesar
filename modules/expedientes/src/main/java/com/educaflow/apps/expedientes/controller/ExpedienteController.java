@@ -5,6 +5,7 @@ import com.axelor.db.JpaRepository;
 import com.axelor.inject.Beans;
 import com.axelor.meta.CallMethod;
 import com.axelor.rpc.*;
+import com.educaflow.apps.expedientes.common.CommonEvent;
 import com.educaflow.apps.expedientes.common.EventContext;
 import com.educaflow.apps.expedientes.common.EventManager;
 import com.educaflow.apps.expedientes.common.Profile;
@@ -17,11 +18,11 @@ import com.educaflow.common.util.mapper.BeanMapperModel;
 import com.google.inject.Inject;
 import com.google.inject.persist.Transactional;
 import java.time.LocalDateTime;
+import java.util.Arrays;
 import java.util.Map;
 
 
 public class ExpedienteController {
-
 
     @Inject
     TipoExpedienteRepository tipoExpedienteRepository;
@@ -46,7 +47,7 @@ public class ExpedienteController {
             if (expediente.getCodeState()==null) {
                 throw new RuntimeException("El estado del expediente no puede ser null");
             }
-            updateState(expediente);
+            updateState(expediente,eventManager.getStateClass());
             updateName(expediente);
             addHistorialEstado(expediente,null);
             eventManager.onEnterState(expediente, eventContext);
@@ -55,7 +56,7 @@ public class ExpedienteController {
             saveExpediente(expedienteRepository,expediente);
 
             String viewName = eventManager.getViewName(expediente, eventContext);
-            AxelorViewUtil.doResponseViewForm(response,viewName,eventManager.getModelClass(),expediente,expediente.getName(),eventContext.getProfile().name());
+            AxelorViewUtil.doResponseViewForm(response,viewName,eventManager.getModelClass(),expediente,getTabName(expediente),eventContext.getProfile().name());
         } catch (Exception ex) {
             throw new RuntimeException(ex);
         }
@@ -80,37 +81,27 @@ public class ExpedienteController {
             eventManager.triggerEvent(eventName, expediente, expedienteOriginal, eventContext);
             String newState = expediente.getCodeState();
 
-            if (newState.equals(originalState)==false) {
-                updateState(expediente);
-                addHistorialEstado(expediente,eventName);
-                eventManager.onEnterState(expediente, eventContext);
+            System.out.println("eventName = " + eventName);
+
+            if (eventName.equals(CommonEvent.DELETE.name())) {
+                removeExpediente(expedienteRepository, expediente);
+
+                response.setSignal("refresh-app", null);
+            } else if (eventName.equals(CommonEvent.EXIT.name())) {
+                response.setSignal("refresh-app", null);
+            } else {
+                //Es un evento "normal" del expediente
+                if (newState.equals(originalState) == false) {
+                    updateState(expediente, eventManager.getStateClass());
+                    addHistorialEstado(expediente, eventName);
+                    eventManager.onEnterState(expediente, eventContext);
+                }
+
+                saveExpediente(expedienteRepository, expediente);
+
+                String viewName = eventManager.getViewName(expediente, eventContext);
+                AxelorViewUtil.doResponseViewForm(response, viewName, eventManager.getModelClass(), expediente, getTabName(expediente), eventContext.getProfile().name());
             }
-
-            saveExpediente(expedienteRepository,expediente);
-
-            String viewName = eventManager.getViewName(expediente, eventContext);
-            AxelorViewUtil.doResponseViewForm(response,viewName,eventManager.getModelClass(),expediente,expediente.getName(),eventContext.getProfile().name());
-
-        } catch (Exception ex) {
-            throw new RuntimeException(ex);
-        }
-    }
-
-
-    @CallMethod
-    @Transactional
-    public void borrarExpediente(ActionRequest request, ActionResponse response) {
-        try {
-            EventContext eventContext = getEventContext(request);
-            Expedientes expedientes=getExpedientes(request,null, eventContext);
-            Expediente expediente=expedientes.getCurrentExpediente();
-
-            EventManager eventManager=getEventManager(expediente.getTipoExpediente());
-            JpaRepository<Expediente> expedienteRepository = AxelorDBUtil.getRepository(eventManager.getModelClass());
-
-            removeExpediente(expedienteRepository,expediente);
-
-            response.setSignal("refresh-app",null);
         } catch (Exception ex) {
             throw new RuntimeException(ex);
         }
@@ -126,7 +117,7 @@ public class ExpedienteController {
 
             String viewName = eventManager.getViewName(expediente, eventContext);
 
-            AxelorViewUtil.doResponseViewForm(response,viewName,eventManager.getModelClass(),expediente,expediente.getName(),eventContext.getProfile().name());
+            AxelorViewUtil.doResponseViewForm(response,viewName,eventManager.getModelClass(),expediente,getTabName(expediente),eventContext.getProfile().name());
 
         } catch (Exception ex) {
             throw new RuntimeException(ex);
@@ -146,13 +137,30 @@ public class ExpedienteController {
         expediente.addHistorialEstado(historialEstado);
     }
 
-    public void updateState(Expediente expediente) {
+    private void updateState(Expediente expediente,Class<? extends Enum> enumClass) {
+        assertValidState(expediente,enumClass);
+
+
         expediente.setNameState(TextUtil.getHumanCaseFromScreamingSnakeCase(expediente.getCodeState()));
         expediente.setFechaUltimoEstado(LocalDateTime.now());
     }
 
-    public void updateName(Expediente expediente) {
+    private void updateName(Expediente expediente) {
         expediente.setName(expediente.getTipoExpediente().getName());
+    }
+
+
+    private void assertValidState(Expediente expediente,Class<? extends Enum> enumClass) {
+        String stateCode=expediente.getCodeState();
+        boolean isValid = Arrays.stream(enumClass.getEnumConstants()).anyMatch(enumConstant -> stateCode.equals(enumConstant.name()));
+
+        if (isValid==false) {
+            throw new IllegalArgumentException("Invalid state code '" + stateCode + "'  "+enumClass.getSimpleName());
+        }
+    }
+
+    private String getTabName(Expediente expediente) {
+        return expediente.getNumeroExpediente()+"-"+expediente.getTipoExpediente().getName();
     }
 
 
@@ -244,7 +252,7 @@ public class ExpedienteController {
     /********************** Funciones de Utilidad **********************/
     /*******************************************************************/
 
-    public static  EventManager getEventManager(TipoExpediente tipoExpediente) {
+    private static  EventManager getEventManager(TipoExpediente tipoExpediente) {
         try {
             if (tipoExpediente == null) {
                 throw new RuntimeException("No existe el tipo del expediente a crear.");

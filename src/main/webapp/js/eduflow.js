@@ -1,47 +1,48 @@
 const { protocol, hostname, port, pathname } = window.location;
 const baseUrl = `${protocol}//${hostname}${port ? `:${port}` : ''}${pathname.replace(/\/[^/]*$/, '')}`;
 
-async function signDocument(context, sourceKey, targetKey, modelName, sufijo) {
-    try {
-        // 1. Actualizar contexto antes de firmar
-        const updatedContext = await refreshContext(modelName, context.id);
 
-        const source = updatedContext[sourceKey];
+globalThis.signDocument = async function(context, payload) {
+    try {
+        const source = context[payload.sourceField];
         const idSource = source.id;
         const versionSource = source.$version;
         const originalFileName = source.fileName;
 
         // 2. Crear expedienteContext local para no pisar variables globales
         const expedienteContext = {
-            id: updatedContext.id,
-            version: updatedContext.version,
-            model: modelName,
-            sufijo,
+            id: context.id,
+            version: context.version,
+            model: context._model,
             source: {
                 id: idSource,
                 version: versionSource,
                 fileName: originalFileName,
-                field: sourceKey
+                field: payload.sourceField
             },
             target: {
-                field: targetKey
-            }
+                field: payload.targetField
+            },
+            sufijo: payload.sufijo,
+            tipoExpediente: payload.tipoExpediente
         };
 
         console.log("Contexto del expediente:", expedienteContext);
 
         // 3. Descargar PDF base64
-        const urlPdf = `${baseUrl}/ws/rest/com.axelor.meta.db.MetaFile/${idSource}/content/download?version=${versionSource}`;
+        const urlPdf = `${baseUrl}/ws/rest/com.axelor.meta.db.MetaFile/${expedienteContext.source.id}/content/download?version=${expedienteContext.source.version}`;
         const base64Pdf = await fetchPdfBase64(urlPdf);
         console.log('PDF base64 descargado');
 
         // 4. Firmar PDF
-        const firmaB64 = await firmarBase64(base64Pdf);
+        const firmaB64 = await firmarBase64(base64Pdf, expedienteContext.tipoExpediente);
 
         // 5. Subir PDF firmado
-        await subirAFCTComoMetaFile(firmaB64, expedienteContext);
+        target = await subirAFCTComoMetaFile(firmaB64, expedienteContext);
 
         console.log("Documento firmado procesado correctamente");
+        context[payload.targetField] = target;
+        //guardarYPresentar(context);
 
     } catch (error) {
         console.error("Error en signDocument:", error);
@@ -49,19 +50,43 @@ async function signDocument(context, sourceKey, targetKey, modelName, sufijo) {
     }
 }
 
-async function refreshContext(modelName, id) {
-    const url = `${baseUrl}/ws/rest/${modelName}/${id}`;
-    console.log(`Obteniendo contexto actualizado de ${modelName} con ID ${id} desde: ${url}`);
+async function guardarYPresentar(context) {
+    const newContext = { ...context };
+    newContext._source = "PRESENTAR_DOCUMENTOS_FIRMADOS";
+    newContext._signal = "PRESENTAR_DOCUMENTOS_FIRMADOS";
+    const payload = {
+        action: "action-event-expediente",
+        model: newContext._model,
+        data: {
+            context: newContext
+        }
+    };
+
+    console.log("Payload:", JSON.stringify(payload)); // Aquí puedes ver si es objeto o array
+
+
     const csrfToken = getCookie('CSRF-TOKEN');
-    const response = await fetch(url, {
-        method: 'GET',
-        headers: { "Accept": "application/json", "X-CSRF-TOKEN": csrfToken },
-        credentials: 'include'
+    if (!csrfToken) throw new Error("CSRF-TOKEN no encontrado");
+
+    const response = await fetch(`${baseUrl}/ws/action`, {
+        method: "POST",
+        body: JSON.stringify(payload),
+        credentials: "include",
+        headers: {
+            "X-CSRF-TOKEN": csrfToken,
+            "Content-Type": "application/json", // ← esto faltaba
+            "Accept": "application/json"
+        },
     });
-    if (!response.ok) throw new Error('Error al obtener la entidad actualizada');
-    const json = await response.json();
-    return json.data[0];
+
+    if (!response.ok) {
+        const text = await response.text();
+        throw new Error(`Error subiendo a MetaFile: ${response.status} ${response.statusText} - ${text}`);
+    }
+    console.log("Expediente guardado y presentado correctamente");
+    return response;
 }
+
 
 async function fetchPdfBase64(url) {
     const response = await fetch(url);
@@ -80,7 +105,7 @@ async function fetchPdfBase64(url) {
 }
 
 // Convertir firmarBase64 a async que devuelve promesa
-function firmarBase64(base64Pdf) {
+function firmarBase64(base64Pdf, tipoDocumento) {
     return new Promise((resolve, reject) => {
         AutoScript.cargarAppAfirma();
         const numeroDNI = "52648745C"; // Actualiza según necesites
@@ -92,12 +117,22 @@ function firmarBase64(base64Pdf) {
         let params = "mode=explicit\n" +
             "serverUrl=" + servletsBase + "/afirma-server-triphase-signer/SignatureService";
 
-        params += "\n" +
-            "signaturePositionOnPageLowerLeftX=150\n" +
-            "signaturePositionOnPageLowerLeftY=75\n" +
-            "signaturePositionOnPageUpperRightX=400\n" +
-            "signaturePositionOnPageUpperRightY=125\n" +
-            "signaturePage=6";
+        if (tipoDocumento===1) {
+            params += "\n" +
+                "signaturePositionOnPageLowerLeftX=300\n" +
+                "signaturePositionOnPageLowerLeftY=50\n" +
+                "signaturePositionOnPageUpperRightX=600\n" +
+                "signaturePositionOnPageUpperRightY=150\n" +
+                "signaturePage=1";
+
+        } else {
+            params += "\n" +
+                "signaturePositionOnPageLowerLeftX=40\n" +
+                "signaturePositionOnPageLowerLeftY=50\n" +
+                "signaturePositionOnPageUpperRightX=290\n" +
+                "signaturePositionOnPageUpperRightY=150\n" +
+                "signaturePage=1";
+        }
 
         params += "\nheadless=true\nfilters.1=subject.rfc2254:(SERIALNUMBER=*" + numeroDNI + "*);nonexpired:\nfilters.2=subject.rfc2254:(CN=*" + numeroDNI + "*);nonexpired:";
 
@@ -120,7 +155,10 @@ function firmarBase64(base64Pdf) {
 
 async function subirAFCTComoMetaFile(base64Firmado, expedienteContext) {
     const blob = base64ToBlob(base64Firmado, "application/pdf");
-    const fileName = `${expedienteContext.source.fileName}${expedienteContext.sufijo}.pdf`;
+    const fileName = agregarSufijoAntesDeExtension(
+        expedienteContext.source.fileName,
+        expedienteContext.sufijo
+    );
     const fileType = "application/pdf";
     const fileSize = blob.size;
 
@@ -155,56 +193,29 @@ async function subirAFCTComoMetaFile(base64Firmado, expedienteContext) {
 
     const metaFileData = await response.json();
 
-    const metaFileId = metaFileData?.data?.[0]?.id;
-    if (!metaFileId) throw new Error("ID de MetaFile no obtenido");
+    const mf = metaFileData?.data?.[0];
 
-    return actualizarFCTConMetaFile(metaFileId, expedienteContext);
-}
+    if (!mf?.id || !mf?.filePath) throw new Error("MetaFile no válido");
 
-async function actualizarFCTConMetaFile(metaFileId, expedienteContext) {
-    const url = `${baseUrl}/ws/rest/${expedienteContext.model}/${expedienteContext.id}`;
-    const firmadoField = expedienteContext.target.field;
-
-    const payload = {
-        data: {
-            id: expedienteContext.id,
-            version: expedienteContext.version,
-            [firmadoField]: {
-                id: metaFileId,
-                version: 0
-            }
-        }
+    return {
+        id: mf.id,
+        $version: mf.version,
+        fileName: mf.fileName,
+        filePath: mf.filePath,
+        fileType: mf.fileType,
+        fileSize: mf.fileSize
     };
-
-    const csrfToken = getCookie('CSRF-TOKEN');
-    if (!csrfToken) throw new Error("CSRF-TOKEN no encontrado");
-
-    const response = await fetch(url, {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-            "Accept": "application/json",
-            "X-CSRF-TOKEN": csrfToken
-        },
-        body: JSON.stringify(payload),
-        credentials: "include"
-    });
-
-    if (!response.ok) {
-        const text = await response.text();
-        throw new Error(`Error actualizando el FCT: ${response.status} ${response.statusText} - ${text}`);
-    }
-
-    const data = await response.json();
-    console.log("FCT actualizado con documento firmado:", data);
-
-    if (data?.data?.version !== undefined) {
-        expedienteContext.version = data.data.version;
-        console.log("Nueva versión guardada:", expedienteContext.version);
-    }
-
-    alert("Documento firmado guardado correctamente en la ficha");
+    //return actualizarFCTConMetaFile(metaFileId, expedienteContext);
 }
+
+function agregarSufijoAntesDeExtension(nombreArchivo, sufijo, extensionPorDefecto = ".pdf") {
+    const dotIndex = nombreArchivo.lastIndexOf(".");
+    const nombreSinExtension = dotIndex !== -1 ? nombreArchivo.substring(0, dotIndex) : nombreArchivo;
+    const extension = dotIndex !== -1 ? nombreArchivo.substring(dotIndex) : extensionPorDefecto;
+
+    return `${nombreSinExtension}${sufijo}${extension}`;
+}
+
 
 // Utilidades
 function base64ToBlob(base64, mime) {
