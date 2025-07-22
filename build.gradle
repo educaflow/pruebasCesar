@@ -9,17 +9,22 @@ buildscript {
 
 plugins {
     id 'com.axelor.app'
+    id("org.jetbrains.kotlin.jvm") version "2.2.0"
 }
+
+
 
 axelor {
     title = 'Pruebas César'
 }
 
 
+
 allprojects {
     apply plugin: 'idea'
+    apply plugin: 'eclipse'
 
-    group = 'com.eduFlow'
+    group = 'com.educaflow'
     version = '0.0.1'
 
     java {
@@ -27,7 +32,9 @@ allprojects {
             languageVersion = JavaLanguageVersion.of(11)
         }
     }
-
+    tasks.withType(JavaCompile) {
+        options.compilerArgs << "-Xlint:deprecation"
+    }
     afterEvaluate {
         configurations {
             // Remove Junit4, only keep Junit5 provided by AOP
@@ -44,15 +51,121 @@ allprojects {
 }
 
 
+kotlin {
+    compilerOptions {
+        jvmTarget =  org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_11
+    }
+}
+
+configurations {
+    educaFlowBuildToolsDependency
+}
+
 dependencies {
-    implementation project('modules:common')
-    implementation project('modules:expedientes')
-    implementation 'org.modelmapper:modelmapper:3.1.1'
+    implementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk8' // O kotlin-stdlib-jdk7 o kotlin-stdlib
+    implementation "org.jetbrains.kotlin:kotlin-reflect:2.2.0"
+    testImplementation 'org.jetbrains.kotlin:kotlin-test'
+    testImplementation 'org.jetbrains.kotlin:kotlin-test-junit' // O la que uses para testing (ej. kotlin-test-testng)
+
+    educaFlowBuildToolsDependency 'com.educaflow:EducaFlowBuildTools:1.0-SNAPSHOT'
+}
+tasks.named("compileKotlin").configure {
+    dependsOn generateCode
+}
+
+tasks.register('viewProcessorTask', JavaExec) {
+    description = 'Ejecuta una clase Java desde un JAR externo después de procesar los fichero de las vistas (form) de los expedientes.'
+    group = 'build'
+
+    mainClass = 'com.educaflow.common.buildtools.viewprocessor.Main'
+
+    classpath = configurations.educaFlowBuildToolsDependency
+
+
+    args './src/main/java', './build/resources/main/views'
+
+    workingDir = layout.projectDirectory.dir('.')
+}
+tasks.named('processResources') {
+    finalizedBy 'viewProcessorTask'
+}
+
+tasks.register('deleteMetaTask', JavaExec) {
+    description = 'Ejecuta una clase Java desde un JAR externo para borrar las tablas "meta_".'
+    group = 'build'
+
+    mainClass = 'com.educaflow.common.buildtools.deletemeta.Main'
+
+    classpath = configurations.educaFlowBuildToolsDependency
+
+
+    args './src/main/resources/axelor-config.properties'
+
+    workingDir = layout.projectDirectory.dir('.')
+}
+tasks.named('build') {
+    finalizedBy 'deleteMetaTask'
+}
+
+tasks.register('copyInitData', JavaExec) {
+    description = 'Ejecuta una clase Java desde un JAR externo para copiar las carpetas "init-data" de cada expediente.'
+    group = 'build'
+
+    mainClass = 'com.educaflow.common.buildtools.copyinitdata.Main'
+
+    classpath = configurations.educaFlowBuildToolsDependency
+
+
+    args './src/main/java/com/educaflow/apps/expedientes/tipo', './build/resources/main/data-init-expedientes', 'data_init', 'data-init'
+
+    workingDir = layout.projectDirectory.dir('.')
+}
+tasks.named('build') {
+    finalizedBy 'copyInitData'
+}
+
+tasks.register('RichDomainClassTask', JavaExec) {
+    description = 'Ejecuta una clase Java desde un JAR externo para añadir código al modelo con los enumerados de estados, eventos y profiles.'
+    group = 'build'
+
+    mainClass = 'com.educaflow.common.buildtools.richdomainclass.Main'
+
+    classpath = configurations.educaFlowBuildToolsDependency
+
+
+    args './src/main/java', './build/src-gen/java'
+
+    workingDir = layout.projectDirectory.dir('.')
+}
+tasks.named('generateCode') {
+    finalizedBy tasks.RichDomainClassTask
+}
+
+tasks.register('CreateFilesTask', JavaExec) {
+    description = 'Ejecuta una clase Java desde un JAR externo para generar o validar los ficheros de un tipo de expediente.'
+    group = 'build'
+
+    mainClass = 'com.educaflow.common.buildtools.createfiles.Main'
+
+    classpath = configurations.educaFlowBuildToolsDependency
+
+
+    args './src/main/java'
+
+    workingDir = layout.projectDirectory.dir('.')
+}
+tasks.named('generateCode') {
+    dependsOn tasks.CreateFilesTask
 }
 
 
 war {
     archiveFileName = 'pruebascesar.war'
 }
-
+jar {
+    enabled = false
+}
+tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).configureEach {
+    destinationDirectory.set(file("build/classes/java/main"))
+}
 apply from: 'gradle/style.gradle'

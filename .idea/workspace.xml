@@ -5,28 +5,136 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ccd46f0e-f435-4b47-96f5-fcd7b1844396" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/modules/expedientes/src/main/java/com/educaflow/apps/expedientes/common/CommonEvent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/modules/expedientes/src/main/java/com/educaflow/apps/expedientes/controller/JustificacionFaltaProfesoradoController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/modules/expedientes/src/main/resources/pdf-templates/documentoCompleto.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/modules/expedientes/src/main/resources/views/justificacionFaltaProfesorado.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/expedientes/data-init-old/input-config-old.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/expedientes/data-init-old/input/Roles.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/expedientes/data-init-old/input/ambitos.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/expedientes/data-init-old/input/auth.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/expedientes/data-init-old/input/cargos.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/expedientes/data-init-old/input/centroUsuarios.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/expedientes/data-init-old/input/centros.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/expedientes/data-init-old/input/perfiles.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/expedientes/data-init-old/input/permisos.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/expedientes/data-init-old/input/tiposExpedientes.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/expedientes/data-init-old/input/tiposUsuarios.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/expedientes/data-init-old/input/tramites.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/modules/expedientes/data-init-old/input/usuarios.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/educaflow/apps/developer/controller/DeveloperController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/educaflow/apps/developer/controller/ErrorMessajes.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/educaflow/apps/expedientes/auth/ExpedientesAuthResolver.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/educaflow/apps/expedientes/common/EventManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/educaflow/apps/expedientes/common/ExpedienteController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/educaflow/apps/expedientes/common/StateEnum.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/educaflow/apps/expedientes/common/StateEventValidator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/educaflow/apps/expedientes/module/ExpedientesModule.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/educaflow/apps/expedientes/tipo/comisionservicio/EventManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/educaflow/apps/expedientes/tipo/comisionservicio/StateEventValidator.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/educaflow/apps/expedientes/tipo/comisionservicio/TipoExpediente.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/educaflow/apps/expedientes/tipo/comisionservicio/views.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/educaflow/apps/expedientes/tipo/justificacion_falta_profesorado/StateEventValidator.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/educaflow/apps/expedientes/tipo/justificacion_falta_profesorado/TipoExpediente.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/educaflow/apps/expedientes/tipo/justificacion_falta_profesorado/data_init/input-config.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/educaflow/apps/expedientes/tipo/justificacion_falta_profesorado/data_init/input/TiposExpedientes.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/educaflow/apps/expedientes/tipo/justificacion_falta_profesorado/views.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/educaflow/apps/expedientes/tipo/prueba/EventManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/educaflow/apps/expedientes/tipo/prueba/Prueba.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/educaflow/apps/expedientes/tipo/prueba/StateEventValidator.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/educaflow/apps/expedientes/tipo/prueba/TipoExpediente.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/educaflow/apps/expedientes/tipo/prueba/data_init/input-config.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/educaflow/apps/expedientes/tipo/prueba/data_init/input/TiposExpedientes.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/educaflow/apps/expedientes/tipo/prueba/views.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/educaflow/common/validation/dsl/Implementation.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/educaflow/common/validation/engine/AllowPropertiesFactory.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/educaflow/common/validation/engine/BeanValidationRules.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/educaflow/common/validation/engine/FieldValidationRules.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/educaflow/common/validation/engine/ValidationRule.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/educaflow/common/validation/engine/ValidatorEngine.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/educaflow/common/validation/messages/BusinessMessage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/educaflow/common/validation/messages/BusinessMessages.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/educaflow/common/validation/rules/AgeRules.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/educaflow/common/validation/rules/ComparableRules.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/educaflow/common/validation/rules/ConditionalRules.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/educaflow/common/validation/rules/DateTimeRules.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/educaflow/common/validation/rules/ListRules.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/educaflow/common/validation/rules/MetaFile.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/educaflow/common/validation/rules/NumericRules.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/educaflow/common/validation/rules/RequiredRules.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/educaflow/common/validation/rules/StringRules.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/domains/common/DevInfo.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/domains/expedientes/Expediente.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/domains/expedientes/Mensaje.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/views/common/10000_developer.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/common/src/main/java/com/educaflow/common/util/AxelorViewUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/modules/common/src/main/java/com/educaflow/common/util/AxelorViewUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/common/src/main/java/com/educaflow/common/util/ReflectionUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/modules/common/src/main/java/com/educaflow/common/util/ReflectionUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/expedientes/src/main/java/com/educaflow/apps/expedientes/common/EventManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/modules/expedientes/src/main/java/com/educaflow/apps/expedientes/common/EventManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/expedientes/src/main/java/com/educaflow/apps/expedientes/controller/ExpedienteController.java" beforeDir="false" afterPath="$PROJECT_DIR$/modules/expedientes/src/main/java/com/educaflow/apps/expedientes/controller/ExpedienteController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/expedientes/src/main/java/com/educaflow/apps/expedientes/eventmanagers/JustificacionFaltaProfesoradoEventManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/modules/expedientes/src/main/java/com/educaflow/apps/expedientes/eventmanagers/JustificacionFaltaProfesoradoEventManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/expedientes/src/main/java/com/educaflow/apps/expedientes/eventmanagers/PruebaEventManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/modules/expedientes/src/main/java/com/educaflow/apps/expedientes/eventmanagers/PruebaEventManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/expedientes/src/main/resources/data-init/input/auth.xml" beforeDir="false" afterPath="$PROJECT_DIR$/modules/expedientes/src/main/resources/data-init/input/auth.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/expedientes/src/main/resources/domains/Expediente.xml" beforeDir="false" afterPath="$PROJECT_DIR$/modules/expedientes/src/main/resources/domains/Expediente.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/expedientes/src/main/resources/domains/FormacionCentroTrabajo.xml" beforeDir="false" afterPath="$PROJECT_DIR$/modules/expedientes/src/main/resources/domains/FormacionCentroTrabajo.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/expedientes/src/main/resources/domains/JustificacionFaltaProfesorado.xml" beforeDir="false" afterPath="$PROJECT_DIR$/modules/expedientes/src/main/resources/domains/JustificacionFaltaProfesorado.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/expedientes/src/main/resources/domains/Prueba.xml" beforeDir="false" afterPath="$PROJECT_DIR$/modules/expedientes/src/main/resources/domains/Prueba.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/expedientes/src/main/resources/view-templates/template.xml" beforeDir="false" afterPath="$PROJECT_DIR$/modules/expedientes/src/main/resources/view-templates/template.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/expedientes/src/main/resources/views/200_menus-profesor.xml" beforeDir="false" afterPath="$PROJECT_DIR$/modules/expedientes/src/main/resources/views/200_menus-profesor.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/expedientes/src/main/resources/views/Expedientes.xml" beforeDir="false" afterPath="$PROJECT_DIR$/modules/expedientes/src/main/resources/views/Expedientes.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/expedientes/src/main/resources/views/JustificacionFaltaProfesorado.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/expedientes/src/main/resources/views/prueba.xml" beforeDir="false" afterPath="$PROJECT_DIR$/modules/expedientes/src/main/resources/views/prueba.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/js/eduflow.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/js/eduflow.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/common/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/common/.idea/gradle.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/common/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/common/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/common/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/common/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/common/src/main/java/com/educaflow/common/util/AxelorDBUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/educaflow/common/util/AxelorDBUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/common/src/main/java/com/educaflow/common/util/AxelorViewUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/educaflow/common/util/AxelorViewUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/common/src/main/java/com/educaflow/common/util/BeanUtil.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/common/src/main/java/com/educaflow/common/util/ReflectionUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/educaflow/common/util/ReflectionUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/common/src/main/java/com/educaflow/common/util/TextUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/educaflow/common/util/TextUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/common/src/main/java/com/educaflow/common/util/mapper/BeanMapperModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/educaflow/common/mapper/BeanMapperModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/common/src/main/java/com/educaflow/common/util/mapper/BeanMapperUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/educaflow/common/mapper/BeanMapperUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/common/src/main/java/com/educaflow/common/util/mapper/ModelListCompare.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/educaflow/common/mapper/ModelListCompare.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/common/src/main/java/com/educaflow/common/util/mapper/ScalarMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/educaflow/common/mapper/ScalarMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/expedientes/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/expedientes/.idea/gradle.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/expedientes/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/expedientes/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/expedientes/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/expedientes/src/main/java/com/educaflow/apps/expedientes/common/.gitkeep" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/educaflow/apps/developer/db/.gitkeep" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/expedientes/src/main/java/com/educaflow/apps/expedientes/common/CommonEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/educaflow/apps/expedientes/common/CommonEvent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/expedientes/src/main/java/com/educaflow/apps/expedientes/common/EventContext.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/educaflow/apps/expedientes/common/EventContext.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/expedientes/src/main/java/com/educaflow/apps/expedientes/common/EventManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/expedientes/src/main/java/com/educaflow/apps/expedientes/common/Profile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/educaflow/apps/expedientes/common/CommonProfile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/expedientes/src/main/java/com/educaflow/apps/expedientes/common/annotations/OnEnterState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/educaflow/apps/expedientes/common/annotations/OnEnterState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/expedientes/src/main/java/com/educaflow/apps/expedientes/common/annotations/ViewForState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/educaflow/apps/expedientes/common/annotations/BeanValidationRulesForStateAndEvent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/expedientes/src/main/java/com/educaflow/apps/expedientes/common/annotations/WhenEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/educaflow/apps/expedientes/common/annotations/WhenEvent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/expedientes/src/main/java/com/educaflow/apps/expedientes/controller/ExpedienteController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/expedientes/src/main/java/com/educaflow/apps/expedientes/controller/ExpedienteTagController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/expedientes/src/main/java/com/educaflow/apps/expedientes/controller/JustificacionFaltaProfesoradoController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/expedientes/src/main/java/com/educaflow/apps/expedientes/db/.gitkeep" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/expedientes/src/main/java/com/educaflow/apps/expedientes/db/repo/.gitkeep" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/expedientes/src/main/java/com/educaflow/apps/expedientes/eventmanagers/ComisionServicioEventManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/expedientes/src/main/java/com/educaflow/apps/expedientes/eventmanagers/FaltaJustificadaEventManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/expedientes/src/main/java/com/educaflow/apps/expedientes/eventmanagers/JustificacionFaltaProfesoradoEventManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/educaflow/apps/expedientes/tipo/justificacion_falta_profesorado/EventManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/expedientes/src/main/java/com/educaflow/apps/expedientes/eventmanagers/PruebaEventManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/expedientes/src/main/java/com/educaflow/apps/expedientes/module/ExpedientesModule.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/expedientes/src/main/resources/META-INF/persistence.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/expedientes/src/main/resources/data-init/input-config.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/data-init/input-config.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/expedientes/src/main/resources/data-init/input/Profiles.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/data-init/input/Profiles.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/expedientes/src/main/resources/data-init/input/TiposExpedientes.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/expedientes/src/main/resources/data-init/input/auth.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/data-init/input/auth.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/expedientes/src/main/resources/domains/Expediente.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/expedientes/src/main/resources/domains/ExpedienteHistorialEstados.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/domains/expedientes/ExpedienteHistorialEstados.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/expedientes/src/main/resources/domains/ExpedienteProfile.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/educaflow/apps/expedientes/tipo/comisionservicio/ComisionServicio.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/expedientes/src/main/resources/domains/FormacionCentroTrabajo.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/educaflow/apps/expedientes/tipo/prueba/FormacionCentroTrabajo.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/expedientes/src/main/resources/domains/JustificacionFaltaProfesorado.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/educaflow/apps/expedientes/tipo/justificacion_falta_profesorado/JustificacionFaltaProfesorado.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/expedientes/src/main/resources/domains/Profile.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/domains/expedientes/Profile.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/expedientes/src/main/resources/domains/Prueba.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/expedientes/src/main/resources/domains/TipoExpediente.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/domains/expedientes/TipoExpediente.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/expedientes/src/main/resources/expedientes/permiso_curso.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/expedientes/src/main/resources/pdf-templates/documentoCompleto.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/pdf-templates/justificacion_falta_profesor.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/expedientes/src/main/resources/view-templates/template.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/expedientes/src/main/resources/views/100_menus-alumnos.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/views/common/100_menus-alumnos.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/expedientes/src/main/resources/views/200_menus-profesor.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/views/common/200_menus-profesor.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/expedientes/src/main/resources/views/300_menus-responsable.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/views/common/300_menus-responsable.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/expedientes/src/main/resources/views/400_menus-director.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/views/common/400_menus-director.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/expedientes/src/main/resources/views/500_menus-secretario.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/views/common/500_menus-secretario.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/expedientes/src/main/resources/views/600_menus_auditor.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/views/common/600_menus_auditor.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/expedientes/src/main/resources/views/Expedientes.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/views/expedientes/Expedientes.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/expedientes/src/main/resources/views/TiposExpedientes.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/views/expedientes/TiposExpedientes.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/expedientes/src/main/resources/views/historial-expedientes.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/views/expedientes/historial-expedientes.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/expedientes/src/main/resources/views/justificacionFaltaProfesorado.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/expedientes/src/main/resources/views/prueba.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pruebascesar.sh" beforeDir="false" afterPath="$PROJECT_DIR$/pruebascesar.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/axelor-config.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/axelor-config.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,6 +191,7 @@
 }</component>
   <component name="HighlightingSettingsPerFile">
     <setting file="jar://$MAVEN_REPOSITORY$/com/axelor/axelor-web/7.4.1-SNAPSHOT/axelor-web-7.4.1-SNAPSHOT-sources.jar!/com/axelor/web/service/RestService.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/main/resources/data-init/input-config.xml" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 8
@@ -92,44 +201,44 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;Gradle.Build pruebasCesar.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.Download Sources.executor&quot;: &quot;Run&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;Shell Script.pruebasCesar.executor&quot;: &quot;Run&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/cesar/Mislata/eduflow/pruebasCesar/modules/expedientes/src/main/resources&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;onboarding.tips.debug.path&quot;: &quot;/home/cesar/Mislata/eduflow/pruebasCesar/modules/common/src/main/java/com/eduFlow/Main.java&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.project.gradle&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "Gradle.Build pruebasCesar.executor": "Run",
+    "Gradle.Download Sources.executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "Shell Script.pruebasCesar.executor": "Run",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "/home/cesar/Mislata/eduflow/EducaFlowBuildTools",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "onboarding.tips.debug.path": "/home/cesar/Mislata/eduflow/pruebasCesar/modules/centro/src/main/java/com/eduFlow/Main.java",
+    "project.structure.last.edited": "Libraries",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "reference.settingsdialog.project.gradle",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources" />
+      <recent name="$PROJECT_DIR$/src/main/java/com/educaflow/common" />
+      <recent name="$PROJECT_DIR$/src/main/java/com/educaflow/apps" />
       <recent name="$PROJECT_DIR$/modules/expedientes/src/main/resources" />
       <recent name="$PROJECT_DIR$/modules/expedientes/src/main/java/com/educaflow/apps/expedientes" />
-      <recent name="$PROJECT_DIR$/modules/common/src/main/java/com/educaflow/common/util" />
-      <recent name="$PROJECT_DIR$/modules/expedientes/src/main/java/com/educaflow/apps/expedientes/common" />
-      <recent name="$PROJECT_DIR$/src/main/webapp/js" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/modules/expedientes" />
+      <recent name="$PROJECT_DIR$/src/main/resources/data-init-old/input" />
+      <recent name="$PROJECT_DIR$/src/main/resources/data-init-old" />
+      <recent name="$PROJECT_DIR$/modules/expedientes/src/main/resources/data-init/input" />
       <recent name="$PROJECT_DIR$/modules/expedientes/src/main/resources/webapp" />
-      <recent name="$PROJECT_DIR$/modules/expedientes/src/main/resources/webapp/widgets" />
-      <recent name="$PROJECT_DIR$/modules/expedientes/src/main/resources/webapp/widgets/binary-eduFlow2" />
-      <recent name="$PROJECT_DIR$/src/main/webapp/js/react-components" />
-      <recent name="$PROJECT_DIR$/src/main/webapp/js" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.educaflow.apps.expedientes.eventmanagers" />
@@ -246,11 +355,42 @@
       <workItem from="1751967346335" duration="5544000" />
       <workItem from="1752039309898" duration="420000" />
       <workItem from="1752039907842" duration="1500000" />
-      <workItem from="1752123873311" duration="1897000" />
+      <workItem from="1752123873311" duration="7591000" />
+      <workItem from="1752215208954" duration="6885000" />
+      <workItem from="1752304645864" duration="68000" />
+      <workItem from="1752561011441" duration="1779000" />
+      <workItem from="1752570747252" duration="3392000" />
+      <workItem from="1752574632204" duration="2617000" />
+      <workItem from="1752647080870" duration="2491000" />
+      <workItem from="1752654792823" duration="3374000" />
+      <workItem from="1752735972931" duration="1922000" />
+      <workItem from="1752739864641" duration="11182000" />
+      <workItem from="1752821453981" duration="12416000" />
+      <workItem from="1752834236111" duration="3389000" />
+      <workItem from="1752908765032" duration="605000" />
+      <workItem from="1752912498380" duration="1870000" />
+      <workItem from="1752915586013" duration="1785000" />
+      <workItem from="1752918410915" duration="114000" />
+      <workItem from="1752918803588" duration="1265000" />
+      <workItem from="1752997938347" duration="3095000" />
+      <workItem from="1753082105133" duration="5125000" />
+      <workItem from="1753089534676" duration="7264000" />
+      <workItem from="1753163010188" duration="8352000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/modules/centro/src/main/java/com/eduFlow/Main.java</url>
+          <line>13</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

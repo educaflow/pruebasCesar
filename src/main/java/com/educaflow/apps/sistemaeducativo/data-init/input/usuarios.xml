@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<datos>
+    <!--<usuarios>
+        <usuario code="cesar" name="César Guijarro Rosaleny" group="users" password="cesar" >
+            <role name="role.profesor"/>
+        </usuario>
+        <usuario code="angela" name="Ángela Hermosilla Del Río" group="users" password="angela" >
+            <role name="role.alumno"/>
+        </usuario>
+    </usuarios>-->
+    <usuarios>
+        <usuario code="cesarGuijarroRosaleny" name="César Guijarro Rosaleny" group="users" password="cesar" />
+        <usuario code="lorenzoGonzalezGascon" name="Lorenzo González Gascón" group="users" password="lorenzo" />
+        <usuario code="luisGarciaBonifaz" name="Luis García Bonifaz" group="users" password="luis" />
+        <usuario code="angelaHermosillaDelRio" name="Ángela Hermosilla Del Río" group="users" password="angela" />
+        <usuario code="joaquinEscricheArcusa" name="Joaquín Escriche Arcusa" group="users" password="joaquin" />
+    </usuarios>
+
+</datos>

@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<datos>
+    <ambitos>
+        <ambito code="centro" name="Centro"/>
+        <ambito code="departamento" name="Departamento"/>
+        <ambito code="ofertaEducativa" name="Oferta educativa"/>
+        <ambito code="curso" name="Curso"/>
+        <ambito code="grupo" name="Grupo"/>
+        <ambito code="modulo" name="Módulo"/>
+    </ambitos>
+</datos>
