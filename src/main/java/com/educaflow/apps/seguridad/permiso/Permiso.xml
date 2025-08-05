@@ -1,0 +1,14 @@
+<domain-models xmlns="http://axelor.com/xml/ns/domain-models"
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:schemaLocation="http://axelor.com/xml/ns/domain-models https://axelor.com/xml/ns/domain-models/domain-models_7.4.xsd">
+
+    <module name="seguridad" package="com.educaflow.apps.seguridad.db"/>
+    <entity name="Permiso" repository="abstract">
+        <enum name="perfil" ref="com.educaflow.apps.expedientes.db.Profile" />
+        <many-to-one name="tramite" ref="com.educaflow.apps.expedientes.db.Tramite" required="true"/>
+        <many-to-one name="tipoUsuario" ref="com.educaflow.apps.sistemaeducativo.db.TipoUsuario" required="true"/>
+        <many-to-one name="cargo" ref="com.educaflow.apps.sistemaeducativo.db.Cargo"/>
+    </entity>
+
+
+</domain-models>

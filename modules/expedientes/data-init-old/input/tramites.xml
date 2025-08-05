@@ -1,8 +1,0 @@
-<?xml version="1.0"?>
-<datos>
-    <tramites>
-        <tramite code="JustificacionFaltaProfesorado" name="Justificar falta de profesorado" />
-        <tramite code="ComisionServicio" name="Comision de servicios" />
-        <tramite code="ConvalidacionModulo" name="Convalidar módulos" />
-    </tramites>
-</datos>

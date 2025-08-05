@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<domain-models xmlns="http://axelor.com/xml/ns/domain-models"
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:schemaLocation="http://axelor.com/xml/ns/domain-models https://axelor.com/xml/ns/domain-models/domain-models_7.4.xsd">
+
+    <module name="expedientes" package="com.educaflow.apps.expedientes.db"/>
+    <entity name="Tramite"  >
+        <string name="code"  />
+        <string name="name" namecolumn="true" />
+        <string name="help" large="true"  title="Ayuda"   />
+        <one-to-one name="defaultTipoExpediente" ref="TipoExpediente" title="Tipo de expediente por defecto"/>
+        <enum name="tipoTramite" ref="TipoTramite" />
+    </entity>
+
+    <enum name="TipoTramite">
+        <item name="PROFESOR" title="Profesor"/>
+        <item name="ALUMNO" title="Alumno"/>
+        <item name="TUTOR" title="Tutor"/>
+        <item name="DIRECCION" title="Dirección"/>
+        <item name="ADMINISTRATIVO" title="Administrativo"/>
+        <item name="CONSERJE" title="Conserje"/>
+    </enum>
+
+</domain-models>

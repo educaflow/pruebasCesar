@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<datos>
+    <tramites>
+        <tramite code="JustificacionFaltaProfesorado"   defaultTipoExpediente="JustificacionFaltaProfesorado"  />
+        <tramite code="CertificadoTutor"   defaultTipoExpediente="CertificadoTutor"  />
+        <tramite code="RenunciaConvocatoriaModulo"   defaultTipoExpediente="RenunciaConvocatoriaModulo"  />
+        <tramite code="CertificadoTituloCiclo" defaultTipoExpediente="CertificadoTituloCiclo" />
+        <tramite code="FirmarActas"   defaultTipoExpediente="FirmarActas"  />
+        <tramite code="RenunciaConvocatoriaTutor"   defaultTipoExpediente="RenunciaConvocatoriaTutor"  />
+        <tramite code="AmonestacionLeve"   defaultTipoExpediente="AmonestacionLeve"  />
+        <tramite code="AutorizacionRecogidaTituloTerceraPersona"   defaultTipoExpediente="AutorizacionRecogidaTituloTerceraPersona"  />
+    </tramites>
+</datos>
