@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xmlns="http://axelor.com/xml/ns/object-views"
+              xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_5.1.xsd">
+
+    <form name="exp-CertificadoTutor-Templates" title="Certificado Tutor"  width="large"  model="com.educaflow.apps.expedientes.db.CertificadoTutor" groups="admins,users">
+        <panel name="ambito-creador" title="Ámbito del Creador">
+            <field name="valoresAmbitoCreador.centro"/>
+            <field name="valoresAmbitoCreador.departamento"/>
+            <field name="valoresAmbitoCreador.ciclo"/>
+            <field name="valoresAmbitoCreador.curso"/>
+            <field name="valoresAmbitoCreador.grupo"/>
+            <field name="valoresAmbitoCreador.modulo"/>
+            <field name="valoresAmbitoCreador.creador"/>
+        </panel>
+
+        <panel name="ambito-responsable" title="Ámbito del Responsable">
+            <field name="valoresAmbitoResponsable.centro"/>
+            <field name="valoresAmbitoResponsable.departamento"/>
+            <field name="valoresAmbitoResponsable.ciclo"/>
+            <field name="valoresAmbitoResponsable.curso"/>
+            <field name="valoresAmbitoResponsable.grupo"/>
+            <field name="valoresAmbitoResponsable.modulo"/>
+            <field name="valoresAmbitoResponsable.creador"/>
+        </panel>
+
+    </form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- *********************************************************************************************  -->
+    <!-- *************************************** ENTRADA_DATOS ***************************************  -->
+    <!-- *********************************************************************************************  -->
+    
+    <form state="ENTRADA_DATOS" profile="CREADOR">
+        <include-panels includeHeader="true">
+            ambito-creador
+            ambito-responsable
+        </include-panels>
+        <footer>
+            <buttons-left>
+            </buttons-left>
+            <buttons-right>
+                <button name="" colSpan="2" title="" onClick="action-event-expediente" />
+            </buttons-right>
+        </footer>
+
+    </form>
+
+    <form state="ENTRADA_DATOS" >
+        <include-panels includeHeader="true">
+            ambito-creador
+            ambito-responsable
+        </include-panels>
+        <footer>
+            <buttons-left>
+            </buttons-left>
+            <buttons-right>
+                <button name="" colSpan="2" title="" onClick="action-event-expediente" />
+            </buttons-right>
+        </footer>
+    </form>
+
+
+
+    <!-- ****************************************************************************************  -->
+    <!-- *************************************** REVISION ***************************************  -->
+    <!-- ****************************************************************************************  -->
+    
+    <form state="REVISION" profile="RESPONSABLE">
+        <include-panels includeHeader="true">
+
+        </include-panels>
+        <footer>
+            <buttons-left>
+            </buttons-left>
+            <buttons-right>
+                <button name="" colSpan="2" title="" onClick="action-event-expediente" />
+            </buttons-right>
+        </footer>
+
+    </form>
+
+    <form state="REVISION" >
+        <include-panels includeHeader="true">
+
+        </include-panels>
+        <footer>
+            <buttons-left>
+            </buttons-left>
+            <buttons-right>
+                <button name="" colSpan="2" title="" onClick="action-event-expediente" />
+            </buttons-right>
+        </footer>
+    </form>
+
+
+
+    <!-- ****************************************************************************************  -->
+    <!-- *************************************** ACEPTADO ***************************************  -->
+    <!-- ****************************************************************************************  -->
+    
+    <form state="ACEPTADO" profile="RESPONSABLE">
+        <include-panels includeHeader="true">
+
+        </include-panels>
+        <footer>
+            <buttons-left>
+            </buttons-left>
+            <buttons-right>
+                <button name="" colSpan="2" title="" onClick="action-event-expediente" />
+            </buttons-right>
+        </footer>
+
+    </form>
+
+    <form state="ACEPTADO" >
+        <include-panels includeHeader="true">
+
+        </include-panels>
+        <footer>
+            <buttons-left>
+            </buttons-left>
+            <buttons-right>
+                <button name="" colSpan="2" title="" onClick="action-event-expediente" />
+            </buttons-right>
+        </footer>
+    </form>
+
+
+
+    <!-- *****************************************************************************************  -->
+    <!-- *************************************** RECHAZADO ***************************************  -->
+    <!-- *****************************************************************************************  -->
+    
+    <form state="RECHAZADO" profile="RESPONSABLE">
+        <include-panels includeHeader="true">
+
+        </include-panels>
+        <footer>
+            <buttons-left>
+            </buttons-left>
+            <buttons-right>
+                <button name="" colSpan="2" title="" onClick="action-event-expediente" />
+            </buttons-right>
+        </footer>
+
+    </form>
+
+    <form state="RECHAZADO" >
+        <include-panels includeHeader="true">
+
+        </include-panels>
+        <footer>
+            <buttons-left>
+            </buttons-left>
+            <buttons-right>
+                <button name="" colSpan="2" title="" onClick="action-event-expediente" />
+            </buttons-right>
+        </footer>
+    </form>
+
+
+
+
+</object-views>

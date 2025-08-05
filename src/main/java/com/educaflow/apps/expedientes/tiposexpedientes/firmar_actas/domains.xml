@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<domain-models xmlns="http://axelor.com/xml/ns/domain-models"
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:schemaLocation="http://axelor.com/xml/ns/domain-models https://axelor.com/xml/ns/domain-models/domain-models_7.4.xsd">
+
+
+    <module name="expedientes" package="com.educaflow.apps.expedientes.db"/>
+    <entity name="FirmarActas" extends="Expediente" >
+        <string name="grupo" title="Grupo" />
+        <one-to-one name="acta" title="Acta Original" ref="com.axelor.meta.db.MetaFile" />
+        <one-to-one name="actaFirmada" title="Acta Firmada" ref="com.axelor.meta.db.MetaFile" />
+    </entity>
+
+</domain-models>
