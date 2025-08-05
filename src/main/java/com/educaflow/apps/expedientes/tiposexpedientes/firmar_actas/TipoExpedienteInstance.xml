@@ -4,7 +4,7 @@
     <name>Firmar Acta</name>
     <code>FirmarActas</code>
     <tramite>FirmarActas</tramite>
-    <ambitoCreador>CENTRO</ambitoCreador>
+    <ambitoCreador>DEPARTAMENTO</ambitoCreador>
     <ambitoResponsable>CENTRO</ambitoResponsable>
     <states>
         <state initial="true" name="ENTRADA_DATOS" profile="CREADOR" events="DELETE,PRESENTAR" />

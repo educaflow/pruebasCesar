@@ -11,7 +11,7 @@
             <field name="valoresAmbitoCreador.curso"/>
             <field name="valoresAmbitoCreador.grupo"/>
             <field name="valoresAmbitoCreador.modulo"/>
-            <field name="valoresAmbitoCreador.creador"/>
+            <field name="valoresAmbitoCreador.usuario"/>
         </panel>
 
         <panel name="ambito-responsable" title="Ámbito del Responsable">
@@ -21,7 +21,7 @@
             <field name="valoresAmbitoResponsable.curso"/>
             <field name="valoresAmbitoResponsable.grupo"/>
             <field name="valoresAmbitoResponsable.modulo"/>
-            <field name="valoresAmbitoResponsable.creador"/>
+            <field name="valoresAmbitoResponsable.usuario"/>
         </panel>
 
     </form>

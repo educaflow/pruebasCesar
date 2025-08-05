@@ -30,6 +30,17 @@
             </departamentos>
         </centroUsuario>
         <centroUsuario
+                usuario="murgui"
+                centro="46019660"
+                tipoUsuario="profesor">
+            <cargos>
+                <cargo code="jefeEstudios"/>
+            </cargos>
+            <departamentos>
+                <departamento code="INFORMATICA"/>
+            </departamentos>
+        </centroUsuario>
+        <centroUsuario
             usuario="lorenzo"
             centro="46019015"
             tipoUsuario="profesor">

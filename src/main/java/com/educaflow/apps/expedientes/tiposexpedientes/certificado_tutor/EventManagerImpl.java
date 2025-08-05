@@ -42,17 +42,11 @@ public class EventManagerImpl extends com.educaflow.apps.expedientes.common.Even
 
 
         ValoresAmbito valoresAmbitoCreador = new ValoresAmbito();
-        valoresAmbitoCreador.setCreador(currentUser);
+        valoresAmbitoCreador.setUsuario(currentUser);
         valoresAmbitoCreador.setCentro(centroUsuario.getCentro());
         valoresAmbitoCreador.setDepartamento(centroUsuario.getDepartamentos().stream().findFirst().orElse(null));
 
-        if (certificadoTutor.getValoresAmbitoCreador() == null) {
-            log.info("Añadiendo valores de ámbito creador al certificado tutor");
-            certificadoTutor.setValoresAmbitoCreador(valoresAmbitoCreador);
-        }
-
-        log.info("Valores de ámbito creador: {}", certificadoTutor.getValoresAmbitoCreador());
-
+        certificadoTutor.setValoresAmbitoCreador(valoresAmbitoCreador);
     }
 
 

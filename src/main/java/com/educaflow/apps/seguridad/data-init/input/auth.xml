@@ -36,12 +36,12 @@ EXISTS (
   SELECT 1
   FROM com.educaflow.apps.sistemaeducativo.db.CentroUsuario cu
   WHERE cu.usuario = ?
-    AND cu.centro.code = '46019660'
-    AND EXISTS (
+   AND cu.centro.code = '46019660'
+   AND EXISTS (
       SELECT 1
       FROM cu.cargos cargo
       WHERE cargo.code = 'admin'
-    )
+   )
 )
 "
                 conditionParams="__user__"
@@ -57,50 +57,59 @@ EXISTS (
       <can read="true" create="false" write="true" import="false" export="false" remove="false"/>
     </permission>
 
-    <!--<permission name="expediente.lectura"
-                object="com.educaflow.apps.expedientes.db.Expediente"
-                condition="
-EXISTS (
-  SELECT 1 FROM com.educaflow.apps.seguridad.db.Permiso p
-  WHERE p.tramite = self.tipoExpediente.tramite
-  AND EXISTS (
-    SELECT 1 FROM com.educaflow.apps.sistemaeducativo.db.CentroUsuario cu
-    WHERE cu.usuario = ?
-    AND cu.tipoUsuario = p.tipoUsuario
-    AND (
-      p.cargo IS NULL
-      OR EXISTS (
-        SELECT 1 FROM cu.cargos c
-        WHERE c = p.cargo
-      )
+    <permission name="expediente.lecturaAmbitoCreadorIndividual"
+                  object="com.educaflow.apps.expedientes.db.Expediente"
+                  condition="
+self.tipoExpediente.ambitoCreador = 'INDIVIDUAL'
+AND EXISTS (
+  SELECT 1
+  FROM com.educaflow.apps.sistemaeducativo.db.CentroUsuario cu
+  WHERE cu.usuario = ?
+    AND cu.centro.code = '46019660'
+    AND self.valoresAmbitoCreador.usuario = cu.usuario
+)
+"
+                  conditionParams="__user__">
+          <can read="true" create="false" write="true" import="false" export="false" remove="false"/>
+    </permission>
+
+      <permission name="expediente.lecturaAmbitoCreadorCentro"
+                  object="com.educaflow.apps.expedientes.db.Expediente"
+                  condition="
+self.tipoExpediente.ambitoCreador = 'CENTRO'
+AND EXISTS (
+  SELECT 1
+  FROM com.educaflow.apps.sistemaeducativo.db.CentroUsuario cu
+  WHERE cu.usuario = ?
+    AND cu.centro.code = '46019660'
+    AND self.valoresAmbitoCreador.centro = cu.centro
+)
+"
+                  conditionParams="__user__">
+          <can read="true" create="false" write="true" import="false" export="false" remove="false"/>
+      </permission>
+
+      <permission name="expediente.lecturaAmbitoCreadorDepartamento"
+                  object="com.educaflow.apps.expedientes.db.Expediente"
+                  condition="
+self.tipoExpediente.ambitoCreador = 'DEPARTAMENTO'
+AND EXISTS (
+  SELECT 1
+  FROM com.educaflow.apps.sistemaeducativo.db.CentroUsuario cu
+  WHERE cu.usuario = ?
+    AND cu.centro.code = '46019660'
+    AND self.valoresAmbitoCreador.centro = cu.centro
+    AND EXISTS (
+      SELECT 1
+      FROM cu.departamentos departamento
+      WHERE departamento = self.valoresAmbitoCreador.departamento
     )
-  )
-)"
-                conditionParams="__user__">
-      <can read="true" create="false" write="false" import="false" export="false" remove="false"/>
-    </permission>-->
-    <!--<permission name="expediente.escritura" object="com.educaflow.apps.expedientes.db.Expediente"
-                condition="
-EXISTS (
-  SELECT 1 FROM com.educaflow.apps.seguridad.db.Permiso p
-  WHERE p.tramite = self.tipoExpediente.tramite
-  AND p.perfil = 'CREADOR'
-  AND EXISTS (
-    SELECT 1 FROM com.educaflow.apps.sistemaeducativo.db.CentroUsuario cu
-    WHERE cu.usuario = ?
-    AND cu.tipoUsuario = p.tipoUsuario
-    AND (
-      p.cargo IS NULL
-      OR EXISTS (
-        SELECT 1 FROM cu.cargos c
-        WHERE c = p.cargo
-      )
-    )
-  )
-)"
-                conditionParams="__user__">
-      <can read="true" create="false" write="true" import="false" export="false" remove="false"/>
-    </permission>-->
+)
+"
+                  conditionParams="__user__">
+          <can read="true" create="false" write="true" import="false" export="false" remove="false"/>
+      </permission>
+
   </permissions>
 
   <group code="users">
@@ -108,8 +117,9 @@ EXISTS (
       <permission name="tramite.lectura"/>
       <permission name="expendiente.lecturaAdministrador"/>
       <permission name="expediente.lecturaCreador"/>
-      <!--<permission name="expediente.lectura"/>-->
-      <!--<permission name="expediente.escritura"/>-->
+      <permission name="expediente.lecturaAmbitoCreadorIndividual"/>
+      <permission name="expediente.lecturaAmbitoCreadorCentro"/>
+      <permission name="expediente.lecturaAmbitoCreadorDepartamento"/>
     </permissions>
   </group>
 
