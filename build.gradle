@@ -200,7 +200,7 @@ tasks.named('generateCode') {
 
 
 war {
-    archiveFileName = 'pruebaslorenzo.war'
+    archiveFileName = 'pruebascesar.war'
 }
 jar {
     enabled = false

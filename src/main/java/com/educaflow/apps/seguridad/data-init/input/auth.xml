@@ -29,6 +29,11 @@ EXISTS (
       <can read="true" create="false" write="false" import="false" export="false" remove="false"/>
     </permission>
 
+      <permission name="tipoTramite.lectura"
+                  object="com.educaflow.apps.expedientes.db.TipoTramite">
+          <can read="true" create="false" write="false" import="false" export="false" remove="false"/>
+      </permission>
+
     <permission name="expendiente.lecturaAdministrador"
                 object="com.educaflow.apps.expedientes.db.Expediente"
                 condition="
@@ -115,6 +120,7 @@ AND EXISTS (
   <group code="users">
     <permissions>
       <permission name="tramite.lectura"/>
+      <permission name="tipoTramite.lectura"/>
       <permission name="expendiente.lecturaAdministrador"/>
       <permission name="expediente.lecturaCreador"/>
       <permission name="expediente.lecturaAmbitoCreadorIndividual"/>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_5.1.xsd">
+
+    <menuitem name="centro"
+              title="Centro Activo"
+              tag-get="com.educaflow.common.util.UserUtil:getCentroActivo()"
+              action="tramite-nuevo-action" groups="admins,users"
+              icon="list_alt_add"
+              order="50"
+              tag-style="default"
+    />
+
+</object-views>

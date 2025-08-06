@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<xml-inputs priority="200" xmlns="http://axelor.com/xml/ns/data-import"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="http://axelor.com/xml/ns/data-import
+  https://axelor.com/xml/ns/data-import/data-import_7.4.xsd">
+
+
+    <input file="permisos.xml" root="datos">
+        <bind node="permisos/permiso" type="com.educaflow.apps.seguridad.db.Permiso" create="true">
+            <bind node="@perfil" to="perfil" />
+            <bind node="@tramite" to="tramite" search="self.code = :code" create="false">
+                <bind node="." to="code" />
+            </bind>
+            <bind node="@tipoUsuario" to="tipoUsuario" search="self.code = :code" create="false">
+                <bind node="." to="code" />
+            </bind>
+            <bind node="@cargo" to="cargo" search="self.code = :code" create="false">
+                <bind node="." to="code" />
+            </bind>
+        </bind>
+    </input>
+
+</xml-inputs>

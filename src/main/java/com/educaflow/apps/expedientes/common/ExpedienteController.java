@@ -1,9 +1,9 @@
 package com.educaflow.apps.expedientes.common;
 
-import com.axelor.auth.db.User;
 import com.axelor.db.JPA;
 import com.axelor.db.JpaRepository;
 import com.axelor.db.Model;
+import com.axelor.i18n.I18n;
 import com.axelor.inject.Beans;
 import com.axelor.meta.CallMethod;
 import com.axelor.rpc.ActionRequest;
@@ -13,6 +13,7 @@ import com.educaflow.apps.expedientes.db.Expediente;
 import com.educaflow.apps.expedientes.db.ExpedienteHistorialEstados;
 import com.educaflow.apps.expedientes.db.TipoExpediente;
 import com.educaflow.apps.expedientes.db.Tramite;
+import com.educaflow.apps.expedientes.db.repo.NumeradorRepository;
 import com.educaflow.apps.expedientes.db.repo.TramiteRepository;
 import com.educaflow.common.mapper.BeanMapperModel;
 import com.educaflow.common.util.AxelorDBUtil;
@@ -27,6 +28,7 @@ import com.google.inject.Inject;
 import com.google.inject.persist.Transactional;
 
 import java.lang.reflect.Method;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -39,6 +41,8 @@ public class ExpedienteController {
     @Inject
     TramiteRepository tramiteRepository;
 
+    @Inject
+    NumeradorRepository numeradorRepository;
 
 
     public ExpedienteController() {;
@@ -66,6 +70,8 @@ public class ExpedienteController {
                 return;
             }
             expediente.updateState(initialEvent);
+            updateNumeroExpediente(expediente);
+
             addHistorialEstado(expediente,null);
             eventManager.onEnterState(expediente, eventContext);
             saveExpediente(expedienteRepository,expediente);
@@ -197,9 +203,9 @@ public class ExpedienteController {
     private static void addHistorialEstado(Expediente expediente, String eventName) {
         ExpedienteHistorialEstados historialEstado = new ExpedienteHistorialEstados();
         historialEstado.setCodeState(expediente.getCodeState());
-        historialEstado.setNameState(TextUtil.getHumanCaseFromScreamingSnakeCase(expediente.getCodeState()));
+        historialEstado.setNameState(TextUtil.humanize(expediente.getCodeState()));
         historialEstado.setCodeEvent((eventName!=null)?eventName:"");
-        historialEstado.setNameEvent((eventName!=null)?TextUtil.getHumanCaseFromScreamingSnakeCase(eventName):"");
+        historialEstado.setNameEvent((eventName!=null)?TextUtil.humanize(eventName):"");
         historialEstado.setFecha(LocalDateTime.now());
         expediente.addHistorialEstado(historialEstado);
     }
@@ -209,6 +215,13 @@ public class ExpedienteController {
         expediente.setName(expediente.getTipoExpediente().getName());
     }
 
+    private void updateNumeroExpediente(Expediente expediente) {
+        int anyoActual = LocalDate.now().getYear();
+        String centro = getCentroFromCurrentUser();
+        long numeroExpedienteSinAnyo = numeradorRepository.getSiguienteNumeroExpediente(centro, String.valueOf(anyoActual));
+        String numeroExpediente = String.format("%05d", numeroExpedienteSinAnyo)+"/"+String.valueOf(anyoActual);
+        expediente.setNumeroExpediente(numeroExpediente);
+    }
 
     private void assertValidState(Expediente expediente,Class<? extends Enum> enumClass) {
         String stateCode=expediente.getCodeState();
@@ -220,7 +233,7 @@ public class ExpedienteController {
     }
 
     private String getTabName(Expediente expediente) {
-        return expediente.getNumeroExpediente()+"-"+expediente.getTipoExpediente().getName();
+        return expediente.getNumeroExpediente()+"-"+ I18n.get(expediente.getTipoExpediente().getName());
     }
 
 
@@ -447,6 +460,12 @@ public class ExpedienteController {
     /*******************************************************************/
     /********************** Funciones de Utilidad **********************/
     /*******************************************************************/
+
+    private static  String getCentroFromCurrentUser() {
+        System.out.println("TODO!!!!!:El código de centro debe obtener desde el usuario");
+        return "460001";
+    }
+
 
     private static  EventManager getEventManager(TipoExpediente tipoExpediente) {
         try {
