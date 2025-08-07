@@ -2,13 +2,13 @@
 <datos>
     <grupos>
         <grupo code="1DAW" name="1DAW">
-            <modulos>
+        <!--<modulos>
                 <modulo code="DWS"/>
                 <modulo code="DWC"/>
                 <modulo code="DAW"/>
                 <modulo code="DIW"/>
                 <modulo code="OPTATIVA2DAW"/>
-            </modulos>
+            </modulos>-->
         </grupo>
         <grupo code="2DAW" name="2DAW"/>
         <grupo code="1SDAM" name="1DAM"/>

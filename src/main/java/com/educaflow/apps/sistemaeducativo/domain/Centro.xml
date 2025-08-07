@@ -3,10 +3,14 @@
                xsi:schemaLocation="http://axelor.com/xml/ns/domain-models https://axelor.com/xml/ns/domain-models/domain-models_7.4.xsd">
 
     <module name="sistemaeducativo" package="com.educaflow.apps.sistemaeducativo.db"/>
-    <entity name="Curso">
+    <entity name="Centro">
         <string name="code"  />
         <string name="name" namecolumn="true" />
-        <one-to-many name="grupos" ref="com.educaflow.apps.sistemaeducativo.db.Grupo" />
+        <string name="address" title="Dirección"/>
+        <string name="city" title="Ciudad"/>
+        <string name="postalCode" title="Código Postal"/>
+        <string name="country" title="Provincia"/>
+        <!--<many-to-many name="departamentos" ref="com.educaflow.apps.sistemaeducativo.db.Departamento" />-->
     </entity>
 
 </domain-models>

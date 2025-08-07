@@ -9,6 +9,7 @@ import com.educaflow.apps.expedientes.common.annotations.WhenEvent;
 import com.educaflow.apps.expedientes.db.CertificadoTutor;
 import com.educaflow.apps.expedientes.db.ValoresAmbito;
 import com.educaflow.apps.expedientes.db.repo.CertificadoTutorRepository;
+import com.educaflow.apps.sistemaeducativo.db.Centro;
 import com.educaflow.apps.sistemaeducativo.db.CentroUsuario;
 import com.educaflow.common.util.AxelorDBUtil;
 import com.educaflow.common.validation.messages.BusinessException;
@@ -36,15 +37,12 @@ public class EventManagerImpl extends com.educaflow.apps.expedientes.common.Even
     public void triggerInitialEvent(CertificadoTutor certificadoTutor, EventContext<CertificadoTutor.Profile> eventContext) throws BusinessException {
 
         User currentUser = AuthUtils.getUser();
-        CentroUsuario centroUsuario = centroUsuarioRepository.all()
-                .filter("self.usuario = ?1", currentUser)
-                .fetchOne();
+        Centro centroActivo = currentUser.getCentroActivo();
 
 
         ValoresAmbito valoresAmbitoCreador = new ValoresAmbito();
         valoresAmbitoCreador.setUsuario(currentUser);
-        valoresAmbitoCreador.setCentro(centroUsuario.getCentro());
-        valoresAmbitoCreador.setDepartamento(centroUsuario.getDepartamentos().stream().findFirst().orElse(null));
+        valoresAmbitoCreador.setCentro(centroActivo);
 
         certificadoTutor.setValoresAmbitoCreador(valoresAmbitoCreador);
     }

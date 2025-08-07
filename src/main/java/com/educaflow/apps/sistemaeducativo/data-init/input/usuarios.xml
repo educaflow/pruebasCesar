@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<datos>
+    <usuarios>
+        <usuario code="cesar" name="César Guijarro Rosaleny" group="users" password="cesar" centroActivo="46019660"/>
+        <usuario code="lorenzo" name="Lorenzo González Gascón" group="users" password="lorenzo" centroActivo="46019660"/>
+        <usuario code="salva" name="Salvador Del Toro Gómez" group="users" password="salva" centroActivo="46019660"/>
+        <usuario code="luis" name="Luis García Bonifaz" group="users" password="luis" centroActivo="46019660"/>
+        <usuario code="raquel" name="Raquel López Folgado" group="users" password="raquel" centroActivo="46019660"/>
+        <usuario code="angela" name="Ángela Hermosilla Del Río" group="users" password="angela" centroActivo="46019660"/>
+        <usuario code="joaquin" name="Joaquín Escriche Arcusa" group="users" password="joaquin" centroActivo="46019660"/>
+        <usuario code="murgui" name="Juan José Murgui García" group="users" password="murgui" centroActivo="46019660"/>
+        <usuario code="maria" name="María José García Martínez" group="users" password="maria" centroActivo="46019660"/>
+        <usuario code="rosa" name="Rosa María García Martínez" group="users" password="rosa" centroActivo="46019660"/>
+        <usuario code="cristina" name="Cristina García Martínez" group="users" password="cristina" centroActivo="46019660"/>
+    </usuarios>
+
+</datos>

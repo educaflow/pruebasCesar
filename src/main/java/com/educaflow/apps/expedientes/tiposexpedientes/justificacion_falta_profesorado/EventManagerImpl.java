@@ -1,12 +1,16 @@
 package com.educaflow.apps.expedientes.tiposexpedientes.justificacion_falta_profesorado;
 
+import com.axelor.auth.AuthUtils;
+import com.axelor.auth.db.User;
 import com.axelor.inject.Beans;
 import com.educaflow.apps.expedientes.common.EventContext;
 import com.educaflow.apps.expedientes.common.annotations.OnEnterState;
 import com.educaflow.apps.expedientes.common.annotations.WhenEvent;
 import com.educaflow.apps.expedientes.db.JustificacionFaltaProfesorado;
 import com.educaflow.apps.expedientes.db.TipoResolucionJustificacionFaltaProfesorado;
+import com.educaflow.apps.expedientes.db.ValoresAmbito;
 import com.educaflow.apps.expedientes.db.repo.JustificacionFaltaProfesoradoRepository;
+import com.educaflow.apps.sistemaeducativo.db.Centro;
 import com.educaflow.common.validation.messages.BusinessException;
 import com.google.inject.Inject;
 
@@ -28,6 +32,15 @@ public class EventManagerImpl extends com.educaflow.apps.expedientes.common.Even
     @Override
     public void triggerInitialEvent(JustificacionFaltaProfesorado justificacionFaltaProfesorado, EventContext eventContext) throws BusinessException {
 
+        User currentUser = AuthUtils.getUser();
+        Centro centroActivo = currentUser.getCentroActivo();
+
+
+        ValoresAmbito valoresAmbitoCreador = new ValoresAmbito();
+        valoresAmbitoCreador.setUsuario(currentUser);
+        valoresAmbitoCreador.setCentro(centroActivo);
+
+        justificacionFaltaProfesorado.setValoresAmbitoCreador(valoresAmbitoCreador);
 
         justificacionFaltaProfesorado.setAnyo(LocalDate.now().getYear());
         justificacionFaltaProfesorado.setNombre("Lorenzo");

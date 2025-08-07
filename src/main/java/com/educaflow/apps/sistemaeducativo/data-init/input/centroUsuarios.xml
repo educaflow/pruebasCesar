@@ -8,6 +8,10 @@
             <departamentos>
                 <departamento code="INFORMATICA"/>
             </departamentos>
+            <modulos>
+                <modulo code="DWS"/>
+                <modulo code="OPTATIVA2DAW"/>
+            </modulos>
         </centroUsuario>
         <centroUsuario
                 usuario="lorenzo"
@@ -16,6 +20,24 @@
             <departamentos>
                 <departamento code="INFORMATICA"/>
             </departamentos>
+            <modulos>
+                <modulo code="DAW"/>
+                <modulo code="DIW"/>
+            </modulos>
+        </centroUsuario>
+        <centroUsuario
+            usuario="salva"
+            centro="46019660"
+            tipoUsuario="profesor">
+            <departamentos>
+                <departamento code="INFORMATICA"/>
+            </departamentos>
+            <modulos>
+                <modulo code="DWC"/>
+            </modulos>
+            <cargos>
+                <cargo code="jefeDepartamento"/>
+            </cargos>
         </centroUsuario>
         <centroUsuario
             usuario="joaquin"
@@ -48,7 +70,7 @@
                 <cargo code="jefeDepartamento"/>
             </cargos>
             <departamentos>
-                <departamento code="TURISMO"/>
+                <departamento code="JARDINERIA"/>
             </departamentos>
         </centroUsuario>
         <centroUsuario

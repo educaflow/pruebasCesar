@@ -4,11 +4,11 @@
               xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_5.1.xsd">
 
     <menuitem name="centro"
-              title="Centro: "
-              tag-get="com.educaflow.common.util.UserUtil:getCentroActivo()"
-              action="tramite-nuevo-action" groups="admins,users"
+              title=""
+              tag-get="com.educaflow.common.util.CentroUtil:getCentroActivoName()"
               order="50"
               tag-style="important"
+              groups="admins,users"
     />
 
 </object-views>

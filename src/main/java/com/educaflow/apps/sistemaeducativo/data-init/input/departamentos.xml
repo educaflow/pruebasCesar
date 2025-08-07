@@ -3,7 +3,12 @@
     <departamentos>
         <departamento code="INFORMATICA" name="Informática"/>
         <departamento code="TURISMO" name="Turismo"/>
+        <departamento code="JARDINERIA" name="Jardinería"/>
+
+
         <departamento code="ADMINISTRACION" name="Administración"/>
         <departamento code="PEE" name="Prácticas en Empresa"/>
+        <departamento code="JEFEDEPARTAMENTOS" name="Jefes de Departamento"/>
+        <departamento code="EQUIPODIRECTIVO" name="Equipo Directivo"/>
     </departamentos>
 </datos>

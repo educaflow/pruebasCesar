@@ -10,7 +10,10 @@ import com.educaflow.apps.expedientes.common.annotations.WhenEvent;
 import com.educaflow.apps.expedientes.db.FirmarActas;
 import com.educaflow.apps.expedientes.db.ValoresAmbito;
 import com.educaflow.apps.expedientes.db.repo.FirmarActasRepository;
+import com.educaflow.apps.sistemaeducativo.db.Centro;
 import com.educaflow.apps.sistemaeducativo.db.CentroUsuario;
+import com.educaflow.apps.sistemaeducativo.db.Departamento;
+import com.educaflow.apps.sistemaeducativo.db.repo.DepartamentoRepository;
 import com.educaflow.common.util.AxelorDBUtil;
 import com.educaflow.common.validation.messages.BusinessException;
 
@@ -21,32 +24,39 @@ import org.slf4j.LoggerFactory;
 
 public class EventManagerImpl extends com.educaflow.apps.expedientes.common.EventManager<FirmarActas, FirmarActas.State, FirmarActas.Event,FirmarActas.Profile> {
 
-    private final FirmarActasRepository repository;
-    private final JpaRepository<CentroUsuario> centroUsuarioRepository;
+    /*private final FirmarActasRepository repository;
+    private final JpaRepository<CentroUsuario> centroUsuarioRepository;*/
+    protected final JpaRepository<Departamento> departamentoRepository;
     protected final Logger log = LoggerFactory.getLogger(getClass());
 
     @Inject
-    public EventManagerImpl(FirmarActasRepository repository) {
+    public EventManagerImpl(DepartamentoRepository departamentoRepository) {
         super(FirmarActas.class, FirmarActas.State.class, FirmarActas.Event.class,FirmarActas.Profile.class);
-        this.repository = repository;
-        this.centroUsuarioRepository = AxelorDBUtil.getRepository(CentroUsuario.class);
+        this.departamentoRepository = AxelorDBUtil.getRepository(Departamento.class);
     }
 
     @Override
     public void triggerInitialEvent(FirmarActas firmarActas, EventContext<FirmarActas.Profile> eventContext) throws BusinessException {
 
         User currentUser = AuthUtils.getUser();
-        CentroUsuario centroUsuario = centroUsuarioRepository.all()
-                .filter("self.usuario = ?1", currentUser)
-                .fetchOne();
+        Centro centroActivo = currentUser.getCentroActivo();
 
 
         ValoresAmbito valoresAmbitoCreador = new ValoresAmbito();
         valoresAmbitoCreador.setUsuario(currentUser);
-        valoresAmbitoCreador.setCentro(centroUsuario.getCentro());
-        valoresAmbitoCreador.setDepartamento(centroUsuario.getDepartamentos().stream().findFirst().orElse(null));
-
+        valoresAmbitoCreador.setCentro(centroActivo);
+        Departamento departamento = departamentoRepository
+                .all()
+                .filter("self.code = :code")
+                .bind("code", "ADMINISTRACION")
+                .fetchOne();
+        valoresAmbitoCreador.setDepartamento(departamento);
         firmarActas.setValoresAmbitoCreador(valoresAmbitoCreador);
+
+        ValoresAmbito valoresAmbitoResponsable = new ValoresAmbito();
+        valoresAmbitoResponsable.setUsuario(currentUser);
+        valoresAmbitoResponsable.setCentro(centroActivo);
+        firmarActas.setValoresAmbitoResponsable(valoresAmbitoResponsable);
     }
 
 

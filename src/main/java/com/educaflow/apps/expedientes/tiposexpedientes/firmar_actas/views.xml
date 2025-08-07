@@ -3,24 +3,110 @@
               xmlns="http://axelor.com/xml/ns/object-views"
               xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_5.1.xsd">
 
-    <form name="exp-FirmarActas-Templates" title="Firmar Acta"  width="large"  model="com.educaflow.apps.expedientes.db.FirmarActas" groups="admins,users">
-        <panel name="datos-acta" title="Acta">
-            <field name="grupo" colSpan="4"/>
-            <field name="acta"  widget="binary-link" colSpan="4"/>
-            <field name="actaFirmada"  widget="binary-link" colSpan="4"/>
+
+    <action-record name="clear-cargo-action" model="com.educaflow.apps.expedientes.db.FirmarActas">
+        <field name="cargo" expr="eval: null"/>
+    </action-record>
+
+    <form name="exp-FirmarActas-Templates" title="Certificado Tutor"  width="large"  model="com.educaflow.apps.expedientes.db.FirmarActas" groups="admins,users">
+        <panel name="ambito-creador" title="Ámbito del Creador">
+            <field name="numeroExpediente"/>
+            <field name="valoresAmbitoCreador.departamento"
+            />
+            <field name="centro"
+                   onChange="clear-cargo-action"
+                   grid-view="buscar-centros"
+                   form-view="Centro2"
+            />
+            <field name="cargo"
+                   domain="self.centro=:centro"
+            />
+            <field name="valoresAmbitoCreador.centro"
+                   form-view="Centro2"
+            />
+            <field name="valoresAmbitoCreador.creador"/>
         </panel>
 
+
+        <panel  name="ambito-responsable" >
+            <field name="valoresAmbitoCreador.centro"  widget="ref-text"
+                   target-name="name" />
+            <field name="valoresAmbitoCreador.departamento"  widget="ref-text"
+                   target-name="name" />
+            <field name="valoresAmbitoCreador.departamento.name"  />
+        </panel>
+    </form>
+    <grid name="buscar-centros" title="Expedientes" model="com.educaflow.apps.sistemaeducativo.db.Centro"
+          groups="admins,users"
+          editable="false" edit-icon="false" x-selector="none" canNew="false" canEdit="false" canDelete="false" canSave="false"
+    >
+        <field name="code" width="200px" />
+        <field name="name"/>
+    </grid>
+
+    <form name="Centro" title="Certificado Tutor"  width="large"  model="com.educaflow.apps.sistemaeducativo.db.Centro" groups="admins,users">
+        <panel name="Centro" title="Centro">
+
+            <field name="name"/>
+        </panel>
+    </form>
+
+
+    <form name="Departamento" title="Certificado Tutor"  width="large"  model="com.educaflow.apps.sistemaeducativo.db.Departamento" groups="admins,users">
+        <panel name="Centro" title="Departamento">
+            <field name="code"/>
+            <field name="name"/>
+        </panel>
+    </form>
+
+    <form name="Centro2" title="Certificado Tutor"  width="large"  model="com.educaflow.apps.sistemaeducativo.db.Centro" groups="admins,users">
+        <panel name="Centro" title="Centro">
+            <field name="code"/>
+            <field name="name"/>
+        </panel>
+    </form>
+
+
+    <form name="Departamento2" title="Certificado Tutor"  width="large"  model="com.educaflow.apps.sistemaeducativo.db.Departamento" groups="admins,users">
+    <panel name="Centro" title="Departamento">
+        <field name="name"/>
+    </panel>
     </form>
 
 
 
 
+    <!--<action-record name="clear-curso-action" model="com.educaflow.apps.expedientes.db.CertificadoTutor">
+        <field name="valoresAmitoCreador.curso" expr="eval: null"/>
+    </action-record>
+
+    <action-record name="clear-grupo-action" model="com.educaflow.apps.expedientes.db.CertificadoTutor">
+        <field name="valoresAmitoCreador.grupo" expr="eval: null"/>
+    </action-record>
 
 
+    <form name="exp-FirmarActas-Templates" title="Firmar Acta"  width="large"  model="com.educaflow.apps.expedientes.db.FirmarActas" groups="admins,users">
+        <panel name="ambito-creador" title="Acta">
+            <field
+                    name="valoresAmbitoCreador.ciclo"
+                    colSpan="4"
+                    onChange="clear-curso-action, clear-grupo-action"
+                    grid-view="buscar-ciclos"
+            />
+            <field name="valoresAmbitoCreador.curso" colSpan="4" onChange="clear-grupo-action"/>
+            <field name="valoresAmbitoCreador.grupo" colSpan="4"/>
+            <field name="acta"  widget="binary-link" colSpan="4"/>
+            <field name="actaFirmada"  widget="binary-link" colSpan="4"/>
+        </panel>
+    </form>
 
-
-
-
+    <grid name="buscar-ciclos" title="Ciclos" model="com.educaflow.apps.sistemaeducativo.db.Ciclo"
+          groups="admins,users"
+          editable="false" edit-icon="false" x-selector="none" canNew="false" canEdit="false" canDelete="false" canSave="false"
+    >
+        <field name="code" width="200px" />
+        <field name="name"/>
+    </grid>-->
 
 
 
@@ -30,7 +116,8 @@
     
     <form state="ENTRADA_DATOS" profile="CREADOR">
         <include-panels includeHeader="true">
-            datos-acta
+            ambito-creador
+            ambito-responsable
         </include-panels>
         <footer>
             <buttons-left>
@@ -44,7 +131,8 @@
 
     <form state="ENTRADA_DATOS" >
         <include-panels includeHeader="true">
-            -datos-acta
+            -ambito-creador
+            -ambito-responsable
         </include-panels>
         <footer>
             <buttons-left>
@@ -63,7 +151,7 @@
     
     <form state="FIRMA_POR_USUARIOS" profile="RESPONSABLE">
         <include-panels includeHeader="true">
-            datos-acta
+            ambito-creador
         </include-panels>
         <footer>
             <buttons-left>
@@ -77,7 +165,7 @@
 
     <form state="FIRMA_POR_USUARIOS" >
         <include-panels includeHeader="true">
-            -datos-acta
+            -ambito-creador
         </include-panels>
         <footer>
             <buttons-left>
@@ -96,7 +184,7 @@
 
     <form state="ACEPTADO" >
         <include-panels includeHeader="true">
-            -datos-acta
+            -ambito-creador
         </include-panels>
         <footer>
             <buttons-left>

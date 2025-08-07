@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<datos>
+    <centroDepartamentos>
+        <centroDepartamento centro="46019660" departamento="INFORMATICA" jefeDepartamento="salva"/>
+        <centroDepartamento centro="46019660" departamento="ADMINISTRACION"/>
+        <centroDepartamento centro="46019660" departamento="TURISMO"/>
+        <centroDepartamento centro="46019015" departamento="JARDINERIA" jefeDepartamento="lorenzo"/>
+        <centroDepartamento centro="46019015" departamento="ADMINISTRACION"/>
+    </centroDepartamentos>
+</datos>

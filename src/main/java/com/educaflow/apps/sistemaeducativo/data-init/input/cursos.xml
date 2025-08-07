@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<datos>
+    <cursos>
+        <curso code="DAW1" name="1DAW" />
+        <curso code="DAW2" name="2DAW" />
+        <curso code="SDAM1" name="1DAM" />
+        <curso code="SDAM2" name="2SDAM" />
+        <curso code="ASIR1" name="1ASIR" />
+        <curso code="ASIR2" name="2ASIR" />
+        <curso code="SMR1" name="1SMR" />
+        <curso code="SMR2" name="2SMR" />
+        <curso code="SSMR1" name="1SMR" />
+        <curso code="SSMR2" name="2SMR" />
+        <curso code="GAT1" name="1GAT" />
+        <curso code="GAT2" name="2GAT" />
+        <curso code="GIAT1" name="1GIAT" />
+        <curso code="GIAT2" name="2GIAT" />
+        <curso code="AVGA1" name="1AVGA" />
+        <curso code="AVGA2" name="2AVGA" />
+    </cursos>
+</datos>

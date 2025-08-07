@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<datos>
+    <centroCiclos>
+        <centroCiclo
+                centro="46019660"
+                ciclo="DAW"
+                curso="DAW1">
+            <grupos>
+                <grupo code="1DAW"/>
+            </grupos>
+        </centroCiclo>
+        <centroCiclo
+                centro="46019660"
+                ciclo="DAW"
+                curso="DAW2">
+            <grupos>
+                <grupo code="2DAW"/>
+            </grupos>
+        </centroCiclo>
+        <centroCiclo
+                centro="46019660"
+                ciclo="SMR"
+                curso="SSMR1">
+            <grupos>
+                <grupo code="1SSMRA"/>
+                <grupo code="1SSMRB"/>
+            </grupos>
+        </centroCiclo>
+    </centroCiclos>
+</datos>
