@@ -6,16 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="ccd46f0e-f435-4b47-96f5-fcd7b1844396" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/educaflow/apps/expedientes/common/domains/Tramite.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/educaflow/apps/expedientes/common/domains/Tramite.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/educaflow/apps/expedientes/tiposexpedientes/certificado_tutor/EventManagerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/educaflow/apps/expedientes/tiposexpedientes/certificado_tutor/EventManagerImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/educaflow/apps/expedientes/tiposexpedientes/certificado_tutor/TipoExpedienteInstance.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/educaflow/apps/expedientes/tiposexpedientes/certificado_tutor/TipoExpedienteInstance.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/educaflow/apps/expedientes/tiposexpedientes/certificado_tutor/domains.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/educaflow/apps/expedientes/tiposexpedientes/certificado_tutor/domains.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/educaflow/apps/expedientes/tiposexpedientes/certificado_tutor/views.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/educaflow/apps/expedientes/tiposexpedientes/certificado_tutor/views.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/educaflow/apps/expedientes/tiposexpedientes/firmar_actas/EventManagerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/educaflow/apps/expedientes/tiposexpedientes/firmar_actas/EventManagerImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/educaflow/apps/expedientes/tiposexpedientes/firmar_actas/StateEventValidatorImpl.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/educaflow/apps/expedientes/tiposexpedientes/firmar_actas/StateEventValidatorImpl.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/educaflow/apps/expedientes/tiposexpedientes/firmar_actas/domains.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/educaflow/apps/expedientes/tiposexpedientes/firmar_actas/domains.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/educaflow/apps/expedientes/tiposexpedientes/firmar_actas/views.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/educaflow/apps/expedientes/tiposexpedientes/firmar_actas/views.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/educaflow/apps/seguridad/ExpedientePermiso.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/educaflow/apps/seguridad/ExpedientePermiso.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/educaflow/apps/seguridad/ExpedientesAuthResolver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/educaflow/apps/seguridad/ExpedientesAuthResolver.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/educaflow/apps/seguridad/data-init/input/auth.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/educaflow/apps/seguridad/data-init/input/auth.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/educaflow/apps/sistemaeducativo/domain/Grupo.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/educaflow/apps/sistemaeducativo/domain/Grupo.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -288,7 +283,7 @@
       <workItem from="1754636013538" duration="5664000" />
       <workItem from="1754648009110" duration="4119000" />
       <workItem from="1754669878925" duration="186000" />
-      <workItem from="1754815591537" duration="1996000" />
+      <workItem from="1754815591537" duration="7584000" />
     </task>
     <servers />
   </component>

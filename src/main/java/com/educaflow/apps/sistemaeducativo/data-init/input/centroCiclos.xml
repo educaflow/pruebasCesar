@@ -26,5 +26,21 @@
                 <grupo code="1SSMRB"/>
             </grupos>
         </centroCiclo>
+        <centroCiclo
+                centro="46019015"
+                ciclo="DAW"
+                curso="DAW1">
+            <grupos>
+                <grupo code="1DAWSP"/>
+            </grupos>
+        </centroCiclo>
+        <centroCiclo
+                centro="46019015"
+                ciclo="DAW"
+                curso="DAW2">
+            <grupos>
+                <grupo code="2DAWSP"/>
+            </grupos>
+        </centroCiclo>
     </centroCiclos>
 </datos>
