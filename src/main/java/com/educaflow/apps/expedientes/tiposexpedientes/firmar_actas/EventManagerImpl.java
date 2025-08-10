@@ -12,6 +12,7 @@ import com.educaflow.apps.expedientes.db.ValoresAmbito;
 import com.educaflow.apps.expedientes.db.repo.FirmarActasRepository;
 import com.educaflow.apps.sistemaeducativo.db.Centro;
 import com.educaflow.apps.sistemaeducativo.db.CentroUsuario;
+import com.educaflow.apps.sistemaeducativo.db.Ciclo;
 import com.educaflow.apps.sistemaeducativo.db.Departamento;
 import com.educaflow.apps.sistemaeducativo.db.repo.DepartamentoRepository;
 import com.educaflow.common.util.AxelorDBUtil;
@@ -27,6 +28,7 @@ public class EventManagerImpl extends com.educaflow.apps.expedientes.common.Even
     /*private final FirmarActasRepository repository;
     private final JpaRepository<CentroUsuario> centroUsuarioRepository;*/
     protected final JpaRepository<Departamento> departamentoRepository;
+    protected final JpaRepository<Ciclo> cicloRepository = AxelorDBUtil.getRepository(Ciclo.class);
     protected final Logger log = LoggerFactory.getLogger(getClass());
 
     @Inject
@@ -56,6 +58,14 @@ public class EventManagerImpl extends com.educaflow.apps.expedientes.common.Even
         ValoresAmbito valoresAmbitoResponsable = new ValoresAmbito();
         valoresAmbitoResponsable.setUsuario(currentUser);
         valoresAmbitoResponsable.setCentro(centroActivo);
+
+        Ciclo ciclo = cicloRepository
+                .all()
+                .filter("self.code = :code")
+                .bind("code", "DAW")
+                .fetchOne();
+        valoresAmbitoResponsable.setCiclo(ciclo);
+
         firmarActas.setValoresAmbitoResponsable(valoresAmbitoResponsable);
     }
 

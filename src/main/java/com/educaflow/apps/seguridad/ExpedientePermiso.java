@@ -11,7 +11,9 @@ import java.util.StringJoiner;
 public class ExpedientePermiso {
 
     private final User usuario;
-    private final String OBJECT = "com.educaflow.apps.expedientes.db.Expediente";
+    private static final String OBJECT = "com.educaflow.apps.expedientes.db.Expediente";
+    private static final String PARAM_USUARIO = "__user__";             // o "__user__.code" si comparas código
+    private static final String PARAM_CENTRO  = "__user__.centroActivo";
 
     public ExpedientePermiso(User usuario) {
         this.usuario = usuario;
@@ -23,17 +25,20 @@ public class ExpedientePermiso {
 
     public Set<Permission> getPermisos() {
         Set<Permission> permisos = new HashSet<>();
-        String paramUsuario = "__user__";
-        String paramCentro = "__user__.centroActivo";
+
+        // --- Construir condición del permiso sobre Expediente ---
         StringBuilder condition = new StringBuilder("(");
         StringJoiner joiner = new StringJoiner(" OR ");
 
+        // params específicos para permisoExpediente (mantener orden exacto de los ?)
+        StringJoiner expedienteParams = new StringJoiner(", ");
+
         for (AmbitoTipoExpediente ambito : AmbitoTipoExpediente.values()) {
-            joiner.add(buildAmbitoCondition(ambito, "ambitoCreador"));
+            joiner.add(buildAmbitoCondition(ambito, "ambitoCreador", expedienteParams));
         }
 
         for (AmbitoTipoExpediente ambito : AmbitoTipoExpediente.values()) {
-            joiner.add(buildAmbitoCondition(ambito, "ambitoResponsable"));
+            joiner.add(buildAmbitoCondition(ambito, "ambitoResponsable", expedienteParams));
         }
 
         condition.append(joiner.toString()).append(")");
@@ -47,40 +52,30 @@ public class ExpedientePermiso {
         permisoExpediente.setCanImport(true);
         permisoExpediente.setCanExport(true);
         permisoExpediente.setCondition(condition.toString());
+        permisoExpediente.setConditionParams(expedienteParams.toString());
 
-        // Repetimos los parámetros 2 veces por cada ámbito
-        StringJoiner params = new StringJoiner(", ");
-
-        for (AmbitoTipoExpediente ambito : AmbitoTipoExpediente.values()) {
-            for (int j = 0; j < 2; j++) { // 1 vez para ambitoCreador, 1 vez para ambitoResponsable
-                params.add(paramUsuario);
-                params.add(paramCentro);
-
-                // Solo MODULO necesita un tercer parámetro (usuario) para cg.profesores MEMBER OF
-                if (ambito == AmbitoTipoExpediente.MODULO) {
-                    params.add(paramUsuario);
-                }
-            }
-        }
-
-        permisoExpediente.setConditionParams(params.toString());
-
+        // --- Permiso admin (su propia lista de params, en orden) ---
         Permission permisoAdmin = new Permission();
         permisoAdmin.setObject(OBJECT);
         permisoAdmin.setCanRead(true);
         permisoAdmin.setCanWrite(true);
-        permisoAdmin.setCanCreate(false);
-        permisoAdmin.setCanRemove(false);
-        permisoAdmin.setCanImport(false);
-        permisoAdmin.setCanExport(false);
-        permisoAdmin.setCondition(
+        permisoAdmin.setCanCreate(true);
+        permisoAdmin.setCanRemove(true);
+        permisoAdmin.setCanImport(true);
+        permisoAdmin.setCanExport(true);
+
+        String adminCondition =
                 "EXISTS (" +
                         " SELECT 1 FROM com.educaflow.apps.sistemaeducativo.db.CentroUsuario cu " +
                         " JOIN cu.cargos cargo " +
                         " WHERE cu.usuario = ? AND cu.centro = ? AND cargo.code = 'admin'" +
-                        ")"
-        );
-        permisoAdmin.setConditionParams("__user__, __user__.centroActivo");
+                        ")";
+        permisoAdmin.setCondition(adminCondition);
+
+        StringJoiner adminParams = new StringJoiner(", ");
+        adminParams.add(PARAM_USUARIO);
+        adminParams.add(PARAM_CENTRO);
+        permisoAdmin.setConditionParams(adminParams.toString());
 
         permisos.add(permisoExpediente);
         permisos.add(permisoAdmin);
@@ -88,7 +83,11 @@ public class ExpedientePermiso {
         return permisos;
     }
 
-    private String buildAmbitoCondition(AmbitoTipoExpediente ambito, String tipoAmbito) {
+    /**
+     * Construye la sub-condición para un ámbito y añade al StringJoiner "params" los parámetros
+     * en el mismo orden en que aparecen los signos de interrogación '?' en la condición devuelta.
+     */
+    private String buildAmbitoCondition(AmbitoTipoExpediente ambito, String tipoAmbito, StringJoiner params) {
         String base = "SELECT 1 FROM com.educaflow.apps.sistemaeducativo.db.CentroUsuario cu WHERE cu.usuario = ? AND cu.centro = ?";
         String valoresAmbito = tipoAmbito.equals("ambitoCreador")
                 ? "valoresAmbitoCreador"
@@ -99,9 +98,13 @@ public class ExpedientePermiso {
                 .append("self.tipoExpediente.").append(tipoAmbito).append(" = '").append(ambito.name()).append("'")
                 .append(" AND EXISTS (").append(base);
 
+        // cada base introduce: cu.usuario = ? , cu.centro = ?
+        params.add(PARAM_USUARIO);
+        params.add(PARAM_CENTRO);
+
         switch (ambito) {
             case INDIVIDUAL:
-                sb.append(" AND self.").append(valoresAmbito).append(".usuario = cu.usuario");
+                sb.append(" AND self.").append(valoresAmbito).append(".usuario.code = cu.usuario.code");
                 break;
             case CENTRO:
                 sb.append(" AND self.").append(valoresAmbito).append(".centro = cu.centro");
@@ -127,7 +130,8 @@ public class ExpedientePermiso {
             case GRUPO:
                 sb.append(" AND self.").append(valoresAmbito).append(".centro = cu.centro");
                 sb.append(" AND EXISTS (SELECT 1 FROM com.educaflow.apps.sistemaeducativo.db.CentroCiclo cc");
-                sb.append(" WHERE cc.centro = cu.centro AND self.").append(valoresAmbito).append(".grupo MEMBER OF cc.grupos)");
+                sb.append(" WHERE cc.centro = cu.centro AND self.").append(valoresAmbito)
+                        .append(".grupo MEMBER OF cc.grupos)");
                 break;
             case MODULO:
                 sb.append(" AND self.").append(valoresAmbito).append(".centro = cu.centro");
@@ -136,6 +140,7 @@ public class ExpedientePermiso {
                 sb.append(" AND cg.grupo = self.").append(valoresAmbito).append(".grupo");
                 sb.append(" AND cg.modulo = self.").append(valoresAmbito).append(".modulo");
                 sb.append(" AND ? MEMBER OF cg.profesores)");
+                params.add(PARAM_USUARIO);
                 break;
             default:
                 sb.append(" AND 1 = 0");
@@ -145,6 +150,4 @@ public class ExpedientePermiso {
         sb.append("))");
         return sb.toString();
     }
-
-
 }

@@ -39,12 +39,14 @@ public class EventManagerImpl extends com.educaflow.apps.expedientes.common.Even
         User currentUser = AuthUtils.getUser();
         Centro centroActivo = currentUser.getCentroActivo();
 
-
         ValoresAmbito valoresAmbitoCreador = new ValoresAmbito();
         valoresAmbitoCreador.setUsuario(currentUser);
         valoresAmbitoCreador.setCentro(centroActivo);
 
+        ValoresAmbito valoresAmbitoResponsable = new ValoresAmbito();
+
         certificadoTutor.setValoresAmbitoCreador(valoresAmbitoCreador);
+        certificadoTutor.setValoresAmbitoResponsable(valoresAmbitoResponsable);
     }
 
 

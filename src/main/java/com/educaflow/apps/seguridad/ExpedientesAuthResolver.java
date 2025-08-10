@@ -2,7 +2,6 @@ package com.educaflow.apps.seguridad;
 
 import com.axelor.auth.EduFlowAuthResolver;
 import com.axelor.auth.db.Permission;
-import com.axelor.auth.db.Role;
 import com.axelor.auth.db.User;
 import com.axelor.db.JpaSecurity.AccessType;
 import com.educaflow.apps.expedientes.db.Expediente;
@@ -19,6 +18,7 @@ public class ExpedientesAuthResolver implements EduFlowAuthResolver {
 
 
     protected final Logger log = LoggerFactory.getLogger(getClass());
+    //private final JpaRepository<CentroGrupo> centroGrupoRepository = AxelorDBUtil.getRepository(CentroGrupo.class);
 
     private Set<Permission> filterPermissions(
             final Set<Permission> permissions, final String object, final AccessType type) {
@@ -59,31 +59,7 @@ public class ExpedientesAuthResolver implements EduFlowAuthResolver {
 
             ExpedientePermiso expedientePermiso = new ExpedientePermiso(user);
             Set<Permission> all = expedientePermiso.getPermisos();
-            //System.out.println("Expediente permissions: " + all);
 
-
-            /*String expedienteObject = "com.educaflow.apps.expedientes.db.Expediente";
-            // user permissions
-            Set<Permission> all = filterPermissions(user.getPermissions(), expedienteObject, type);
-
-            // user's role permissions
-            if (user.getRoles() != null) {
-                for (final Role role : user.getRoles()) {
-                    all.addAll(filterPermissions(role.getPermissions(), expedienteObject, type));
-                }
-            }
-
-            // group permissions
-            if (user.getGroup() != null) {
-                all.addAll(filterPermissions(user.getGroup().getPermissions(), expedienteObject, type));
-            }
-
-            // group's role permissions
-            if (user.getGroup() != null && user.getGroup().getRoles() != null) {
-                for (final Role role : user.getGroup().getRoles()) {
-                    all.addAll(filterPermissions(role.getPermissions(), expedienteObject, type));
-                }
-            }*/
             return Optional.of(all);
 
         }
