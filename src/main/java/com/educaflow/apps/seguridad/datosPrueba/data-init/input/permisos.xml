@@ -2,68 +2,81 @@
 <datos>
     <permisos>
         <permiso
+                centro="46019660"
                 perfil="CREADOR"
                 tramite="JustificacionFaltaProfesorado"
-                tipoUsuario="profesor"
+                tipoUsuario="PROFESOR"
         />
         <permiso
+                centro="46019660"
                 perfil="RESPONSABLE"
                 tramite="JustificacionFaltaProfesorado"
-                tipoUsuario="profesor"
-                cargo="jefeEstudios"
+                tipoUsuario="PROFESOR"
+                cargo="JEFEESTUDIOS"
         />
         <permiso
+                centro="46019660"
                 perfil="CREADOR"
                 tramite="CertificadoTutor"
-                tipoUsuario="profesor"
+                tipoUsuario="PROFESOR"
+                cargo="JEFEESTUDIOS"
         />
         <permiso
+                centro="46019660"
                 perfil="CREADOR"
                 tramite="CertificadoTutor"
-                tipoUsuario="externo"
+                tipoUsuario="EXTERNO"
         />
         <permiso
+                centro="46019660"
                 perfil="RESPONSABLE"
                 tramite="CertificadoTutor"
-                tipoUsuario="profesor"
-                cargo="secretario"
+                tipoUsuario="PROFESOR"
+                cargo="SECRETARIO"
         />
         <permiso
+                centro="46019660"
                 perfil="CREADOR"
                 tramite="CertificadoTituloCiclo"
-                tipoUsuario="alumno"
+                tipoUsuario="ALUMNO"
         />
         <permiso
+                centro="46019660"
                 perfil="CREADOR"
                 tramite="CertificadoTituloCiclo"
-                tipoUsuario="externo"
+                tipoUsuario="EXTERNO"
         />
         <permiso
+                centro="46019660"
                 perfil="RESPONSABLE"
                 tramite="CertificadoTituloCiclo"
-                tipoUsuario="profesor"
-                cargo="secretario"
+                tipoUsuario="PROFESOR"
+                cargo="SECRETARIO"
         />
         <permiso
+                centro="46019660"
                 perfil="CREADOR"
                 tramite="RenunciaConvocatoriaModulo"
-                tipoUsuario="alumno"
+                tipoUsuario="ALUMNO"
         />
         <permiso
+                centro="46019660"
                 perfil="RESPONSABLE"
                 tramite="RenunciaConvocatoriaModulo"
-                tipoUsuario="profesor"
-                cargo="secretario"
+                tipoUsuario="PROFESOR"
+                cargo="SECRETARIO"
         />
         <permiso
+                centro="46019660"
                 perfil="CREADOR"
                 tramite="FirmarActas"
-                tipoUsuario="administrativo"
+                tipoUsuario="ADMINISTRATIVO"
         />
         <permiso
+                centro="46019660"
                 perfil="RESPONSABLE"
                 tramite="FirmarActas"
-                tipoUsuario="profesor"
+                tipoUsuario="PROFESOR"
         />
         <!--<permiso
                 perfil="CREADOR"

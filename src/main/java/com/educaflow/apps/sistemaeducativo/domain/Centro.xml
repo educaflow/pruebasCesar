@@ -10,7 +10,8 @@
         <string name="city" title="Ciudad"/>
         <string name="postalCode" title="Código Postal"/>
         <string name="country" title="Provincia"/>
-        <!--<many-to-many name="departamentos" ref="com.educaflow.apps.sistemaeducativo.db.Departamento" />-->
+        <many-to-many name="cargos" ref="com.educaflow.apps.sistemaeducativo.db.Cargo" />
+        <many-to-many name="ciclos" ref="com.educaflow.apps.sistemaeducativo.db.Ciclo" />
     </entity>
 
 </domain-models>

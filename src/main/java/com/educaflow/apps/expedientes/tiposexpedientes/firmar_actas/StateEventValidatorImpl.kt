@@ -16,15 +16,21 @@ class StateEventValidatorImpl: StateEventValidator {
     @BeanValidationRulesForStateAndEvent
     public fun getForStateEntradaDatosInEventDelete(): BeanValidationRules {
         return rules {
-            field(model::getValoresAmbitoResponsable) {
-            }
+
         }
     }
 
     @BeanValidationRulesForStateAndEvent
     public fun getForStateEntradaDatosInEventPresentar(): BeanValidationRules {
         return rules {
-            field(model::getValoresAmbitoResponsable) {
+            field(model::getCiclo) {
+                +Required()
+            }
+            field(model::getCurso) {
+                +Required()
+            }
+            field(model::getGrupo) {
+                +Required()
             }
         }
     }
@@ -32,8 +38,6 @@ class StateEventValidatorImpl: StateEventValidator {
     @BeanValidationRulesForStateAndEvent
     public fun getForStateFirmaPorUsuariosInEventFirmar(): BeanValidationRules {
         return rules {
-            field(model::getValoresAmbitoResponsable) {
-            }
         }
     }
 ;

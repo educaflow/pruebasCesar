@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<datos>
+    <centroCursos>
+        <!-- Cursos CIPFP Mislata -->
+        <centroCurso
+                centro="46019660"
+                curso="DAW1">
+            <grupos>
+                <grupo code="46019660_1DAW"/>
+            </grupos>
+        </centroCurso>
+        <centroCurso
+                centro="46019660"
+                curso="DAW2">
+            <grupos>
+                <grupo code="46019660_2DAW"/>
+            </grupos>
+        </centroCurso>
+        <centroCurso
+                centro="46019660"
+                curso="SMR1">
+            <grupos>
+                <grupo code="46019660_1SMR"/>
+                <grupo code="46019660_1SSMRA"/>
+                <grupo code="46019660_1SSMRB"/>
+            </grupos>
+        </centroCurso>
+        <centroCurso
+                centro="46019660"
+                curso="SMR2">
+            <grupos>
+                <grupo code="46019660_2SMR"/>
+                <grupo code="46019660_2SSMRA"/>
+                <grupo code="46019660_2SSMRB"/>
+            </grupos>
+        </centroCurso>
+    </centroCursos>
+</datos>

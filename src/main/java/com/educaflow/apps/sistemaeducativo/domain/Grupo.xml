@@ -6,6 +6,12 @@
     <entity name="Grupo">
         <string name="code"  />
         <string name="name" namecolumn="true" />
+        <enum name="tipoGrupo" ref="TipoGrupo" title="Tipo de Grupo"/>
     </entity>
+
+    <enum name="TipoGrupo">
+        <item name="PRESENCIAL" title="Presencial"/>
+        <item name="SEMIPRESENCIAL" title="Semipresencial"/>
+    </enum>
 
 </domain-models>

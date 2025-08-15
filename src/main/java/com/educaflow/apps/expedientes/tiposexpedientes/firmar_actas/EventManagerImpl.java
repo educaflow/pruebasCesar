@@ -28,7 +28,7 @@ public class EventManagerImpl extends com.educaflow.apps.expedientes.common.Even
     /*private final FirmarActasRepository repository;
     private final JpaRepository<CentroUsuario> centroUsuarioRepository;*/
     protected final JpaRepository<Departamento> departamentoRepository;
-    protected final JpaRepository<Ciclo> cicloRepository = AxelorDBUtil.getRepository(Ciclo.class);
+    //protected final JpaRepository<Ciclo> cicloRepository = AxelorDBUtil.getRepository(Ciclo.class);
     protected final Logger log = LoggerFactory.getLogger(getClass());
 
     @Inject
@@ -55,29 +55,37 @@ public class EventManagerImpl extends com.educaflow.apps.expedientes.common.Even
         valoresAmbitoCreador.setDepartamento(departamento);
         firmarActas.setValoresAmbitoCreador(valoresAmbitoCreador);
 
-        ValoresAmbito valoresAmbitoResponsable = new ValoresAmbito();
+        /*ValoresAmbito valoresAmbitoResponsable = new ValoresAmbito();
         valoresAmbitoResponsable.setUsuario(currentUser);
         valoresAmbitoResponsable.setCentro(centroActivo);
-
-        Ciclo ciclo = cicloRepository
-                .all()
-                .filter("self.code = :code")
-                .bind("code", "DAW")
-                .fetchOne();
-        valoresAmbitoResponsable.setCiclo(ciclo);
-
-        firmarActas.setValoresAmbitoResponsable(valoresAmbitoResponsable);
+        firmarActas.setValoresAmbitoResponsable(valoresAmbitoResponsable);*/
     }
 
 
     @WhenEvent
     public void triggerDelete(FirmarActas firmarActas, FirmarActas original, EventContext<FirmarActas.Profile> eventContext) throws BusinessException {
-        //firmarActas.updateState(FirmarActas.State.);
+        /*ValoresAmbito valoresAmbitoResponsable = new ValoresAmbito();
+        valoresAmbitoResponsable.setUsuario(AuthUtils.getUser());
+        valoresAmbitoResponsable.setCentro(AuthUtils.getUser().getCentroActivo());
+        valoresAmbitoResponsable.setCiclo(firmarActas.getCiclo());
+        valoresAmbitoResponsable.setCurso(firmarActas.getCurso());
+        valoresAmbitoResponsable.setGrupo(firmarActas.getGrupo());
+        firmarActas.setValoresAmbitoResponsable(valoresAmbitoResponsable);
+        firmarActas.updateState(FirmarActas.State.FIRMA_POR_USUARIOS);*/
     }
     @WhenEvent
     public void triggerPresentar(FirmarActas firmarActas, FirmarActas original, EventContext<FirmarActas.Profile> eventContext) throws BusinessException {
+        ValoresAmbito valoresAmbitoResponsable = new ValoresAmbito();
+        valoresAmbitoResponsable.setUsuario(AuthUtils.getUser());
+        valoresAmbitoResponsable.setCentro(AuthUtils.getUser().getCentroActivo());
+        valoresAmbitoResponsable.setCiclo(firmarActas.getCiclo());
+        valoresAmbitoResponsable.setCurso(firmarActas.getCurso());
+        System.out.println("Grupo: " + firmarActas.getGrupo());
+        valoresAmbitoResponsable.setGrupo(firmarActas.getGrupo());
+        firmarActas.setValoresAmbitoResponsable(valoresAmbitoResponsable);
         firmarActas.updateState(FirmarActas.State.FIRMA_POR_USUARIOS);
     }
+
     @WhenEvent
     public void triggerFirmar(FirmarActas firmarActas, FirmarActas original, EventContext<FirmarActas.Profile> eventContext) throws BusinessException {
         //firmarActas.updateState(FirmarActas.State.);

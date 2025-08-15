@@ -5,12 +5,42 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ccd46f0e-f435-4b47-96f5-fcd7b1844396" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/educaflow/apps/sistemaeducativo/data-init/input/centroCursos.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/educaflow/apps/sistemaeducativo/data-init/input/grupoModulos.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/educaflow/apps/sistemaeducativo/domain/CentroCurso.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/educaflow/apps/sistemaeducativo/domain/GrupoModulo.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/educaflow/apps/expedientes/tiposexpedientes/firmar_actas/EventManagerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/educaflow/apps/expedientes/tiposexpedientes/firmar_actas/EventManagerImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/educaflow/apps/expedientes/tiposexpedientes/firmar_actas/StateEventValidatorImpl.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/educaflow/apps/expedientes/tiposexpedientes/firmar_actas/StateEventValidatorImpl.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/educaflow/apps/expedientes/tiposexpedientes/firmar_actas/domains.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/educaflow/apps/expedientes/tiposexpedientes/firmar_actas/domains.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/educaflow/apps/expedientes/tiposexpedientes/firmar_actas/views.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/educaflow/apps/expedientes/tiposexpedientes/firmar_actas/views.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/educaflow/apps/secretariavirtual/gestionexpedientes/100_menuitem_tramite.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/educaflow/apps/secretariavirtual/gestionexpedientes/100_menuitem_tramite.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/educaflow/apps/seguridad/ExpedientePermiso.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/educaflow/apps/seguridad/ExpedientePermiso.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/educaflow/apps/seguridad/ExpedientesAuthResolver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/educaflow/apps/seguridad/ExpedientesAuthResolver.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/educaflow/apps/seguridad/data-init/input/auth.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/educaflow/apps/seguridad/data-init/input/auth.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/educaflow/apps/seguridad/datosPrueba/data-init/input-config.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/educaflow/apps/seguridad/datosPrueba/data-init/input-config.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/educaflow/apps/seguridad/datosPrueba/data-init/input/permisos.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/educaflow/apps/seguridad/datosPrueba/data-init/input/permisos.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/educaflow/apps/seguridad/domain/Permiso.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/educaflow/apps/seguridad/domain/Permiso.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/educaflow/apps/seguridad/domain/i18n_ca.csv" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/educaflow/apps/seguridad/domain/i18n_ca.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/educaflow/apps/seguridad/domain/i18n_es.csv" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/educaflow/apps/seguridad/domain/i18n_es.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/educaflow/apps/sistemaeducativo/data-init/input-config.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/educaflow/apps/sistemaeducativo/data-init/input-config.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/educaflow/apps/sistemaeducativo/data-init/input/cargos.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/educaflow/apps/sistemaeducativo/data-init/input/cargos.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/educaflow/apps/sistemaeducativo/data-init/input/centroCiclos.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/educaflow/apps/sistemaeducativo/data-init/input/centroDepartamentos.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/educaflow/apps/sistemaeducativo/data-init/input/centroDepartamentos.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/educaflow/apps/sistemaeducativo/data-init/input/centroGrupos.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/educaflow/apps/sistemaeducativo/data-init/input/centroUsuarios.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/educaflow/apps/sistemaeducativo/data-init/input/centroUsuarios.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/educaflow/apps/sistemaeducativo/data-init/input/centros.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/educaflow/apps/sistemaeducativo/data-init/input/centros.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/educaflow/apps/sistemaeducativo/data-init/input/ciclos.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/educaflow/apps/sistemaeducativo/data-init/input/ciclos.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/educaflow/apps/sistemaeducativo/data-init/input/cursos.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/educaflow/apps/sistemaeducativo/data-init/input/cursos.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/educaflow/apps/sistemaeducativo/data-init/input/grupos.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/educaflow/apps/sistemaeducativo/data-init/input/grupos.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/educaflow/apps/sistemaeducativo/data-init/input/modulos.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/educaflow/apps/sistemaeducativo/data-init/input/modulos.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/educaflow/apps/sistemaeducativo/data-init/input/tiposUsuarios.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/educaflow/apps/sistemaeducativo/domain/Centro.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/educaflow/apps/sistemaeducativo/domain/Centro.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/educaflow/apps/sistemaeducativo/domain/CentroCiclo.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/educaflow/apps/sistemaeducativo/domain/CentroGrupo.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/educaflow/apps/sistemaeducativo/domain/CentroUsuario.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/educaflow/apps/sistemaeducativo/domain/CentroUsuario.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/educaflow/apps/sistemaeducativo/domain/Grupo.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/educaflow/apps/sistemaeducativo/domain/Grupo.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/educaflow/apps/sistemaeducativo/domain/TipoUsuario.xml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -283,7 +313,11 @@
       <workItem from="1754636013538" duration="5664000" />
       <workItem from="1754648009110" duration="4119000" />
       <workItem from="1754669878925" duration="186000" />
-      <workItem from="1754815591537" duration="7584000" />
+      <workItem from="1754815591537" duration="9516000" />
+      <workItem from="1754896569809" duration="7573000" />
+      <workItem from="1754924173136" duration="9858000" />
+      <workItem from="1754981089312" duration="29858000" />
+      <workItem from="1755071876966" duration="17000" />
     </task>
     <servers />
   </component>

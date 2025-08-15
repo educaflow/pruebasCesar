@@ -6,9 +6,12 @@
 
     <module name="expedientes" package="com.educaflow.apps.expedientes.db"/>
     <entity name="FirmarActas" extends="Expediente" >
-        <many-to-one name="ciclo" ref="com.educaflow.apps.sistemaeducativo.db.Ciclo" transient="true"/>
+        <!--<many-to-one name="ciclo" ref="com.educaflow.apps.sistemaeducativo.db.Ciclo" transient="true"/>
         <many-to-one name="curso" ref="com.educaflow.apps.sistemaeducativo.db.Curso" transient="true"/>
-        <many-to-one name="grupo" ref="com.educaflow.apps.sistemaeducativo.db.Grupo" transient="true"/>
+        <many-to-one name="grupo" ref="com.educaflow.apps.sistemaeducativo.db.Grupo" transient="true"/>-->
+        <many-to-one name="ciclo" ref="com.educaflow.apps.sistemaeducativo.db.Ciclo"/>
+        <many-to-one name="curso" ref="com.educaflow.apps.sistemaeducativo.db.Curso"/>
+        <many-to-one name="grupo" ref="com.educaflow.apps.sistemaeducativo.db.Grupo"/>
         <one-to-one name="acta" title="Acta Original" ref="com.axelor.meta.db.MetaFile" />
         <one-to-one name="actaFirmada" title="Acta Firmada" ref="com.axelor.meta.db.MetaFile" />
     </entity>

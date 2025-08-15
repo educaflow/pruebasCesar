@@ -7,13 +7,14 @@
     <action-record name="change-ciclo-action" model="com.educaflow.apps.expedientes.db.FirmarActas">
         <field name="curso" expr="eval: null"/>
         <field name="grupo" expr="eval: null"/>
-        <!--<field name="valoresAmbitoResponsable.ciclo" expr="eval: ciclo" />-->
+        <!--<field name="valoresAmbitoResponsable.ciclo" expr="ciclo"/>-->
     </action-record>
 
     <action-record name="change-curso-action" model="com.educaflow.apps.expedientes.db.FirmarActas">
         <field name="grupo" expr="eval: null"/>
-        <!--<field name="valoresAmbitoResponsable.curso" expr="eval: curso"/>-->
+        <!--field name="valoresAmbitoResponsable.curso" expr="curso"/>-->
     </action-record>
+
 
 
     <form name="exp-FirmarActas-Templates" title="Firmar Actas"  width="large"  model="com.educaflow.apps.expedientes.db.FirmarActas" groups="admins,users">
@@ -33,14 +34,41 @@
             <field name="curso"
                    colSpan="4"
                    onChange="change-curso-action"
-                   domain="self IN (SELECT curso FROM com.educaflow.apps.sistemaeducativo.db.CentroCiclo cc
-                       WHERE cc.ciclo = :ciclo)"
+                   domain="
+                       EXISTS (
+                           SELECT 1
+                           FROM com.educaflow.apps.sistemaeducativo.db.Ciclo c
+                           WHERE c = :ciclo
+                           AND self MEMBER OF c.cursos
+                       )
+                   "
             />
             <field name="grupo"
                    colSpan="4"
-                   domain="EXISTS (SELECT 1 FROM com.educaflow.apps.sistemaeducativo.db.CentroCiclo cc
-                       JOIN cc.grupos g
-                       WHERE cc.ciclo = :ciclo AND cc.curso = :curso AND g = self)"
+                   domain="
+                       EXISTS (
+                           SELECT 1
+                           FROM com.educaflow.apps.sistemaeducativo.db.CentroCurso cc
+                           WHERE cc.curso = :curso
+                           AND self MEMBER OF cc.grupos
+                       )
+                   "
+            />
+            <!--<field name="grupo"
+                   colSpan="4"
+                   domain="self IN (SELECT cc.grupos FROM com.educaflow.apps.sistemaeducativo.db.CentroCurso cc
+                       WHERE cc.curso = :curso AND cc.centro = ?)"
+                   domainParams="__user__.centroActivo"
+            />-->
+        </panel>
+        <panel name="acta" title="Acta">
+            <field name="acta"
+                   colSpan="6"
+                   widget="binary-link"
+            />
+            <field name="actaFirmada"
+                   colSpan="6"
+                   widget="binary-link"
             />
         </panel>
     </form>
@@ -96,6 +124,7 @@
     <form state="ENTRADA_DATOS" profile="CREADOR">
         <include-panels includeHeader="true">
             ambito-responsable
+            acta
         </include-panels>
         <footer>
             <buttons-left>
@@ -110,6 +139,7 @@
     <form state="ENTRADA_DATOS" >
         <include-panels includeHeader="true">
             -ambito-responsable
+            -acta
         </include-panels>
         <footer>
             <buttons-left>
@@ -128,7 +158,8 @@
     
     <form state="FIRMA_POR_USUARIOS" profile="RESPONSABLE">
         <include-panels includeHeader="true">
-            ambito-responsable
+            -ambito-responsable
+            acta
         </include-panels>
         <footer>
             <buttons-left>
@@ -143,6 +174,7 @@
     <form state="FIRMA_POR_USUARIOS" >
         <include-panels includeHeader="true">
             -ambito-responsable
+            -acta
         </include-panels>
         <footer>
             <buttons-left>
@@ -162,6 +194,7 @@
     <form state="ACEPTADO" >
         <include-panels includeHeader="true">
             -ambito-responsable
+            -acta
         </include-panels>
         <footer>
             <buttons-left>

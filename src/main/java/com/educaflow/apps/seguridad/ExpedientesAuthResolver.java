@@ -59,7 +59,6 @@ public class ExpedientesAuthResolver implements EduFlowAuthResolver {
 
             ExpedientePermiso expedientePermiso = new ExpedientePermiso(user);
             Set<Permission> all = expedientePermiso.getPermisos();
-
             return Optional.of(all);
 
         }

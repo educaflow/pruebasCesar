@@ -1,0 +1,32 @@
+<?xml version="1.0" ?>
+<datos>
+    <grupoModulos>
+        <!-- Modulos del grupo 1DAW -->
+        <grupoModulo grupo="46019660_2DAW" modulo="DWS">
+            <profesores>
+                <profesor code="cesar"/>
+            </profesores>
+        </grupoModulo>
+        <grupoModulo grupo="46019660_2DAW" modulo="DWC">
+            <profesores>
+                <profesor code="salva"/>
+            </profesores>
+        </grupoModulo>
+        <grupoModulo grupo="46019660_2DAW" modulo="DAW">
+            <profesores>
+                <profesor code="lorenzo"/>
+            </profesores>
+        </grupoModulo>
+        <grupoModulo grupo="46019660_2DAW" modulo="DIW">
+            <profesores>
+                <profesor code="lorenzo"/>
+            </profesores>
+        </grupoModulo>
+        <grupoModulo grupo="46019660_2DAW" modulo="OPTATIVA2DAW">
+            <profesores>
+                <profesor code="cesar"/>
+                <profesor code="lorenzo"/>
+            </profesores>
+        </grupoModulo>
+    </grupoModulos>
+</datos>

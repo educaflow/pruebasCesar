@@ -16,9 +16,15 @@
         <column name="nuevo" type="button" title="Nuevo expediente"  />
         <column name="ayuda" type="button" title="Ayuda"  />
 
-        <node model="com.educaflow.apps.expedientes.db.TipoTramite" domain="EXISTS (SELECT 1 FROM Tramite t WHERE  t.tipoTramite=self)" >
+        <!--<node
+                model="com.educaflow.apps.expedientes.db.TipoTramite"
+                domain="EXISTS (SELECT 1 FROM com.educaflow.apps.expedientes.db.Tramite t WHERE  t.tipoTramite=self)" >
             <field name="name" as="name"  />
+        </node>-->
 
+
+        <node model="com.educaflow.apps.expedientes.db.TipoTramite">
+            <field name="name" as="name"  />
         </node>
 
         <node model="com.educaflow.apps.expedientes.db.Tramite"  parent="tipoTramite" draggable="false" onClick="action-event-new-expediente">

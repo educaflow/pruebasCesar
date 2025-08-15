@@ -2,18 +2,24 @@ package com.educaflow.apps.seguridad;
 
 import com.axelor.auth.db.Permission;
 import com.axelor.auth.db.User;
+import com.axelor.db.JpaRepository;
 import com.educaflow.apps.expedientes.db.AmbitoTipoExpediente;
+import com.educaflow.apps.seguridad.db.Permiso;
+import com.educaflow.apps.sistemaeducativo.db.Cargo;
+import com.educaflow.common.util.AxelorDBUtil;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 import java.util.StringJoiner;
 
 public class ExpedientePermiso {
 
     private final User usuario;
-    private static final String OBJECT = "com.educaflow.apps.expedientes.db.Expediente";
-    private static final String PARAM_USUARIO = "__user__";             // o "__user__.code" si comparas código
-    private static final String PARAM_CENTRO  = "__user__.centroActivo";
+    private final String OBJECT = "com.educaflow.apps.expedientes.db.Expediente";
+    private final String PARAM_USUARIO = "__user__";             // o "__user__.code" si comparas código
+    private final String PARAM_CENTRO = "__user__.centroActivo";
+    private final String CARGO_ADMIN = "ADMIN";
 
     public ExpedientePermiso(User usuario) {
         this.usuario = usuario;
@@ -46,11 +52,11 @@ public class ExpedientePermiso {
         Permission permisoExpediente = new Permission();
         permisoExpediente.setObject(OBJECT);
         permisoExpediente.setCanRead(true);
-        permisoExpediente.setCanWrite(true);
-        permisoExpediente.setCanCreate(true);
-        permisoExpediente.setCanRemove(true);
-        permisoExpediente.setCanImport(true);
-        permisoExpediente.setCanExport(true);
+        permisoExpediente.setCanWrite(false);
+        permisoExpediente.setCanCreate(false);
+        permisoExpediente.setCanRemove(false);
+        permisoExpediente.setCanImport(false);
+        permisoExpediente.setCanExport(false);
         permisoExpediente.setCondition(condition.toString());
         permisoExpediente.setConditionParams(expedienteParams.toString());
 
@@ -58,18 +64,16 @@ public class ExpedientePermiso {
         Permission permisoAdmin = new Permission();
         permisoAdmin.setObject(OBJECT);
         permisoAdmin.setCanRead(true);
-        permisoAdmin.setCanWrite(true);
-        permisoAdmin.setCanCreate(true);
-        permisoAdmin.setCanRemove(true);
-        permisoAdmin.setCanImport(true);
-        permisoAdmin.setCanExport(true);
+        permisoAdmin.setCanWrite(false);
+        permisoAdmin.setCanCreate(false);
+        permisoAdmin.setCanRemove(false);
+        permisoAdmin.setCanImport(false);
+        permisoAdmin.setCanExport(false);
 
         String adminCondition =
-                "EXISTS (" +
-                        " SELECT 1 FROM com.educaflow.apps.sistemaeducativo.db.CentroUsuario cu " +
-                        " JOIN cu.cargos cargo " +
-                        " WHERE cu.usuario = ? AND cu.centro = ? AND cargo.code = 'admin'" +
-                        ")";
+                "EXISTS (SELECT 1 FROM com.educaflow.apps.sistemaeducativo.db.CentroUsuario cu " +
+                        " WHERE cu.usuario = ? AND cu.centro = ? " +
+                        " AND EXISTS(SELECT 1 FROM cu.cargos c WHERE c.code= '"+ CARGO_ADMIN + "'))";
         permisoAdmin.setCondition(adminCondition);
 
         StringJoiner adminParams = new StringJoiner(", ");
@@ -104,7 +108,7 @@ public class ExpedientePermiso {
 
         switch (ambito) {
             case INDIVIDUAL:
-                sb.append(" AND self.").append(valoresAmbito).append(".usuario.code = cu.usuario.code");
+                sb.append(" AND self.").append(valoresAmbito).append(".usuario = cu.usuario");
                 break;
             case CENTRO:
                 sb.append(" AND self.").append(valoresAmbito).append(".centro = cu.centro");
@@ -112,28 +116,36 @@ public class ExpedientePermiso {
             case DEPARTAMENTO:
                 sb.append(" AND self.").append(valoresAmbito).append(".centro = cu.centro");
                 sb.append(" AND EXISTS (SELECT 1 FROM com.educaflow.apps.sistemaeducativo.db.CentroDepartamento cd");
-                sb.append(" WHERE cd.centro = cu.centro AND cd.departamento = self.")
-                        .append(valoresAmbito).append(".departamento)");
+                sb.append(" WHERE cd.centro = cu.centro");
+                sb.append(" AND cd.departamento = self.").append(valoresAmbito).append(".departamento");
+                sb.append(" AND self.").append(valoresAmbito).append(".departamento MEMBER OF cu.departamentos)");
                 break;
-            case CICLO:
+
+/********** MAL **********************************/
+            /*case CICLO:
                 sb.append(" AND self.").append(valoresAmbito).append(".centro = cu.centro");
                 sb.append(" AND EXISTS (SELECT 1 FROM com.educaflow.apps.sistemaeducativo.db.CentroCiclo cc");
                 sb.append(" WHERE cc.centro = cu.centro AND cc.ciclo = self.")
                         .append(valoresAmbito).append(".ciclo)");
                 break;
+
             case CURSO:
                 sb.append(" AND self.").append(valoresAmbito).append(".centro = cu.centro");
                 sb.append(" AND EXISTS (SELECT 1 FROM com.educaflow.apps.sistemaeducativo.db.CentroCiclo cc");
                 sb.append(" WHERE cc.centro = cu.centro AND cc.curso = self.")
                         .append(valoresAmbito).append(".curso)");
-                break;
+                break;*/
+/********************************************/
+
+
             case GRUPO:
-                sb.append(" AND self.").append(valoresAmbito).append(".centro = cu.centro");
-                sb.append(" AND EXISTS (SELECT 1 FROM com.educaflow.apps.sistemaeducativo.db.CentroCiclo cc");
-                sb.append(" WHERE cc.centro = cu.centro AND self.").append(valoresAmbito)
-                        .append(".grupo MEMBER OF cc.grupos)");
+                sb.append(" AND EXISTS (SELECT 1 FROM com.educaflow.apps.sistemaeducativo.db.GrupoModulo gm");
+                sb.append(" WHERE gm.grupo = self.").append(valoresAmbito).append(".grupo");
+                sb.append(" AND ? MEMBER OF gm.profesores)");
+                params.add(PARAM_USUARIO);
                 break;
-            case MODULO:
+
+            /*case MODULO:
                 sb.append(" AND self.").append(valoresAmbito).append(".centro = cu.centro");
                 sb.append(" AND EXISTS (SELECT 1 FROM com.educaflow.apps.sistemaeducativo.db.CentroGrupo cg");
                 sb.append(" WHERE cg.centro = cu.centro");
@@ -141,7 +153,7 @@ public class ExpedientePermiso {
                 sb.append(" AND cg.modulo = self.").append(valoresAmbito).append(".modulo");
                 sb.append(" AND ? MEMBER OF cg.profesores)");
                 params.add(PARAM_USUARIO);
-                break;
+                break;*/
             default:
                 sb.append(" AND 1 = 0");
                 break;
@@ -150,4 +162,6 @@ public class ExpedientePermiso {
         sb.append("))");
         return sb.toString();
     }
+
+
 }

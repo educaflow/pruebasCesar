@@ -1,31 +1,25 @@
 <?xml version="1.0"?>
 <datos>
     <grupos>
-        <grupo code="1DAW" name="1DAW">
-        <!--<modulos>
-                <modulo code="DWS"/>
-                <modulo code="DWC"/>
-                <modulo code="DAW"/>
-                <modulo code="DIW"/>
-                <modulo code="OPTATIVA2DAW"/>
-            </modulos>-->
-        </grupo>
-        <grupo code="2DAW" name="2DAW"/>
-        <grupo code="1SDAM" name="1DAM"/>
-        <grupo code="2SDAM" name="2SDAM"/>
-        <grupo code="1ASIR" name="1ASIR"/>
-        <grupo code="2ASIR" name="2ASIR"/>
-        <grupo code="1SMR" name="1SMR"/>
-        <grupo code="2SMR" name="2SMR"/>
-        <grupo code="1SSMRA" name="1SMRA"/>
-        <grupo code="2SSMRA" name="2SMRA"/>
-        <grupo code="1SSMRB" name="1SMRB"/>
-        <grupo code="2SSMRB" name="2SMRB"/>
-        <grupo code="1GAT" name="1GAT"/>
-        <grupo code="2GAT" name="2GAT"/>
-        <grupo code="1GIAT" name="1GIAT"/>
-        <grupo code="2GIAT" name="2GIAT"/>
-        <grupo code="1AVGA" name="1AVGA"/>
-        <grupo code="2AVGA" name="2AVGA"/>
+        <grupo code="46019660_1DAW" name="1DAW" tipoGrupo="PRESENCIAL"/>
+        <grupo code="46019660_2DAW" name="2DAW" tipoGrupo="PRESENCIAL"/>
+        <grupo code="46019660_1SDAM" name="1DAM" tipoGrupo="SEMIPRESENCIAL"/>
+        <grupo code="46019660_2SDAM" name="2SDAM" tipoGrupo="SEMIPRESENCIAL"/>
+        <grupo code="46019660_1ASIR" name="1ASIR" tipoGrupo="PRESENCIAL"/>
+        <grupo code="46019660_2ASIR" name="2ASIR" tipoGrupo="PRESENCIAL"/>
+        <grupo code="46019660_1SMR" name="1SMR" tipoGrupo="PRESENCIAL"/>
+        <grupo code="46019660_2SMR" name="2SMR" tipoGrupo="PRESENCIAL"/>
+        <grupo code="46019660_1SSMRA" name="1SMRA" tipoGrupo="SEMIPRESENCIAL"/>
+        <grupo code="46019660_1SSMRB" name="1SMRB" tipoGrupo="SEMIPRESENCIAL"/>
+        <grupo code="46019660_2SSMRA" name="2SMRA" tipoGrupo="SEMIPRESENCIAL"/>
+        <grupo code="46019660_2SSMRB" name="2SMRB" tipoGrupo="SEMIPRESENCIAL"/>
+        <grupo code="46019660_1GAT" name="1GAT" tipoGrupo="PRESENCIAL"/>
+        <grupo code="46019660_2GAT" name="2GAT" tipoGrupo="PRESENCIAL"/>
+        <grupo code="46019660_1GIAT" name="1GIAT" tipoGrupo="PRESENCIAL"/>
+        <grupo code="46019660_2GIAT" name="2GIAT" tipoGrupo="PRESENCIAL"/>
+        <grupo code="46019660_1AVGA" name="1AVGA" tipoGrupo="PRESENCIAL"/>
+        <grupo code="46019660_2AVGA" name="2AVGA" tipoGrupo="PRESENCIAL"/>
+        <grupo code="46019015_1SDAW" name="1SDAW" tipoGrupo="SEMIPRESENCIAL"/>
+        <grupo code="46019015_2SDAW" name="2SDAW" tipoGrupo="SEMIPRESENCIAL"/>
     </grupos>
 </datos>

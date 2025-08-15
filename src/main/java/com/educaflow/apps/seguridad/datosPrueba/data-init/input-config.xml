@@ -7,13 +7,14 @@
 
     <input file="permisos.xml" root="datos">
         <bind node="permisos/permiso" type="com.educaflow.apps.seguridad.db.Permiso" create="true">
+            <bind node="@centro" to="centro" search="self.code = :code" create="false">
+                <bind node="." to="code" />
+            </bind>
             <bind node="@perfil" to="perfil" />
             <bind node="@tramite" to="tramite" search="self.code = :code" create="false">
                 <bind node="." to="code" />
             </bind>
-            <bind node="@tipoUsuario" to="tipoUsuario" search="self.code = :code" create="false">
-                <bind node="." to="code" />
-            </bind>
+            <bind node="@tipoUsuario" to="tipoUsuario" />
             <bind node="@cargo" to="cargo" search="self.code = :code" create="false">
                 <bind node="." to="code" />
             </bind>

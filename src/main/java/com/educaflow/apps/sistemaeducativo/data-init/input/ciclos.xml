@@ -9,8 +9,8 @@
         </ciclo>
         <ciclo code="DAM" name="Desarrollo de Aplicaciones Multiplataforma">
             <cursos>
-                <curso code="SDAM1"/>
-                <curso code="SDAM2"/>
+                <curso code="DAM1"/>
+                <curso code="DAM2"/>
             </cursos>
         </ciclo>
         <ciclo code="ASIR" name="Administración de Sistemas Informáticos en Red">
@@ -23,8 +23,6 @@
             <cursos>
                 <curso code="SMR1"/>
                 <curso code="SMR2"/>
-                <curso code="SSMR1"/>
-                <curso code="SSMR2"/>
             </cursos>
         </ciclo>
         <ciclo code="GAT" name="Gestión de Alojamientos Turísticos">

@@ -4,9 +4,10 @@
 
     <module name="seguridad" package="com.educaflow.apps.seguridad.db"/>
     <entity name="Permiso" repository="abstract">
+        <many-to-one name="centro" ref="com.educaflow.apps.sistemaeducativo.db.Centro"/>
         <enum name="perfil" ref="com.educaflow.apps.expedientes.db.Profile" />
         <many-to-one name="tramite" ref="com.educaflow.apps.expedientes.db.Tramite" required="true"/>
-        <many-to-one name="tipoUsuario" ref="com.educaflow.apps.sistemaeducativo.db.TipoUsuario" required="true"/>
+        <enum name="tipoUsuario" ref="com.educaflow.apps.sistemaeducativo.db.TipoUsuario" required="true"/>
         <many-to-one name="cargo" ref="com.educaflow.apps.sistemaeducativo.db.Cargo"/>
     </entity>
 
