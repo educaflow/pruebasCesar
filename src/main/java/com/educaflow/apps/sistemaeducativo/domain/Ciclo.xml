@@ -4,9 +4,11 @@
 
     <module name="sistemaeducativo" package="com.educaflow.apps.sistemaeducativo.db"/>
     <entity name="Ciclo">
-        <string name="code"  />
-        <string name="name" namecolumn="true" />
-        <one-to-many name="cursos" ref="com.educaflow.apps.sistemaeducativo.db.Curso" />
+        <string name="code"  required="true"  />
+        <string name="name" namecolumn="true"  required="true"  />
+        <one-to-many name="cursos" ref="com.educaflow.apps.sistemaeducativo.db.Curso" mappedBy="ciclo" />
+        <many-to-one name="familiaProfesional" ref="com.educaflow.apps.sistemaeducativo.db.FamiliaProfesional"  required="true"  />
+        <many-to-one name="grado" ref="com.educaflow.apps.sistemaeducativo.db.Grado"  required="true"  />
     </entity>
 
 </domain-models>

@@ -2,11 +2,8 @@ package com.educaflow.apps.seguridad;
 
 import com.axelor.auth.db.Permission;
 import com.axelor.auth.db.User;
-import com.axelor.db.JpaRepository;
 import com.educaflow.apps.expedientes.db.AmbitoTipoExpediente;
-import com.educaflow.apps.seguridad.db.Permiso;
-import com.educaflow.apps.sistemaeducativo.db.Cargo;
-import com.educaflow.common.util.AxelorDBUtil;
+
 
 import java.util.HashSet;
 import java.util.List;

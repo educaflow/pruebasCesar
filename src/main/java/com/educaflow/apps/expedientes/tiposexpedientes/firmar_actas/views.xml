@@ -43,7 +43,7 @@
                        )
                    "
             />
-            <field name="grupo"
+            <!--<field name="grupo"
                    colSpan="4"
                    domain="
                        EXISTS (
@@ -53,7 +53,7 @@
                            AND self MEMBER OF cc.grupos
                        )
                    "
-            />
+            />-->
             <!--<field name="grupo"
                    colSpan="4"
                    domain="self IN (SELECT cc.grupos FROM com.educaflow.apps.sistemaeducativo.db.CentroCurso cc
@@ -101,7 +101,7 @@
         </panel>
     </form>
 
-    <grid name="buscar-grupo" title="Grupo" model="com.educaflow.apps.sistemaeducativo.db.Grupo"
+    <!--<grid name="buscar-grupo" title="Grupo" model="com.educaflow.apps.sistemaeducativo.db.Grupo"
           groups="admins,users"
           editable="false" edit-icon="false" x-selector="none" canNew="false" canEdit="false" canDelete="false" canSave="false"
     >
@@ -113,7 +113,7 @@
         <panel name="Grupo" title="Grupo">
             <field name="name"/>
         </panel>
-    </form>
+    </form>-->
 
 
 

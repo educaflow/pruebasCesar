@@ -27,13 +27,11 @@ import com.google.common.base.CaseFormat;
 import com.google.inject.Inject;
 import com.google.inject.persist.Transactional;
 
+
 import java.lang.reflect.Method;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 
 public class ExpedienteController {
@@ -111,6 +109,7 @@ public class ExpedienteController {
                 BeanValidationRules beanValidationRules = getBeansValidationRules(stateEventValidator, expediente.getCodeState(), eventName);
 
                 Map<String,Object> allowProperties = AllowPropertiesFactory.getAllowProperties(beanValidationRules.getFieldValidationRules());
+                printMap(allowProperties);
                 populateExpedienteFromActionRequest(expediente, request, eventName, eventContext, allowProperties);
 
 
@@ -287,7 +286,22 @@ public class ExpedienteController {
         }
     }
 
-
+    void printMap(Map<String,Object> allowProperties) {
+        if (allowProperties==null) {
+            System.out.println("allowProperties es null");
+            return;
+        }
+        System.out.println("allowProperties:");
+        for (Map.Entry<String,Object> entry:allowProperties.entrySet()) {
+            if (entry.getValue() instanceof Map) {
+                System.out.println(entry.getKey()+":{");
+                printMap((Map)entry.getValue());
+                System.out.println("  }");
+            } else {
+                System.out.println("  " + entry.getKey() + "=" + entry.getValue());
+            }
+        }
+    }
     private String getEventName(ActionRequest request) {
 
         String eventName=(String)getActionRequestContext(request).get("_signal");

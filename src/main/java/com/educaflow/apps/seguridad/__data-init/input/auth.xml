@@ -1,19 +1,8 @@
 <?xml version="1.0"?>
 
 <auth>
-  <permissions>
-      <!--<permission name="tramite.all"
-                object="com.educaflow.apps.expedientes.db.Tramite"
-                condition="
-EXISTS (SELECT 1 FROM com.educaflow.apps.seguridad.db.Permiso p
-WHERE p.centro = ? AND p.tramite = self AND p.perfil = 'CREADOR' AND ? IN (SELECT cu.usuario
-FROM com.educaflow.apps.sistemaeducativo.db.CentroUsuario cu WHERE cu.centro = p.centro AND cu.tipoUsuario = p.tipoUsuario
-AND (NOT EXISTS(SELECT 1 FROM com.educaflow.apps.sistemaeducativo.db.Cargo c WHERE c = p.cargo)
-OR p.cargo MEMBER OF cu.cargos)))
-"
-                conditionParams="__user__.centroActivo, __user__">
-          <can read="true" create="false" write="false" import="false" export="false" remove="false"/>
-      </permission>-->
+<!--  <permissions>
+
 
       <permission name="tramite.all"
                   object="com.educaflow.apps.expedientes.db.Tramite"
@@ -26,19 +15,6 @@ AND (p.cargo IS NULL OR p.cargo MEMBER OF cu.cargos)))
                   conditionParams="__user__.centroActivo, __user__">
           <can read="true" create="false" write="false" import="false" export="false" remove="false"/>
       </permission>
-
-<!--      <permission name="tipoTramite.all"
-                  object="com.educaflow.apps.expedientes.db.TipoTramite"
-                  condition="
-EXISTS (SELECT 1 FROM com.educaflow.apps.expedientes.db.Tramite t WHERE self=t.tipoTramite
-AND EXISTS(SELECT 1 FROM com.educaflow.apps.seguridad.db.Permiso p WHERE p.tramite = t AND p.centro = ?  AND p.perfil = 'CREADOR' AND ? IN (
-SELECT cu.usuario FROM com.educaflow.apps.sistemaeducativo.db.CentroUsuario cu WHERE cu.centro = p.centro
-AND cu.tipoUsuario = p.tipoUsuario AND (NOT EXISTS(SELECT 1 FROM com.educaflow.apps.sistemaeducativo.db.Cargo c WHERE c = p.cargo)
-OR p.cargo MEMBER OF cu.cargos))))
-"
-                  conditionParams="__user__.centroActivo, __user__">
-          <can read="true" create="true" write="true" import="true" export="true" remove="true"/>
-      </permission>-->
 
       <permission name="tipoTramite.all"
                   object="com.educaflow.apps.expedientes.db.TipoTramite"
@@ -168,12 +144,6 @@ AND cu.tipoUsuario = p.tipoUsuario AND (p.cargo IS NULL OR p.cargo MEMBER OF cu.
                     conditionParams="__user__.centroActivo">
           <can read="true" create="false" write="false" import="false" export="false" remove="false"/>
       </permission>
-<!--      <permission name="expedientes.all" object="com.educaflow.apps.expedientes.db.Expediente">
-          <can read="true" create="false" write="true" import="false" export="false" remove="false"/>
-      </permission>
-      <permission name="firmarActas.all" object="com.educaflow.apps.expedientes.db.FirmarActas">
-          <can read="true" create="false" write="true" import="false" export="false" remove="false"/>
-      </permission>-->
   </permissions>
 
   <group code="users">
@@ -190,10 +160,8 @@ AND cu.tipoUsuario = p.tipoUsuario AND (p.cargo IS NULL OR p.cargo MEMBER OF cu.
         <permission name="departamento.all"/>
         <permission name="cargos.all"/>
         <permission name="modulos.all"/>
-        <!--<permission name="expedientes.all"/>
-        <permission name="firmarActas.all"/>-->
     </permissions>
-  </group>
+  </group>-->
 
 
 </auth>

@@ -4,6 +4,20 @@
             xsi:schemaLocation="http://axelor.com/xml/ns/data-import
   https://axelor.com/xml/ns/data-import/data-import_7.4.xsd">
 
+    <input file="grados.xml" root="datos">
+        <bind node="grados/grado" type="com.educaflow.apps.sistemaeducativo.db.Grado" search="self.code = :code"  create="true">
+            <bind node="@code" to="code" />
+            <bind node="@name" to="name" />
+        </bind>
+    </input>
+
+    <input file="familias_profesionales.xml" root="datos">
+        <bind node="familias_profesionales/familia_profesional" type="com.educaflow.apps.sistemaeducativo.db.FamiliaProfesional" search="self.code = :code"  create="true">
+            <bind node="@code" to="code" />
+            <bind node="@name" to="name" />
+        </bind>
+    </input>
+
     <input file="modulos.xml" root="datos">
         <bind node="modulos/modulo" type="com.educaflow.apps.sistemaeducativo.db.Modulo" search="self.code = :code"  create="true">
             <bind node="@code" to="code" />
@@ -11,11 +25,26 @@
         </bind>
     </input>
 
-    <input file="grupos.xml" root="datos">
-        <bind node="grupos/grupo" type="com.educaflow.apps.sistemaeducativo.db.Grupo" search="self.code = :code"  create="true">
+    <input file="ciclos.xml" root="datos">
+        <bind node="ciclos/ciclo" type="com.educaflow.apps.sistemaeducativo.db.Ciclo" search="self.code = :code"  create="true">
             <bind node="@code" to="code" />
             <bind node="@name" to="name" />
-            <bind node="@tipoGrupo" to="tipoGrupo"/>
+
+            <!-- Relación con FamiliaProfesional -->
+            <bind node="@familiaProfesional"
+                  to="familiaProfesional"
+                  search="self.code = :fpCode"
+                  create="false">
+                <bind node="." to="code" alias="fpCode"/>
+            </bind>
+
+            <!-- Relación con Grado -->
+            <bind node="@grado"
+                  to="grado"
+                  search="self.code = :gradoCode"
+                  create="false">
+                <bind node="." to="code" alias="gradoCode"/>
+            </bind>
         </bind>
     </input>
 
@@ -23,143 +52,31 @@
         <bind node="cursos/curso" type="com.educaflow.apps.sistemaeducativo.db.Curso" search="self.code = :code"  create="true">
             <bind node="@code" to="code" />
             <bind node="@name" to="name" />
-            <bind node="modulos/modulo" to="modulos" search="self.code = :moduloCode" create="false">
-                <bind node="@code" to="code" alias="moduloCode"/>
-            </bind>
-        </bind>
-    </input>
 
-    <input file="ciclos.xml" root="datos">
-        <bind node="ciclos/ciclo" type="com.educaflow.apps.sistemaeducativo.db.Ciclo" search="self.code = :code"  create="true">
-            <bind node="@code" to="code" />
-            <bind node="@name" to="name" />
-            <bind node="cursos/curso" to="cursos" search="self.code = :cursoCode" create="false">
-                <bind node="@code" to="code" alias="cursoCode"/>
-            </bind>
-        </bind>
-    </input>
-
-<!--    <input file="tiposUsuarios.xml" root="datos">
-        <bind node="tiposUsuarios/tipoUsuario" type="com.educaflow.apps.sistemaeducativo.db.TipoUsuario" search="self.code = :code"  create="true">
-            <bind node="@code" to="code" />
-            <bind node="@name" to="name" />
-        </bind>
-    </input>-->
-
-    <input file="departamentos.xml" root="datos">
-        <bind node="departamentos/departamento" type="com.educaflow.apps.sistemaeducativo.db.Departamento" search="self.code = :code"  create="true">
-            <bind node="@code" to="code" />
-            <bind node="@name" to="name" />
-        </bind>
-    </input>
-
-
-
-    <input file="cargos.xml" root="datos">
-        <bind node="cargos/cargo" type="com.educaflow.apps.sistemaeducativo.db.Cargo" search="self.code = :code"  create="true">
-            <bind node="@code" to="code" />
-            <bind node="@name" to="name" />
-        </bind>
-    </input>
-
-    <input file="centros.xml" root="datos">
-        <bind node="centros/centro" type="com.educaflow.apps.sistemaeducativo.db.Centro" search="self.code = :code"  create="true">
-            <bind node="@code" to="code" />
-            <bind node="@name" to="name" />
-            <bind node="@address" to="address" />
-            <bind node="@city" to="city" />
-            <bind node="@postalCode" to="postalCode" />
-            <bind node="@country" to="country" />
-            <bind node="cargos/cargo" to="cargos" search="self.code = :cargoCode" create="false">
-                <bind node="@code" to="code" alias="cargoCode"/>
-            </bind>
-            <bind node="ciclos/ciclo" to="ciclos" search="self.code = :cicloCode" create="false">
-                <bind node="@code" to="code" alias="cicloCode"/>
-            </bind>
-        </bind>
-    </input>
-
-    <input file="usuarios.xml" root="datos">
-        <bind node="usuarios/usuario" type="com.axelor.auth.db.User" search="self.code = :code" call="com.axelor.auth.AuthService:encrypt" create="true">
-            <bind node="@code" to="code" />
-            <bind node="@name" to="name" />
-            <bind node="@group" to="group" search="self.code = :group" update="false" />
-            <bind node="@password" to="password" />
-            <bind node="@centroActivo" to="centroActivo" search="self.code = :centroActivoCode" create="false" >
-                <bind node="." to="code" alias="centroActivoCode"/>
+            <!-- Relación con Ciclo -->
+            <bind node="@ciclo"
+                  to="ciclo"
+                  search="self.code = :cicloCode"
+                  create="false">
+                <bind node="." to="code" alias="cicloCode"/>
             </bind>
         </bind>
     </input>
 
 
-    <input file="centroUsuarios.xml" root="datos">
-        <bind node="centroUsuarios/centroUsuario"
-              type="com.educaflow.apps.sistemaeducativo.db.CentroUsuario"
-              search="self.usuario.code = :usuarioCode and self.centro.code = :centroCode"
-              create="true">
-            <bind node="@usuario" to="usuario" search="self.code = :usuarioCode" create="false">
-                <bind node="." to="code" alias="usuarioCode"/>
-            </bind>
-            <bind node="@centro" to="centro" search="self.code = :centroCode" create="false">
-                <bind node="." to="code" alias="centroCode"/>
-            </bind>
-            <bind node="@tipoUsuario" to="tipoUsuario"/>
-            <bind node="departamentos/departamento" to="departamentos" search="self.code = :departamentoCode" create="false">
-                <bind node="@code" to="code" alias="departamentoCode"/>
-            </bind>
-            <bind node="cargos/cargo" to="cargos" search="self.code = :cargoCode" create="false">
-                <bind node="@code" to="code" alias="cargoCode"/>
-            </bind>
-        </bind>
-    </input>
-
-    <input file="centroCursos.xml" root="datos">
-        <bind node="centroCursos/centroCurso"
-              type="com.educaflow.apps.sistemaeducativo.db.CentroCurso"
-              search="self.centro.code = :centroCode and self.curso.code = :cursoCode"
-              create="true">
-            <bind node="@centro" to="centro" search="self.code = :centroCode" create="false">
-                <bind node="." to="code" alias="centroCode"/>
-            </bind>
-            <bind node="@curso" to="curso" search="self.code = :cursoCode" create="false">
+    <input file="cursoModulos.xml" root="datos">
+        <bind node="cursoModulos/cursoModulo" type="com.educaflow.apps.sistemaeducativo.db.CursoModulo" search="self.curso.code = :cursoCode AND self.modulo.code = :moduloCode"  create="true">
+            <bind node="@curso"
+                  to="curso"
+                  search="self.code = :cursoCode"
+                  create="false">
                 <bind node="." to="code" alias="cursoCode"/>
             </bind>
-            <bind node="grupos/grupo" to="grupos" search="self.code = :grupoCode" create="false">
-                <bind node="@code" to="code" alias="grupoCode"/>
-            </bind>
-        </bind>
-    </input>
-
-    <input file="centroDepartamentos.xml" root="datos">
-        <bind node="centroDepartamentos/centroDepartamento"
-              type="com.educaflow.apps.sistemaeducativo.db.CentroDepartamento"
-              search="self.centro.code = :centroCode and self.departamento.code = :departamentoCode"
-              create="true">
-            <bind node="@centro" to="centro" search="self.code = :centroCode" create="false">
-                <bind node="." to="code" alias="centroCode"/>
-            </bind>
-            <bind node="@departamento" to="departamento" search="self.code = :departamentoCode" create="false">
-                <bind node="." to="code" alias="departamentoCode"/>
-            </bind>
-            <bind node="@jefeDepartamento" to="jefeDepartamento" search="self.code = :userCode" create="false">
-                <bind node="." to="code" alias="userCode"/>
-            </bind>
-        </bind>
-    </input>
-
-    <input file="grupoModulos.xml" root="datos">
-        <bind node="grupoModulos/grupoModulo"
-              type="com.educaflow.apps.sistemaeducativo.db.GrupoModulo"
-              search="self.grupo.code = :grupoCode and self.modulo.code = :moduloCode"
-              create="true">
-            <bind node="@grupo" to="grupo" search="self.code = :grupoCode" create="false">
-                <bind node="." to="code" alias="grupoCode"/>
-            </bind>
-            <bind node="@modulo" to="modulo" search="self.code = :moduloCode" create="false">
+            <bind node="@modulo"
+                  to="modulo"
+                  search="self.code = :moduloCode"
+                  create="false">
                 <bind node="." to="code" alias="moduloCode"/>
-            </bind>
-            <bind node="profesores/profesor" to="profesores" search="self.code = :profesorCode" create="false">
-                <bind node="@code" to="code" alias="profesorCode"/>
             </bind>
         </bind>
     </input>

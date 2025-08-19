@@ -3,10 +3,9 @@
                xsi:schemaLocation="http://axelor.com/xml/ns/domain-models https://axelor.com/xml/ns/domain-models/domain-models_7.4.xsd">
 
     <module name="sistemaeducativo" package="com.educaflow.apps.sistemaeducativo.db"/>
-    <entity name="GrupoModulo">
-        <many-to-one name="grupo" ref="com.educaflow.apps.sistemaeducativo.db.Grupo"/>
-        <many-to-one name="modulo" ref="com.educaflow.apps.sistemaeducativo.db.Modulo"/>
-        <many-to-many name="profesores" ref="com.axelor.auth.db.User" />
+    <entity name="Grado">
+        <string name="code"  required="true"  />
+        <string name="name" namecolumn="true"  required="true" />
     </entity>
 
 </domain-models>

@@ -6,7 +6,7 @@
 
     <module name="expedientes" package="com.educaflow.apps.expedientes.db"/>
     <entity name="CertificadoTutor" extends="Expediente" >
-        <many-to-one name="centroCreador" ref="com.educaflow.apps.sistemaeducativo.db.Centro" transient="true" />
+        <many-to-one name="centroCreador" ref="com.educaflow.apps.configuracioncentro.db.Centro" transient="true" />
     </entity>
 
 </domain-models>

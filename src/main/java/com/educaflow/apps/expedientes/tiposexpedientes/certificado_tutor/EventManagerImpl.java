@@ -3,14 +3,13 @@ package com.educaflow.apps.expedientes.tiposexpedientes.certificado_tutor;
 import com.axelor.auth.AuthUtils;
 import com.axelor.auth.db.User;
 import com.axelor.db.JpaRepository;
+import com.educaflow.apps.configuracioncentro.db.Centro;
 import com.educaflow.apps.expedientes.common.EventContext;
 import com.educaflow.apps.expedientes.common.annotations.OnEnterState;
 import com.educaflow.apps.expedientes.common.annotations.WhenEvent;
 import com.educaflow.apps.expedientes.db.CertificadoTutor;
 import com.educaflow.apps.expedientes.db.ValoresAmbito;
 import com.educaflow.apps.expedientes.db.repo.CertificadoTutorRepository;
-import com.educaflow.apps.sistemaeducativo.db.Centro;
-import com.educaflow.apps.sistemaeducativo.db.CentroUsuario;
 import com.educaflow.common.util.AxelorDBUtil;
 import com.educaflow.common.validation.messages.BusinessException;
 
@@ -21,16 +20,16 @@ import org.slf4j.LoggerFactory;
 
 public class EventManagerImpl extends com.educaflow.apps.expedientes.common.EventManager<CertificadoTutor, CertificadoTutor.State, CertificadoTutor.Event,CertificadoTutor.Profile> {
 
-    private final CertificadoTutorRepository repository;
+    /*private final CertificadoTutorRepository repository;
     private final JpaRepository<CentroUsuario> centroUsuarioRepository;
-    protected final Logger log = LoggerFactory.getLogger(getClass());
+    protected final Logger log = LoggerFactory.getLogger(getClass());*/
 
 
     @Inject
     public EventManagerImpl(CertificadoTutorRepository repository) {
         super(CertificadoTutor.class, CertificadoTutor.State.class, CertificadoTutor.Event.class,CertificadoTutor.Profile.class);
-        this.repository = repository;
-        this.centroUsuarioRepository = AxelorDBUtil.getRepository(CentroUsuario.class);
+        /*this.repository = repository;
+        this.centroUsuarioRepository = AxelorDBUtil.getRepository(CentroUsuario.class);*/
     }
 
     @Override

@@ -23,7 +23,7 @@ class StateEventValidatorImpl: StateEventValidator {
     @BeanValidationRulesForStateAndEvent
     public fun getForStateEntradaDatosInEventPresentar(): BeanValidationRules {
         return rules {
-            field(model::getCiclo) {
+            /*field(model::getCiclo) {
                 +Required()
             }
             field(model::getCurso) {
@@ -31,7 +31,7 @@ class StateEventValidatorImpl: StateEventValidator {
             }
             field(model::getGrupo) {
                 +Required()
-            }
+            }*/
         }
     }
 

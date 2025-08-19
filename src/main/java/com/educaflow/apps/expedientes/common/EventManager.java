@@ -3,13 +3,16 @@ package com.educaflow.apps.expedientes.common;
 import com.educaflow.apps.expedientes.common.annotations.OnEnterState;
 import com.educaflow.apps.expedientes.common.annotations.WhenEvent;
 import com.educaflow.apps.expedientes.db.Expediente;
+import com.educaflow.apps.expedientes.db.TipoExpediente;
 import com.educaflow.common.util.AxelorViewUtil;
 import com.educaflow.common.util.ReflectionUtil;
 import com.educaflow.common.validation.messages.BusinessException;
 import com.google.common.base.CaseFormat;
 
+
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.util.Arrays;
 
 public abstract class EventManager<T extends Expediente, State extends Enum<State>, Event extends Enum<Event>, Profile extends Enum<Profile> > {
 
