@@ -1,14 +1,22 @@
 <?xml version="1.0"?>
 <datos>
     <departamentos>
-        <departamento code="INFORMATICA" name="Informática"/>
-        <departamento code="TURISMO" name="Turismo"/>
-        <departamento code="JARDINERIA" name="Jardinería"/>
+        <!-- Departamentos del centro 46019660 (CIPFP Mislata) -->
+        <departamento code="46019660_INFORMATICA" name="Informática" centro="46019660"/>
+        <departamento code="46019660_TURISMO" name="Turismo" centro="46019660"/>
+        <departamento code="46019660_ADMINISTRACION" name="Administración" centro="46019660"/>
+        <departamento code="46019660_PEE" name="Prácticas en Empresa" centro="46019660"/>
+        <departamento code="46019660_JEFESDEPARTAMENTO" name="Jefes de Departamento" centro="46019660"/>
+        <departamento code="46019660_EQUIPODIRECTIVO" name="Equipo Directivo" centro="46019660"/>
+        <departamento code="46019660_JEFESESTUDIO" name="Jefe de estudios" centro="46019660"/>
 
-
-        <departamento code="ADMINISTRACION" name="Administración"/>
-        <departamento code="PEE" name="Prácticas en Empresa"/>
-        <departamento code="JEFEDEPARTAMENTOS" name="Jefes de Departamento"/>
-        <departamento code="EQUIPODIRECTIVO" name="Equipo Directivo"/>
+        <!-- Departamentos del centro 46019015 (IES Serra Perenxisa) -->
+        <departamento code="46019015_INFORMATICA" name="Informática" centro="46019015"/>
+        <departamento code="46019015_JARDINERIA" name="Jardinería" centro="46019015"/>
+        <departamento code="46019015_ADMINISTRACION" name="Administración" centro="46019015"/>
+        <departamento code="46019015_PEE" name="Prácticas en Empresa" centro="46019015"/>
+        <departamento code="46019015_JEFESDEPARTAMENTO" name="Jefes de Departamento" centro="46019015"/>
+        <departamento code="46019015_EQUIPODIRECTIVO" name="Equipo Directivo" centro="46019015"/>
+        <departamento code="46019015_JEFESESTUDIO" name="Jefe de estudios" centro="46019015"/>
     </departamentos>
 </datos>

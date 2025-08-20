@@ -18,5 +18,6 @@
         <cargo code="COORDINADORCOMUNICACION" name="Coordinador de Comunicación"/>
         <cargo code="COORDINADORIGUALDAD" name="Coordinador de Igualdad y Convivencia"/>
         <cargo code="ADMIN" name="Administrador del centro"/>
+        <cargo code="DELEGADO" name="Delegado de curso"/>
     </cargos>
 </datos>

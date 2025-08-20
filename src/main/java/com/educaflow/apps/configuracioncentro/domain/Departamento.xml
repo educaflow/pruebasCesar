@@ -6,7 +6,8 @@
     <entity name="Departamento">
         <string name="code"  />
         <string name="name" namecolumn="true" />
-        <one-to-many name="cusoAcademico" ref="com.educaflow.apps.configuracioncentro.db.CursoAcademicoDepartamento" mappedBy="departamento" title="Curso académico"/>
+        <many-to-one name="centro" ref="com.educaflow.apps.configuracioncentro.db.Centro"/>
+        <one-to-many name="cursoAcademico" ref="com.educaflow.apps.configuracioncentro.db.CursoAcademicoDepartamento" mappedBy="departamento" title="Curso académico"/>
     </entity>
 
 </domain-models>

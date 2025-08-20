@@ -6,6 +6,8 @@
     <entity name="CursoAcademicoUsuario">
         <many-to-one name="cursoAcademico" ref="com.educaflow.apps.configuracioncentro.db.CursoAcademico" required="true" title="NO"/>
         <many-to-one name="usuario" ref="com.axelor.auth.db.User" required="true"/>
+        
+        <unique-constraint columns="cursoAcademico,usuario" name="uc_curso_academico_usuario" title="NO"/>
     </entity>
 
 </domain-models>

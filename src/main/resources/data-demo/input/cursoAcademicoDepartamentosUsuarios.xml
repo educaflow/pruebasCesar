@@ -1,0 +1,86 @@
+<?xml version="1.0"?>
+<datos>
+    <cursoAcademicoDepartamentosUsuarios>
+        <!-- Curso académico 2024-2025 -->
+        <cursoAcademicoDepartamentoUsuario usuario="cesar">
+            <cursoAcademicoDepartamento cursoAcademico="46019660_2425" departamento="46019660_INFORMATICA"/>
+        </cursoAcademicoDepartamentoUsuario>
+        <cursoAcademicoDepartamentoUsuario usuario="lorenzo">
+            <cursoAcademicoDepartamento cursoAcademico="46019660_2425" departamento="46019660_INFORMATICA"/>
+        </cursoAcademicoDepartamentoUsuario>
+        <cursoAcademicoDepartamentoUsuario usuario="salva">
+            <cursoAcademicoDepartamento cursoAcademico="46019660_2425" departamento="46019660_INFORMATICA"/>
+        </cursoAcademicoDepartamentoUsuario>
+        <cursoAcademicoDepartamentoUsuario usuario="salva">
+            <cursoAcademicoDepartamento cursoAcademico="46019660_2425" departamento="46019660_JEFESDEPARTAMENTO"/>
+        </cursoAcademicoDepartamentoUsuario>
+        <cursoAcademicoDepartamentoUsuario usuario="joaquin">
+            <cursoAcademicoDepartamento cursoAcademico="46019660_2425" departamento="46019660_INFORMATICA"/>
+        </cursoAcademicoDepartamentoUsuario>
+        <cursoAcademicoDepartamentoUsuario usuario="joaquin">
+            <cursoAcademicoDepartamento cursoAcademico="46019660_2425" departamento="46019660_EQUIPODIRECTIVO"/>
+        </cursoAcademicoDepartamentoUsuario>
+        <cursoAcademicoDepartamentoUsuario usuario="joaquin">
+            <cursoAcademicoDepartamento cursoAcademico="46019660_2425" departamento="46019660_JEFESESTUDIO"/>
+        </cursoAcademicoDepartamentoUsuario>
+        <cursoAcademicoDepartamentoUsuario usuario="murgui">
+            <cursoAcademicoDepartamento cursoAcademico="46019660_2425" departamento="46019660_INFORMATICA"/>
+        </cursoAcademicoDepartamentoUsuario>
+        <cursoAcademicoDepartamentoUsuario usuario="murgui">
+            <cursoAcademicoDepartamento cursoAcademico="46019660_2425" departamento="46019660_EQUIPODIRECTIVO"/>
+        </cursoAcademicoDepartamentoUsuario>
+        <cursoAcademicoDepartamentoUsuario usuario="murgui">
+            <cursoAcademicoDepartamento cursoAcademico="46019660_2425" departamento="46019660_JEFESESTUDIO"/>
+        </cursoAcademicoDepartamentoUsuario>
+        <cursoAcademicoDepartamentoUsuario usuario="rosa">
+            <cursoAcademicoDepartamento cursoAcademico="46019660_2425" departamento="46019660_ADMINISTRACION"/>
+        </cursoAcademicoDepartamentoUsuario>
+        <cursoAcademicoDepartamentoUsuario usuario="cristina">
+            <cursoAcademicoDepartamento cursoAcademico="46019660_2425" departamento="46019660_ADMINISTRACION"/>
+        </cursoAcademicoDepartamentoUsuario>
+
+        <!-- Curso académico 2025-2026 -->
+        <cursoAcademicoDepartamentoUsuario usuario="cesar">
+            <cursoAcademicoDepartamento cursoAcademico="46019660_2526" departamento="46019660_INFORMATICA"/>
+        </cursoAcademicoDepartamentoUsuario>
+        <cursoAcademicoDepartamentoUsuario usuario="lorenzo">
+            <cursoAcademicoDepartamento cursoAcademico="46019660_2526" departamento="46019660_INFORMATICA"/>
+        </cursoAcademicoDepartamentoUsuario>
+        <cursoAcademicoDepartamentoUsuario usuario="salva">
+            <cursoAcademicoDepartamento cursoAcademico="46019660_2526" departamento="46019660_INFORMATICA"/>
+        </cursoAcademicoDepartamentoUsuario>
+        <cursoAcademicoDepartamentoUsuario usuario="salva">
+            <cursoAcademicoDepartamento cursoAcademico="46019660_2526" departamento="46019660_JEFESDEPARTAMENTO"/>
+        </cursoAcademicoDepartamentoUsuario>
+        <cursoAcademicoDepartamentoUsuario usuario="joaquin">
+            <cursoAcademicoDepartamento cursoAcademico="46019660_2526" departamento="46019660_INFORMATICA"/>
+        </cursoAcademicoDepartamentoUsuario>
+        <cursoAcademicoDepartamentoUsuario usuario="joaquin">
+            <cursoAcademicoDepartamento cursoAcademico="46019660_2526" departamento="46019660_EQUIPODIRECTIVO"/>
+        </cursoAcademicoDepartamentoUsuario>
+        <cursoAcademicoDepartamentoUsuario usuario="joaquin">
+            <cursoAcademicoDepartamento cursoAcademico="46019660_2526" departamento="46019660_JEFESESTUDIO"/>
+        </cursoAcademicoDepartamentoUsuario>
+        <cursoAcademicoDepartamentoUsuario usuario="murgui">
+            <cursoAcademicoDepartamento cursoAcademico="46019660_2526" departamento="46019660_INFORMATICA"/>
+        </cursoAcademicoDepartamentoUsuario>
+        <cursoAcademicoDepartamentoUsuario usuario="murgui">
+            <cursoAcademicoDepartamento cursoAcademico="46019660_2526" departamento="46019660_EQUIPODIRECTIVO"/>
+        </cursoAcademicoDepartamentoUsuario>
+        <cursoAcademicoDepartamentoUsuario usuario="murgui">
+            <cursoAcademicoDepartamento cursoAcademico="46019660_2526" departamento="46019660_JEFESESTUDIO"/>
+        </cursoAcademicoDepartamentoUsuario>
+        <cursoAcademicoDepartamentoUsuario usuario="raquel">
+            <cursoAcademicoDepartamento cursoAcademico="46019660_2425" departamento="46019660_INFORMATICA"/>
+        </cursoAcademicoDepartamentoUsuario>
+        <cursoAcademicoDepartamentoUsuario usuario="luis">
+            <cursoAcademicoDepartamento cursoAcademico="46019660_2425" departamento="46019660_INFORMATICA"/>
+        </cursoAcademicoDepartamentoUsuario>
+        <cursoAcademicoDepartamentoUsuario usuario="rosa">
+            <cursoAcademicoDepartamento cursoAcademico="46019660_2526" departamento="46019660_ADMINISTRACION"/>
+        </cursoAcademicoDepartamentoUsuario>
+        <cursoAcademicoDepartamentoUsuario usuario="cristina">
+            <cursoAcademicoDepartamento cursoAcademico="46019660_2526" departamento="46019660_ADMINISTRACION"/>
+        </cursoAcademicoDepartamentoUsuario>
+    </cursoAcademicoDepartamentosUsuarios>
+</datos>

@@ -23,12 +23,11 @@
         </bind>
     </input>
 
-
-
     <input file="departamentos.xml" root="datos">
         <bind node="departamentos/departamento" type="com.educaflow.apps.configuracioncentro.db.Departamento" search="self.code = :code" create="true">
             <bind node="@code" to="code" />
             <bind node="@name" to="name" />
+            <bind node="@centro" to="centro" search="self.code = :centro" update="false" create="false"/>
         </bind>
     </input>
 
@@ -60,6 +59,25 @@
         </bind>
     </input>
 
+    <input file="cursoAcademicoDepartamentosUsuarios.xml" root="datos">
+        <bind node="cursoAcademicoDepartamentosUsuarios/cursoAcademicoDepartamentoUsuario"
+              type="com.educaflow.apps.configuracioncentro.db.CursoAcademicoDepartamentoUsuario"
+              search="self.cursoAcademicoDepartamento.cursoAcademico.code = :cursoAcademico
+              AND self.cursoAcademicoDepartamento.departamento.code = :departamento
+              AND self.usuario.code = :usuario"
+              create="true">
+            <bind node="@usuario" to="usuario" search="self.code = :usuario" create="false"/>
+
+            <bind node="cursoAcademicoDepartamento"
+                  to="cursoAcademicoDepartamento"
+                  search="self.cursoAcademico.code = :cursoAcademico AND self.departamento.code = :departamento"
+                  create="false">
+                <bind node="@cursoAcademico" to="cursoAcademico" search="self.code = :cursoAcademico" create="false"/>
+                <bind node="@departamento" to="departamento" search="self.code = :departamento" create="false"/>
+            </bind>
+
+        </bind>
+    </input>
 
 
 
