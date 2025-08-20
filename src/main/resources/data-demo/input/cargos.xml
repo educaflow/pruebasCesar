@@ -1,23 +1,25 @@
 <?xml version="1.0"?>
 <datos>
     <cargos>
-        <cargo code="DIRECTOR" name="Director"/>
-        <cargo code="VICEDIRECTOR" name="vicedirector"/>
-        <cargo code="JEFEESTUDIOS" name="Jefe de Estudios"/>
-        <cargo code="SECRETARIO" name="Secretario"/>
-        <cargo code="VICESECRETARIO" name="Vicesecretario"/>
-        <cargo code="JEFEDEPARTAMENTO" name="Jefe de Departamento"/>
-        <cargo code="RESPONSABLERIESGOSLABORALES" name="Responsable de Riesgos Laborales"/>
-        <cargo code="COORDINADORTIC" name="Coordinador TIC"/>
-        <cargo code="COORDINADORINTERNACIONALIZACION" name="Coordinador de Internacionalización"/>
-        <cargo code="COORDINADORFORMACION" name="Coordinador de Formación"/>
-        <cargo code="COORDINADORINNOVACION" name="Coordinador de Innovación"/>
-        <cargo code="COORDINADOREMPRENDIMIENTO" name="Coordinador de Emprendimiento"/>
-        <cargo code="COORDINADORCALIDAD" name="Coordinador de Calidad"/>
-        <cargo code="COORDINADORACREDITACIONES" name="Coordinador de Acreditaciones"/>
-        <cargo code="COORDINADORCOMUNICACION" name="Coordinador de Comunicación"/>
-        <cargo code="COORDINADORIGUALDAD" name="Coordinador de Igualdad y Convivencia"/>
-        <cargo code="ADMIN" name="Administrador del centro"/>
-        <cargo code="DELEGADO" name="Delegado de curso"/>
+        <cargo code="46019660_DIRECTOR" name="Director" centro="46019660" tipoUsuario="PROFESOR"/>
+        <cargo code="46019660_VICEDIRECTOR" name="vicedirector" centro="46019660" tipoUsuario="PROFESOR"/>
+        <cargo code="46019660_JEFEESTUDIOS" name="Jefe de Estudios" centro="46019660" tipoUsuario="PROFESOR"/>
+        <cargo code="46019660_SECRETARIO" name="Secretario" centro="46019660" tipoUsuario="PROFESOR"/>
+        <cargo code="46019660_VICESECRETARIO" name="Vicesecretario" centro="46019660" tipoUsuario="PROFESOR"/>
+        <cargo code="46019660_JEFEDEPARTAMENTO" name="Jefe de Departamento" centro="46019660" tipoUsuario="PROFESOR"/>
+        <cargo code="46019660_RESPONSABLERIESGOSLABORALES" name="Responsable de Riesgos Laborales" centro="46019660" tipoUsuario="PROFESOR"/>
+        <cargo code="46019660_COORDINADORTIC" name="Coordinador TIC" centro="46019660" tipoUsuario="PROFESOR"/>
+        <cargo code="46019660_COORDINADORINTERNACIONALIZACION" name="Coordinador de Internacionalización" centro="46019660" tipoUsuario="PROFESOR"/>
+        <cargo code="46019660_COORDINADORFORMACION" name="Coordinador de Formación" centro="46019660" tipoUsuario="PROFESOR"/>
+        <cargo code="46019660_COORDINADORINNOVACION" name="Coordinador de Innovación" centro="46019660" tipoUsuario="PROFESOR"/>
+        <cargo code="46019660_COORDINADOREMPRENDIMIENTO" name="Coordinador de Emprendimiento" centro="46019660" tipoUsuario="PROFESOR"/>
+        <cargo code="46019660_COORDINADORCALIDAD" name="Coordinador de Calidad" centro="46019660" tipoUsuario="PROFESOR"/>
+        <cargo code="46019660_COORDINADORACREDITACIONES" name="Coordinador de Acreditaciones" centro="46019660" tipoUsuario="PROFESOR"/>
+        <cargo code="46019660_COORDINADORCOMUNICACION" name="Coordinador de Comunicación" centro="46019660" tipoUsuario="PROFESOR"/>
+        <cargo code="46019660_COORDINADORIGUALDAD" name="Coordinador de Igualdad y Convivencia" centro="46019660" tipoUsuario="PROFESOR"/>
+        <cargo code="46019660_ADMIN" name="Administrador del centro" centro="46019660" tipoUsuario="PROFESOR" adminCentro="true"/>
+        <cargo code="46019660_DELEGADO" name="Delegado del curso" centro="46019660" tipoUsuario="ALUMNO"/>
+        <cargo code="46019660_SUBDELEGADO" name="Subdelegado del curso" centro="46019660" tipoUsuario="ALUMNO"/>
+        <cargo code="46019660_TUTOR" name="Tutor del curso" centro="46019660" tipoUsuario="PROFESOR"/>
     </cargos>
 </datos>

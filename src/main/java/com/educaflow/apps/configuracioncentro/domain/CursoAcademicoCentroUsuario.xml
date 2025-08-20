@@ -3,11 +3,11 @@
                xsi:schemaLocation="http://axelor.com/xml/ns/domain-models https://axelor.com/xml/ns/domain-models/domain-models_7.4.xsd">
 
     <module name="configuracioncentro" package="com.educaflow.apps.configuracioncentro.db"/>
-    <entity name="CursoAcademicoUsuario">
+    <entity name="CursoAcademicoCentroUsuario">
         <many-to-one name="cursoAcademico" ref="com.educaflow.apps.configuracioncentro.db.CursoAcademico" required="true" title="NO"/>
-        <many-to-one name="usuario" ref="com.axelor.auth.db.User" required="true"/>
+        <many-to-one name="centroUsuario" ref="com.educaflow.apps.configuracioncentro.db.CentroUsuario" required="true"/>
         
-        <unique-constraint columns="cursoAcademico,usuario" name="uc_curso_academico_usuario" title="NO"/>
+        <unique-constraint columns="cursoAcademico,centroUsuario" name="uc_curso_academico_centro_usuario" title="NO"/>
     </entity>
 
 </domain-models>

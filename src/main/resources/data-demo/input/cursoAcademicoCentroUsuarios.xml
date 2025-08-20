@@ -1,0 +1,94 @@
+<?xml version="1.0" ?>
+<datos>
+    <cursoAcademicoCentroUsuarios>
+        <!-- Curso académico 2024-2025 -->
+        <cursoAcademicoCentroUsuario cursoAcademico="46019660_2425">
+            <centroUsuario centro="46019660" usuario="cesar"/>
+        </cursoAcademicoCentroUsuario>
+        <cursoAcademicoCentroUsuario cursoAcademico="46019660_2425">
+            <centroUsuario centro="46019660" usuario="lorenzo"/>
+        </cursoAcademicoCentroUsuario>
+        <cursoAcademicoCentroUsuario cursoAcademico="46019660_2425">
+            <centroUsuario centro="46019660" usuario="salva"/>
+        </cursoAcademicoCentroUsuario>
+        <cursoAcademicoCentroUsuario cursoAcademico="46019660_2425">
+            <centroUsuario centro="46019660" usuario="raquel"/>
+        </cursoAcademicoCentroUsuario>
+        <cursoAcademicoCentroUsuario cursoAcademico="46019660_2425">
+            <centroUsuario centro="46019660" usuario="adela"/>
+        </cursoAcademicoCentroUsuario>
+
+        <cursoAcademicoCentroUsuario cursoAcademico="46019660_2425">
+            <centroUsuario centro="46019660" usuario="joaquin"/>
+        </cursoAcademicoCentroUsuario>
+        <cursoAcademicoCentroUsuario cursoAcademico="46019660_2425">
+            <centroUsuario centro="46019660" usuario="murgui"/>
+        </cursoAcademicoCentroUsuario>
+
+        <cursoAcademicoCentroUsuario cursoAcademico="46019660_2425">
+            <centroUsuario centro="46019660" usuario="rosa"/>
+        </cursoAcademicoCentroUsuario>
+        <cursoAcademicoCentroUsuario cursoAcademico="46019660_2425">
+            <centroUsuario centro="46019660" usuario="cristina"/>
+        </cursoAcademicoCentroUsuario>
+
+        <cursoAcademicoCentroUsuario cursoAcademico="46019660_2425">
+            <centroUsuario centro="46019660" usuario="angela"/>
+        </cursoAcademicoCentroUsuario>
+        <cursoAcademicoCentroUsuario cursoAcademico="46019660_2425">
+            <centroUsuario centro="46019660" usuario="marcos"/>
+        </cursoAcademicoCentroUsuario>
+        <cursoAcademicoCentroUsuario cursoAcademico="46019660_2425">
+            <centroUsuario centro="46019660" usuario="sole"/>
+        </cursoAcademicoCentroUsuario>
+
+        <!-- Curso académico 2025-2026 -->
+        <cursoAcademicoCentroUsuario cursoAcademico="46019660_2526">
+            <centroUsuario centro="46019660" usuario="cesar"/>
+        </cursoAcademicoCentroUsuario>
+        <cursoAcademicoCentroUsuario cursoAcademico="46019660_2526">
+            <centroUsuario centro="46019660" usuario="lorenzo"/>
+        </cursoAcademicoCentroUsuario>
+        <cursoAcademicoCentroUsuario cursoAcademico="46019660_2526">
+            <centroUsuario centro="46019660" usuario="salva"/>
+        </cursoAcademicoCentroUsuario>
+        <cursoAcademicoCentroUsuario cursoAcademico="46019660_2526">
+            <centroUsuario centro="46019660" usuario="raquel"/>
+        </cursoAcademicoCentroUsuario>
+        <cursoAcademicoCentroUsuario cursoAcademico="46019660_2526">
+            <centroUsuario centro="46019660" usuario="luis"/>
+        </cursoAcademicoCentroUsuario>
+        <cursoAcademicoCentroUsuario cursoAcademico="46019660_2526">
+            <centroUsuario centro="46019660" usuario="adela"/>
+        </cursoAcademicoCentroUsuario>
+
+        <cursoAcademicoCentroUsuario cursoAcademico="46019660_2526">
+            <centroUsuario centro="46019660" usuario="joaquin"/>
+        </cursoAcademicoCentroUsuario>
+        <cursoAcademicoCentroUsuario cursoAcademico="46019660_2526">
+            <centroUsuario centro="46019660" usuario="murgui"/>
+        </cursoAcademicoCentroUsuario>
+
+        <cursoAcademicoCentroUsuario cursoAcademico="46019660_2526">
+            <centroUsuario centro="46019660" usuario="rosa"/>
+        </cursoAcademicoCentroUsuario>
+        <cursoAcademicoCentroUsuario cursoAcademico="46019660_2526">
+            <centroUsuario centro="46019660" usuario="cristina"/>
+        </cursoAcademicoCentroUsuario>
+
+        <cursoAcademicoCentroUsuario cursoAcademico="46019660_2526">
+            <centroUsuario centro="46019660" usuario="angela"/>
+        </cursoAcademicoCentroUsuario>
+        <cursoAcademicoCentroUsuario cursoAcademico="46019660_2526">
+            <centroUsuario centro="46019660" usuario="marcos"/>
+        </cursoAcademicoCentroUsuario>
+        <cursoAcademicoCentroUsuario cursoAcademico="46019660_2526">
+            <centroUsuario centro="46019660" usuario="sole"/>
+        </cursoAcademicoCentroUsuario>
+
+
+        <cursoAcademicoCentroUsuario cursoAcademico="46019660_2526">
+            <centroUsuario centro="46019660" usuario="maria"/>
+        </cursoAcademicoCentroUsuario>
+    </cursoAcademicoCentroUsuarios>
+</datos>

@@ -6,6 +6,7 @@
     <tramite>FirmarActas</tramite>
     <ambitoCreador>DEPARTAMENTO</ambitoCreador>
     <ambitoResponsable>GRUPO</ambitoResponsable>
+    <ambitoAuditor>CENTRO</ambitoAuditor>
     <states>
         <state initial="true" name="ENTRADA_DATOS" profile="CREADOR" events="DELETE,PRESENTAR" />
         <state name="FIRMA_POR_USUARIOS" profile="RESPONSABLE" events="FIRMAR" />

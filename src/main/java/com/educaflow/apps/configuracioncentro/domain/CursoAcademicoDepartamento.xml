@@ -5,8 +5,10 @@
     <module name="configuracioncentro" package="com.educaflow.apps.configuracioncentro.db"/>
     <entity name="CursoAcademicoDepartamento">
         <many-to-one name="cursoAcademico" ref="com.educaflow.apps.configuracioncentro.db.CursoAcademico" required="true" title="NO"/>
-        <many-to-one name="departamento" ref="com.educaflow.apps.configuracioncentro.db.Departamento" required="true"/>
-        
+        <many-to-one name="departamento" ref="com.educaflow.apps.configuracioncentro.db.Departamento" required="true" title="NO"/>
+
+        <many-to-one name="jefeDepartamento" ref="com.axelor.auth.db.User" title="Jefe de departamento" required="false"/>
+
         <unique-constraint columns="cursoAcademico,departamento" name="uc_curso_academico_departamento" title="NO"/>
     </entity>
 

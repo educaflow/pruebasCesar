@@ -5,7 +5,9 @@
     <module name="configuracioncentro" package="com.educaflow.apps.configuracioncentro.db"/>
     <entity name="CursoAcademicoCargo">
         <many-to-one name="cursoAcademico" ref="com.educaflow.apps.configuracioncentro.db.CursoAcademico" required="true" title="NO"/>
-        <many-to-one name="cargo" ref="com.educaflow.apps.configuracioncentro.db.Cargo" required="true"/>
+        <many-to-one name="cargo" ref="com.educaflow.apps.configuracioncentro.db.Cargo" required="true" title="NO"/>
+
+        <unique-constraint columns="cursoAcademico,cargo" name="uc_curso_academico_cargo" title="NO"/>
     </entity>
 
 </domain-models>

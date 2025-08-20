@@ -3,7 +3,7 @@
     <grupos>
         <grupo code="46019660_1DAW" name="1DAW" tipoGrupo="PRESENCIAL"/>
         <grupo code="46019660_2DAW" name="2DAW" tipoGrupo="PRESENCIAL"/>
-        <grupo code="46019660_1SDAM" name="1DAM" tipoGrupo="SEMIPRESENCIAL"/>
+        <grupo code="46019660_1SDAM" name="1SDAM" tipoGrupo="SEMIPRESENCIAL"/>
         <grupo code="46019660_2SDAM" name="2SDAM" tipoGrupo="SEMIPRESENCIAL"/>
         <grupo code="46019660_1ASIR" name="1ASIR" tipoGrupo="PRESENCIAL"/>
         <grupo code="46019660_2ASIR" name="2ASIR" tipoGrupo="PRESENCIAL"/>

@@ -7,6 +7,12 @@
         <string name="code"  />
         <string name="name" namecolumn="true" />
         <many-to-one name="centro" ref="com.educaflow.apps.configuracioncentro.db.Centro"/>
+
+        <enum name="tipoUsuario" ref="com.educaflow.apps.configuracioncentro.db.TipoUsuario" title="Tipo de usuario"/>
+        <boolean name="adminCentro" title="Administrador del centro" default="false"/>
+
+
+
         <one-to-many name="cursoAcademico" ref="com.educaflow.apps.configuracioncentro.db.CursoAcademicoCargo" mappedBy="cargo" title="Curso académico"/>
     </entity>
 

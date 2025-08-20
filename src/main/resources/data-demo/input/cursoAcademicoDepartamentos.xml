@@ -2,8 +2,8 @@
 <datos>
     <cursoAcademicoDepartamentos>
         <!-- Curso académico 2024-2025 -->
-        <cursoAcademicoDepartamento cursoAcademico="46019660_2425" departamento="46019660_INFORMATICA"/>
-        <cursoAcademicoDepartamento cursoAcademico="46019660_2425" departamento="46019660_TURISMO"/>
+        <cursoAcademicoDepartamento cursoAcademico="46019660_2425" departamento="46019660_INFORMATICA" jefeDepartamento="salva"/>
+        <cursoAcademicoDepartamento cursoAcademico="46019660_2425" departamento="46019660_TURISMO" jefeDepartamento="adela"/>
         <cursoAcademicoDepartamento cursoAcademico="46019660_2425" departamento="46019660_ADMINISTRACION"/>
         <cursoAcademicoDepartamento cursoAcademico="46019660_2425" departamento="46019660_PEE"/>
         <cursoAcademicoDepartamento cursoAcademico="46019660_2425" departamento="46019660_JEFESDEPARTAMENTO"/>
@@ -11,7 +11,7 @@
         <cursoAcademicoDepartamento cursoAcademico="46019660_2425" departamento="46019660_JEFESESTUDIO"/>
 
         <!-- Curso académico 2025-2026 -->
-        <cursoAcademicoDepartamento cursoAcademico="46019660_2526" departamento="46019660_INFORMATICA"/>
+        <cursoAcademicoDepartamento cursoAcademico="46019660_2526" departamento="46019660_INFORMATICA" jefeDepartamento="salva"/>
         <cursoAcademicoDepartamento cursoAcademico="46019660_2526" departamento="46019660_ADMINISTRACION"/>
         <cursoAcademicoDepartamento cursoAcademico="46019660_2526" departamento="46019660_PEE"/>
         <cursoAcademicoDepartamento cursoAcademico="46019660_2526" departamento="46019660_JEFESDEPARTAMENTO"/>

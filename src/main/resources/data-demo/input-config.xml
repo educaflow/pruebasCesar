@@ -15,22 +15,6 @@
         </bind>
     </input>
 
-    <input file="cursosAcademicos.xml" root="datos">
-        <bind node="cursosAcademicos/cursoAcademico" type="com.educaflow.apps.configuracioncentro.db.CursoAcademico" search="self.code = :code" create="true">
-            <bind node="@code" to="code" />
-            <bind node="@name" to="name" />
-            <bind node="@centro" to="centro" search="self.code=:centro" update="false" create="false"/>
-        </bind>
-    </input>
-
-    <input file="departamentos.xml" root="datos">
-        <bind node="departamentos/departamento" type="com.educaflow.apps.configuracioncentro.db.Departamento" search="self.code = :code" create="true">
-            <bind node="@code" to="code" />
-            <bind node="@name" to="name" />
-            <bind node="@centro" to="centro" search="self.code = :centro" update="false" create="false"/>
-        </bind>
-    </input>
-
     <input file="usuarios.xml" root="datos">
         <bind node="usuarios/usuario" type="com.axelor.auth.db.User" create="true" search="self.code = :code" call="com.axelor.auth.AuthService:encrypt">
             <bind node="@code" to="code" />
@@ -41,13 +25,19 @@
         </bind>
     </input>
 
-    <input file="cursoAcademicoDepartamentos.xml" root="datos">
-        <bind node="cursoAcademicoDepartamentos/cursoAcademicoDepartamento"
-              type="com.educaflow.apps.configuracioncentro.db.CursoAcademicoDepartamento"
-              search="self.cursoAcademico.code = :cursoAcademico AND self.departamento.code = :departamento"
-              create="true">
-            <bind node="@cursoAcademico" to="cursoAcademico" search="self.code = :cursoAcademico" create="false"/>
-            <bind node="@departamento" to="departamento" search="self.code = :departamento" create="false"/>
+    <input file="centroUsuarios.xml" root="datos">
+        <bind node="centroUsuarios/centroUsuario" type="com.educaflow.apps.configuracioncentro.db.CentroUsuario" search="self.centro.code = :centro AND self.usuario.code = :usuario" create="true">
+            <bind node="@centro" to="centro" search="self.code = :centro" create="false"/>
+            <bind node="@usuario" to="usuario" search="self.code = :usuario" create="false"/>
+            <bind node="@tipoUsuario" to="tipoUsuario" search="self.code = :tipoUsuario" update="false" create="false"/>
+        </bind>
+    </input>
+
+    <input file="cursosAcademicos.xml" root="datos">
+        <bind node="cursosAcademicos/cursoAcademico" type="com.educaflow.apps.configuracioncentro.db.CursoAcademico" search="self.code = :code" create="true">
+            <bind node="@code" to="code" />
+            <bind node="@name" to="name" />
+            <bind node="@centro" to="centro" search="self.code=:centro" update="false" create="false"/>
         </bind>
     </input>
 
@@ -59,25 +49,89 @@
         </bind>
     </input>
 
-    <input file="cursoAcademicoDepartamentosUsuarios.xml" root="datos">
-        <bind node="cursoAcademicoDepartamentosUsuarios/cursoAcademicoDepartamentoUsuario"
-              type="com.educaflow.apps.configuracioncentro.db.CursoAcademicoDepartamentoUsuario"
-              search="self.cursoAcademicoDepartamento.cursoAcademico.code = :cursoAcademico
-              AND self.cursoAcademicoDepartamento.departamento.code = :departamento
-              AND self.usuario.code = :usuario"
-              create="true">
-            <bind node="@usuario" to="usuario" search="self.code = :usuario" create="false"/>
+    <input file="departamentos.xml" root="datos">
+        <bind node="departamentos/departamento" type="com.educaflow.apps.configuracioncentro.db.Departamento" search="self.code = :code" create="true">
+            <bind node="@code" to="code" />
+            <bind node="@name" to="name" />
+            <bind node="@centro" to="centro" search="self.code = :centro" update="false" create="false"/>
+            <bind node="@familiaProfesional" to="familiaProfesional" search="self.code = :familiaProfesional" update="false" create="false"/>
+            <bind node="@tipoDepartamento" to="tipoDepartamento" search="self.code = :tipoDepartamento" update="false" create="false"/>
+        </bind>
+    </input>
 
-            <bind node="cursoAcademicoDepartamento"
-                  to="cursoAcademicoDepartamento"
-                  search="self.cursoAcademico.code = :cursoAcademico AND self.departamento.code = :departamento"
+    <input file="cargos.xml" root="datos">
+        <bind node="cargos/cargo" type="com.educaflow.apps.configuracioncentro.db.Cargo" search="self.code = :code" create="true">
+            <bind node="@code" to="code" />
+            <bind node="@name" to="name" />
+            <bind node="@centro" to="centro" search="self.code = :centro" update="false" create="false"/>
+            <bind node="@tipoUsuario" to="tipoUsuario" search="self.code = :tipoUsuario" update="false" create="false"/>
+            <bind node="@adminCentro" to="adminCentro"/>
+        </bind>
+    </input>
+
+    <input file="grupos.xml" root="datos">
+        <bind node="grupos/grupo" type="com.educaflow.apps.configuracioncentro.db.Grupo" search="self.code = :code" create="true">
+            <bind node="@code" to="code" />
+            <bind node="@name" to="name" />
+            <bind node="@tipoGrupo" to="tipoGrupo" search="self.code = :tipoGrupo" update="false" create="false"/>
+        </bind>
+    </input>
+
+
+    <input file="cursoAcademicoCentroUsuarios.xml" root="datos">
+        <bind node="cursoAcademicoCentroUsuarios/cursoAcademicoCentroUsuario"
+              type="com.educaflow.apps.configuracioncentro.db.CursoAcademicoCentroUsuario"
+              search="self.cursoAcademico.code = :cursoAcademico AND self.centroUsuario.centro = :centro AND self.centroUsuario.usuario.code = :usuario"
+              create="true">
+            <bind node="@cursoAcademico" to="cursoAcademico" search="self.code = :cursoAcademico" create="false"/>
+
+            <bind node="centroUsuario"
+                  to="centroUsuario"
+                  search="self.centro.code = :centro AND self.usuario.code = :usuario"
                   create="false">
-                <bind node="@cursoAcademico" to="cursoAcademico" search="self.code = :cursoAcademico" create="false"/>
-                <bind node="@departamento" to="departamento" search="self.code = :departamento" create="false"/>
+                <bind node="@centro" to="centro" search="self.code = :centro" create="false"/>
+                <bind node="@usuario" to="usuario" search="self.code = :usuario" create="false"/>
             </bind>
 
         </bind>
     </input>
+
+    <input file="cursoAcademicoDepartamentos.xml" root="datos">
+        <bind node="cursoAcademicoDepartamentos/cursoAcademicoDepartamento"
+              type="com.educaflow.apps.configuracioncentro.db.CursoAcademicoDepartamento"
+              search="self.cursoAcademico.code = :cursoAcademico AND self.departamento.code = :departamento"
+              create="true">
+            <bind node="@cursoAcademico" to="cursoAcademico" search="self.code = :cursoAcademico" create="false"/>
+            <bind node="@departamento" to="departamento" search="self.code = :departamento" create="false"/>
+            <bind node="@jefeDepartamento" to="jefeDepartamento" search="self.code = :jefeDepartamento" update="false" create="false"/>
+        </bind>
+    </input>
+
+    <input file="cursoAcademicoCargos.xml" root="datos">
+        <bind node="cursoAcademicoCargos/cursoAcademicoCargo"
+              type="com.educaflow.apps.configuracioncentro.db.CursoAcademicoCargo"
+              search="self.cursoAcademico.code = :cursoAcademico AND self.cargo.code = :cargo"
+              create="true">
+            <bind node="@cursoAcademico" to="cursoAcademico" search="self.code = :cursoAcademico" create="false"/>
+            <bind node="@cargo" to="cargo" search="self.code = :cargo" create="false"/>
+        </bind>
+    </input>
+
+
+    <input file="cursoAcademicoGrupos.xml" root="datos">
+        <bind node="cursoAcademicoGrupos/cursoAcademicoGrupo"
+              type="com.educaflow.apps.configuracioncentro.db.CursoAcademicoGrupo"
+              search="self.cursoAcademico.code = :cursoAcademico AND self.grupo.code = :grupo"
+              create="true">
+            <bind node="@cursoAcademico" to="cursoAcademico" search="self.code = :cursoAcademico" create="false"/>
+            <bind node="@grupo" to="grupo" search="self.code = :grupo" create="false"/>
+            <bind node="@curso" to="curso" search="self.code = :curso" create="false"/>
+            <bind node="@tutor" to="tutor" search="self.code = :tutor" update="false" create="false"/>
+            <bind node="@delegado" to="delegado" search="self.code = :delegado" update="false" create="false"/>
+            <bind node="@subdelegado" to="subdelegado" search="self.code = :subdelegado" update="false" create="false"/>
+        </bind>
+    </input>
+
 
 
 

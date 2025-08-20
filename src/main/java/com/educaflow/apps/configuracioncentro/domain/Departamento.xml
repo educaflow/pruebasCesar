@@ -7,7 +7,15 @@
         <string name="code"  />
         <string name="name" namecolumn="true" />
         <many-to-one name="centro" ref="com.educaflow.apps.configuracioncentro.db.Centro"/>
+        <many-to-one name="familiaProfesional" ref="com.educaflow.apps.sistemaeducativo.db.FamiliaProfesional" title="Familia Profesional"/>
+        <enum name="tipoDepartamento" ref="TipoDepartamento" title="Tipo de Departamento"/>
+
         <one-to-many name="cursoAcademico" ref="com.educaflow.apps.configuracioncentro.db.CursoAcademicoDepartamento" mappedBy="departamento" title="Curso académico"/>
     </entity>
 
+    <enum name="TipoDepartamento">
+        <item name="DOCENTE" title="Docente"/>
+        <item name="DOCENTESINFAMILIA" title="Docente sin familia profesional"/>
+        <item name="NODOCENTE" title="No Docente"/>
+    </enum>
 </domain-models>

@@ -1,0 +1,18 @@
+<domain-models xmlns="http://axelor.com/xml/ns/domain-models"
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:schemaLocation="http://axelor.com/xml/ns/domain-models https://axelor.com/xml/ns/domain-models/domain-models_7.4.xsd">
+
+    <module name="configuracioncentro" package="com.educaflow.apps.configuracioncentro.db"/>
+    <entity name="CursoAcademicoGrupo">
+        <many-to-one name="cursoAcademico" ref="com.educaflow.apps.configuracioncentro.db.CursoAcademico" required="true" title="NO"/>
+        <many-to-one name="grupo" ref="com.educaflow.apps.configuracioncentro.db.Grupo" required="true" title="NO"/>
+
+        <many-to-one name="curso" ref="com.educaflow.apps.sistemaeducativo.db.Curso" required="true"/>
+        <many-to-one name="tutor" ref="com.axelor.auth.db.User" />
+        <many-to-one name="delegado" ref="com.axelor.auth.db.User" />
+        <many-to-one name="subdelegado" ref="com.axelor.auth.db.User" />
+
+        <unique-constraint columns="cursoAcademico,grupo" name="uc_curso_academico_grupo" title="NO"/>
+    </entity>
+
+</domain-models>

@@ -1,0 +1,19 @@
+<?xml version="1.0" ?>
+<datos>
+    <cursoAcademicoCargos>
+        <!-- Curso académico 2024-2025 -->
+        <cursoAcademicoCargo cursoAcademico="46019660_2425" cargo="46019660_JEFEDEPARTAMENTO"/>
+        <cursoAcademicoCargo cursoAcademico="46019660_2425" cargo="46019660_JEFEESTUDIOS"/>
+        <cursoAcademicoCargo cursoAcademico="46019660_2425" cargo="46019660_COORDINADORTIC"/>
+        <cursoAcademicoCargo cursoAcademico="46019660_2425" cargo="46019660_DELEGADO"/>
+        <cursoAcademicoCargo cursoAcademico="46019660_2425" cargo="46019660_SUBDELEGADO"/>
+        <cursoAcademicoCargo cursoAcademico="46019660_2425" cargo="46019660_TUTOR"/>
+
+        <!-- Curso académico 2025-2026 -->
+        <cursoAcademicoCargo cursoAcademico="46019660_2526" cargo="46019660_JEFEDEPARTAMENTO"/>
+        <cursoAcademicoCargo cursoAcademico="46019660_2526" cargo="46019660_JEFEESTUDIOS"/>
+        <cursoAcademicoCargo cursoAcademico="46019660_2425" cargo="46019660_DELEGADO"/>
+        <cursoAcademicoCargo cursoAcademico="46019660_2425" cargo="46019660_SUBDELEGADO"/>
+        <cursoAcademicoCargo cursoAcademico="46019660_2425" cargo="46019660_TUTOR"/>
+    </cursoAcademicoCargos>
+</datos>

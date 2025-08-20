@@ -5,9 +5,6 @@
     <module name="auth" package="com.axelor.auth.db"/>
     <entity name="User" id="Usuario">
         <many-to-one name="centroActivo" ref="com.educaflow.apps.configuracioncentro.db.Centro" title="Centro Actual" />
-        <one-to-many name="cursoAcademicoUsuario" ref="com.educaflow.apps.configuracioncentro.db.CursoAcademicoUsuario" mappedBy="usuario" title="Cursos Académicos" />
-        <one-to-many name="cursoAcademicoCargoUsuario" ref="com.educaflow.apps.configuracioncentro.db.CursoAcademicoCargoUsuario" mappedBy="usuario" title="Cargos por Curso Académico" />
-        <one-to-many name="cursoAcademicoDepartamentoUsuario" ref="com.educaflow.apps.configuracioncentro.db.CursoAcademicoDepartamentoUsuario" mappedBy="usuario" title="Departamentos por Curso Académico" />
     </entity>
 
 </domain-models>
