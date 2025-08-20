@@ -18,6 +18,20 @@
         </bind>
     </input>
 
+    <input file="niveles.xml" root="datos">
+        <bind node="niveles/nivel" type="com.educaflow.apps.sistemaeducativo.db.Nivel" search="self.code = :code"  create="true">
+            <bind node="@code" to="code" />
+            <bind node="@name" to="name" />
+        </bind>
+    </input>
+
+    <input file="leyes_educativas.xml" root="datos">
+        <bind node="leyes_educativas/ley_educativa" type="com.educaflow.apps.sistemaeducativo.db.LeyEducativa" search="self.code = :code"  create="true">
+            <bind node="@code" to="code" />
+            <bind node="@name" to="name" />
+        </bind>
+    </input>
+
     <input file="modulos.xml" root="datos">
         <bind node="modulos/modulo" type="com.educaflow.apps.sistemaeducativo.db.Modulo" search="self.code = :code"  create="true">
             <bind node="@code" to="code" />
@@ -29,22 +43,19 @@
         <bind node="ciclos/ciclo" type="com.educaflow.apps.sistemaeducativo.db.Ciclo" search="self.code = :code"  create="true">
             <bind node="@code" to="code" />
             <bind node="@name" to="name" />
+            <bind node="@familiaProfesional" to="familiaProfesional" search="self.code = :familiaProfesional" create="false"/>
+            <bind node="@grado" to="grado" search="self.code = :grado" create="false"/>
+            <bind node="@nivel" to="nivel" search="self.code = :nivel" create="false"/>
+        </bind>
+    </input>
 
-            <!-- Relación con FamiliaProfesional -->
-            <bind node="@familiaProfesional"
-                  to="familiaProfesional"
-                  search="self.code = :fpCode"
-                  create="false">
-                <bind node="." to="code" alias="fpCode"/>
-            </bind>
-
-            <!-- Relación con Grado -->
-            <bind node="@grado"
-                  to="grado"
-                  search="self.code = :gradoCode"
-                  create="false">
-                <bind node="." to="code" alias="gradoCode"/>
-            </bind>
+    <input file="ciclosLeyesEducativas.xml" root="datos">
+        <bind node="ciclosLeyesEducativas/cicloLeyEducativa"
+              type="com.educaflow.apps.sistemaeducativo.db.CicloLeyEducativa"
+              search="self.ciclo.code = :ciclo AND self.leyEducativa.code = :leyEducativa"
+              create="true">
+            <bind node="@ciclo" to="ciclo" search="self.code = :ciclo" create="false"/>
+            <bind node="@leyEducativa" to="leyEducativa" search="self.code = :leyEducativa" create="false"/>
         </bind>
     </input>
 
@@ -52,32 +63,27 @@
         <bind node="cursos/curso" type="com.educaflow.apps.sistemaeducativo.db.Curso" search="self.code = :code"  create="true">
             <bind node="@code" to="code" />
             <bind node="@name" to="name" />
-
-            <!-- Relación con Ciclo -->
-            <bind node="@ciclo"
-                  to="ciclo"
-                  search="self.code = :cicloCode"
-                  create="false">
-                <bind node="." to="code" alias="cicloCode"/>
+            <bind node="cicloLeyEducativa"
+                  to="cicloLeyEducativa"
+                  create="false"
+                  type="com.educaflow.apps.sistemaeducativo.db.CicloLeyEducativa"
+                  search="self.ciclo.code = :ciclo AND self.leyEducativa.code = :leyEducativa">
+                <bind node="@ciclo" to="ciclo" search="self.code = :ciclo" create="false"/>
+                <bind node="@leyEducativa" to="leyEducativa" search="self.code = :leyEducativa" create="false"/>
             </bind>
         </bind>
     </input>
 
 
+
+
     <input file="cursoModulos.xml" root="datos">
-        <bind node="cursoModulos/cursoModulo" type="com.educaflow.apps.sistemaeducativo.db.CursoModulo" search="self.curso.code = :cursoCode AND self.modulo.code = :moduloCode"  create="true">
-            <bind node="@curso"
-                  to="curso"
-                  search="self.code = :cursoCode"
-                  create="false">
-                <bind node="." to="code" alias="cursoCode"/>
-            </bind>
-            <bind node="@modulo"
-                  to="modulo"
-                  search="self.code = :moduloCode"
-                  create="false">
-                <bind node="." to="code" alias="moduloCode"/>
-            </bind>
+        <bind node="cursoModulos/cursoModulo"
+              type="com.educaflow.apps.sistemaeducativo.db.CursoModulo"
+              search="self.curso.code = :cursoCode AND self.modulo.code = :moduloCode"
+              create="true">
+            <bind node="@curso" to="curso" search="self.code = :curso" create="false" />
+            <bind node="@modulo" to="modulo" search="self.code = :modulo" create="false"/>
         </bind>
     </input>
 

@@ -10,6 +10,7 @@
         <string name="city" title="Ciudad"/>
         <string name="postalCode" title="Código Postal"/>
         <string name="country" title="Provincia"/>
+        <one-to-one name="cursoAcademicoActual" ref="com.educaflow.apps.configuracioncentro.db.CursoAcademico" title="Curso académico actual"/>
         <one-to-many name="cursosAcademicos" ref="com.educaflow.apps.configuracioncentro.db.CursoAcademico" mappedBy="centro" title="Cursos académicos"/>
     </entity>
 

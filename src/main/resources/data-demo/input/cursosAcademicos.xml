@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<datos>
+    <cursosAcademicos>
+        <cursoAcademico code="46019660_2425" name="CIPFP Mislata Curso 2024-25" centro="46019660"/>
+        <cursoAcademico code="46019660_2526" name="CIPFP Mislata Curso 2025-26" centro="46019660"/>
+        <cursoAcademico code="46019015_2526" name="IES Serra Perenxisa Curso 2025-26" centro="46019015"/>
+    </cursosAcademicos>
+</datos>

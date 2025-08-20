@@ -1,19 +1,47 @@
 <?xml version="1.0"?>
 <datos>
     <cursos>
-        <curso code="DAW1" name="1DAW" ciclo="DAW" />
-        <curso code="DAW2" name="2DAW" ciclo="DAW" />
-        <curso code="DAM1" name="1DAM" ciclo="DAM"/>
-        <curso code="DAM2" name="2DAM" ciclo="DAM"/>
-        <curso code="ASIR1" name="1ASIR" ciclo="ASIR"/>
-        <curso code="ASIR2" name="2ASIR" ciclo="ASIR"/>
-        <curso code="SMR1" name="1SMR" ciclo="SMR"/>
-        <curso code="SMR2" name="2SMR" ciclo="SMR"/>
-        <curso code="GAT1" name="1GAT" ciclo="GAT"/>
-        <curso code="GAT2" name="2GAT" ciclo="GAT"/>
-        <curso code="GIAT1" name="1GIAT" ciclo="GIAT"/>
-        <curso code="GIAT2" name="2GIAT" ciclo="GIAT"/>
-        <curso code="AVGA1" name="1AVGA" ciclo="AVGA"/>
-        <curso code="AVGA2" name="2AVGA" ciclo="AVGA"/>
+        <curso code="DAW1" name="1DAW">
+                <cicloLeyEducativa ciclo="DAW" leyEducativa="LOFP"/>
+        </curso>
+        <curso code="DAW2" name="2DAW">
+                <cicloLeyEducativa ciclo="DAW" leyEducativa="LOFP"/>
+        </curso>
+        <curso code="DAM1" name="1DAM">
+                <cicloLeyEducativa ciclo="DAM" leyEducativa="LOFP"/>
+        </curso>
+        <curso code="DAM2" name="2DAM">
+                <cicloLeyEducativa ciclo="DAM" leyEducativa="LOFP"/>
+        </curso>
+        <curso code="ASIR1" name="1ASIR">
+                <cicloLeyEducativa ciclo="ASIR" leyEducativa="LOFP"/>
+        </curso>
+        <curso code="ASIR2" name="2ASIR">
+                <cicloLeyEducativa ciclo="ASIR" leyEducativa="LOFP"/>
+        </curso>
+        <curso code="SMR1" name="1SMR">
+                <cicloLeyEducativa ciclo="SMR" leyEducativa="LOFP"/>
+        </curso>
+        <curso code="SMR2" name="2SMR">
+                <cicloLeyEducativa ciclo="SMR" leyEducativa="LOFP"/>
+        </curso>
+        <curso code="GAT1" name="1GAT">
+                <cicloLeyEducativa ciclo="GAT" leyEducativa="LOFP"/>
+        </curso>
+        <curso code="GAT2" name="2GAT">
+                <cicloLeyEducativa ciclo="GAT" leyEducativa="LOFP"/>
+        </curso>
+        <curso code="GIAT1" name="1GIAT">
+                <cicloLeyEducativa ciclo="GIAT" leyEducativa="LOFP"/>
+        </curso>
+        <curso code="GIAT2" name="2GIAT">
+                <cicloLeyEducativa ciclo="GIAT" leyEducativa="LOFP"/>
+        </curso>
+        <curso code="AVGA1" name="1AVGA">
+                <cicloLeyEducativa ciclo="AVGA" leyEducativa="LOFP"/>
+        </curso>
+        <curso code="AVGA2" name="2AVGA">
+                <cicloLeyEducativa ciclo="AVGA" leyEducativa="LOFP"/>
+        </curso>
     </cursos>
 </datos>

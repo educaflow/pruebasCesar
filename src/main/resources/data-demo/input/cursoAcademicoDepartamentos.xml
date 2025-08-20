@@ -1,0 +1,11 @@
+<?xml version="1.0" ?>
+<datos>
+    <cursoAcademicoDepartamentos>
+        <cursoAcademicoDepartamento cursoAcademico="46019660_2425" departamento="INFORMATICA"/>
+        <cursoAcademicoDepartamento cursoAcademico="46019660_2425" departamento="TURISMO"/>
+        <cursoAcademicoDepartamento cursoAcademico="46019660_2425" departamento="ADMINISTRACION"/>
+        <cursoAcademicoDepartamento cursoAcademico="46019660_2425" departamento="PEE"/>
+        <cursoAcademicoDepartamento cursoAcademico="46019660_2425" departamento="JEFEDEPARTAMENTOS"/>
+        <cursoAcademicoDepartamento cursoAcademico="46019660_2425" departamento="EQUIPODIRECTIVO"/>
+    </cursoAcademicoDepartamentos>
+</datos>

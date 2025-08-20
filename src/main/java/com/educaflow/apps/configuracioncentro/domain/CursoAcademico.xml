@@ -6,7 +6,6 @@
     <entity name="CursoAcademico">
         <string name="code"  />
         <string name="name" namecolumn="true" />
-        <string name="cursoAcademico" title="Curso Académico" />
         <many-to-one name="centro" ref="com.educaflow.apps.configuracioncentro.db.Centro" required="true"/>
         <one-to-many name="departamentos" ref="com.educaflow.apps.configuracioncentro.db.CursoAcademicoDepartamento" mappedBy="cursoAcademico"/>
         <one-to-many name="cargos" ref="com.educaflow.apps.configuracioncentro.db.CursoAcademicoCargo" mappedBy="cursoAcademico"/>

@@ -18,7 +18,11 @@ public class SecretariaVirtualModule extends AxelorModule {
 
         Set<String> tablasExcluidas = Set.of("meta_file", "meta_sequence", "auth_user", "auth_group", "meta_filter");
         Set<String> tablasIncluidas = Set.of("expedientes_estado_tipo_expediente");
-
+        /*
+        flyway
+        demo
+        data.import.demo-data
+         */
         BulkTables bulkTables = new BulkTables();
         bulkTables.truncateTables(dataBaseDriver,dataBaseURL,dataBaseUser,dataBasePassword,schemaName,tablasExcluidas,tablasIncluidas);
     }

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_7.4.xsd">
+
+    <!--<menuitem name="configuracioncentro-menu"  title="Configuración centro"  groups="admins"  order="300"/>-->
+    <!--<menuitem name="configuracioncentro-Centro-menu"  parent="configuracioncentro-menu" title="Centros" action="mant-Centro-action" groups="admins" order="2"  />-->
+    <!--<menuitem name="configuracioncentro-CursoAcademico-menu"  parent="configuracioncentro-menu" title="Cursos Académicos" action="mant-CursoAcademico-action" groups="admins" order="4"  />-->
+
+
+    <menuitem name="configuracioncentro-raw-menu"  title="Configuración Centro-RAW"  groups="admins"  order="400"/>
+    <menuitem name="configuracioncentro-raw-Departamento-menu" parent="configuracioncentro-raw-menu" title="Departamentos" action="mant-Departamento-action" groups="admins" order="1"  />
+    <!--<menuitem name="configuracioncentro-raw-FamiliaProfesional-menu"  parent="configuracioncentro-raw-menu" title="Familia profesional" action="mant-FamiliaProfesional-action" groups="admins" order="1"  />
+    <menuitem name="configuracioncentro-raw-Curso-menu"  parent="configuracioncentro-raw-menu" title="Cursos" action="mant-Curso-action" groups="admins" order="3"  />
+    <menuitem name="configuracioncentro-raw-CursoModulo-menu"  parent="configuracioncentro-raw-menu" title="Cursos-Módulos" action="mant-CursoModulo-action" groups="admins" order="4"  />
+    <menuitem name="configuracioncentro-raw-Grado-menu"  parent="configuracioncentro-raw-menu" title="Grados" action="mant-Grado-action" groups="admins" order="5"  />-->
+
+
+
+
+
+
+</object-views>
