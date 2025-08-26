@@ -1,0 +1,71 @@
+<?xml version="1.0" ?>
+<auth>
+    <permissions>
+        <!-- Permisos para usuarios -->
+        <permission name="usuario.self"
+                    object="com.axelor.auth.db.User"
+                    condition="self = ?"
+                    conditionParams="__user__">
+            <can read="true" write="true" create="false" delete="false" export="false" import="false"/>
+        </permission>
+        <permission name="usuario.centro"
+                    object="com.axelor.auth.db.User"
+                    condition="? = TRUE AND self.centroUsuario.centro = ?"
+                    conditionParams="__user__.adminCentroActivo, __user__.centroActivo">
+            <can read="true" write="false" create="false" delete="false" export="false" import="false"/>
+        </permission>
+        <permission name="usuario.cursoAcademico"
+                    object="com.axelor.auth.db.User"
+                    condition="? = FALSE
+                        AND ? IS NOT NULL
+                        AND self IN (
+                            SELECT cacu.centroUsuario.usuario
+                            FROM com.educaflow.apps.configuracioncentro.db.CursoAcademicoCentroUsuario cacu
+                            WHERE cacu.centroUsuario.centro = ? AND cacu.cursoAcademico = ?
+                    )"
+                    conditionParams="__user__.adminCentroActivo,__user__.tipoUsuarioCentroActivo,__user__.centroActivo, __user__.centroActivo.cursoAcademicoActual">
+            <can read="true" write="false" create="false" delete="false" export="false" import="false"/>
+        </permission>
+
+        <!-- Permisos para centros -->
+        <permission name="centro.all"
+                    object="com.educaflow.apps.configuracioncentro.db.Centro"
+                    condition="
+                        ? IS NOT NULL
+                        AND self IN (
+                            SELECT cu.centro
+                            FROM com.educaflow.apps.configuracioncentro.db.CentroUsuario cu
+                            WHERE cu.usuario = ?
+                        )"
+                    conditionParams="__user__.tipoUsuarioCentroActivo,__user__"
+        >
+            <can read="true" write="false" create="false" delete="false" export="false" import="false"/>
+        </permission>
+
+        <!-- Permisos para cursos académicos -->
+        <permission name="cursoAcademico.centro"
+                    object="com.educaflow.apps.configuracioncentro.db.CursoAcademico"
+                    condition="? = TRUE and self.centro = ?"
+                    conditionParams="__user__.adminCentroActivo, __user__.centroActivo">
+            <can read="true" write="false" create="false" delete="false" export="false" import="false"/>
+        </permission>
+
+        <permission name="cursoAcademico.usuario"
+                    object="com.educaflow.apps.configuracioncentro.db.CursoAcademico"
+                    condition="? = FALSE AND ? IS NOT NULL AND self = ?"
+                    conditionParams="__user__.adminCentroActivo, __user__.tipoUsuarioCentroActivo,__user__.centroActivo.cursoAcademicoActual">
+            <can read="true" write="false" create="false" delete="false" export="false" import="false"/>
+        </permission>
+    </permissions>
+
+    <group code="users">
+        <permissions>
+            <permission name="usuario.self"/>
+            <permission name="usuario.centro"/>
+            <permission name="usuario.cursoAcademico"/>
+            <permission name="centro.all"/>
+            <permission name="cursoAcademico.centro"/>
+            <permission name="cursoAcademico.usuario"/>
+        </permissions>
+    </group>
+</auth>

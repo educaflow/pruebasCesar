@@ -3,12 +3,12 @@
                xsi:schemaLocation="http://axelor.com/xml/ns/domain-models https://axelor.com/xml/ns/domain-models/domain-models_7.4.xsd">
 
     <module name="configuracioncentro" package="com.educaflow.apps.configuracioncentro.db"/>
-    <entity name="Grupo" repository="abstract">
-        <string name="code"  />
-        <string name="name" namecolumn="true" />
-        <enum name="tipoGrupo" ref="com.educaflow.apps.configuracioncentro.db.TipoGrupo" title="Tipo de Grupo"/>
-        <many-to-one name="centro" ref="com.educaflow.apps.configuracioncentro.db.Centro"/>
-    </entity>
-
+    <enum name="TipoUsuario">
+        <item name="PROFESOR" title="Docente"/>
+        <item name="ALUMNO" title="Estudiante"/>
+        <item name="ADMINISTRATIVO" title="Administración"/>
+        <item name="CONSERJE" title="Conserjería"/>
+        <item name="EXTERNO" title="Visitante"/>
+    </enum>
 
 </domain-models>

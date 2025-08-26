@@ -1,6 +1,7 @@
 <?xml version="1.0"?>
 <datos>
     <usuarios>
+        <!-- Usuarios del centro 46019660 (CIPFP Mislata) -->
         <usuario code="cesar" name="César Guijarro Rosaleny" group="users" password="cesar" centroActivo="46019660"/>
         <usuario code="lorenzo" name="Lorenzo González Gascón" group="users" password="lorenzo" centroActivo="46019660"/>
         <usuario code="salva" name="Salvador Del Toro Gómez" group="users" password="salva" centroActivo="46019660"/>
@@ -19,6 +20,9 @@
         <usuario code="angela" name="Ángela Hermosilla Del Río" group="users" password="angela" centroActivo="46019660"/>
         <usuario code="marcos" name="Marcos García Martínez" group="users" password="marcos" centroActivo="46019660"/>
         <usuario code="sole" name="Soledad García Martínez" group="users" password="sole" centroActivo="46019660"/>
+
+        <!-- Usuarios del centro 46019015 (IES Serra Perenxisa) -->
+        <usuario code="pedro" name="Pedro García Martínez" group="users" password="pedro" centroActivo="46019015"/>
     </usuarios>
 
 </datos>

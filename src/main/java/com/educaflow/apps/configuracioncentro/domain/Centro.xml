@@ -16,6 +16,8 @@
         <one-to-many name="cursosAcademicos" ref="com.educaflow.apps.configuracioncentro.db.CursoAcademico" mappedBy="centro" title="Cursos académicos"/>
         <one-to-many name="grupos" ref="com.educaflow.apps.configuracioncentro.db.Grupo" mappedBy="centro" title="Grupos"/>
         <one-to-many name="departamentos" ref="com.educaflow.apps.configuracioncentro.db.Departamento" mappedBy="centro" title="Departamentos"/>
+        <one-to-many name="cargos" ref="com.educaflow.apps.configuracioncentro.db.Cargo" mappedBy="centro" title="Cargos"/>
+        <one-to-many name="centroUsuarios" ref="com.educaflow.apps.configuracioncentro.db.CentroUsuario" mappedBy="centro" title="NO"/>
     </entity>
 
 </domain-models>

@@ -1,7 +1,7 @@
 <?xml version="1.0" ?>
 <datos>
     <cursoAcademicoDepartamentos>
-        <!-- Curso académico 2024-2025 -->
+        <!-- Curso académico 2024-2025 CIPFP Mislata -->
         <cursoAcademicoDepartamento cursoAcademico="46019660_2425" departamento="46019660_INFORMATICA" jefeDepartamento="salva"/>
         <cursoAcademicoDepartamento cursoAcademico="46019660_2425" departamento="46019660_TURISMO" jefeDepartamento="adela"/>
         <cursoAcademicoDepartamento cursoAcademico="46019660_2425" departamento="46019660_ADMINISTRACION"/>
@@ -10,12 +10,28 @@
         <cursoAcademicoDepartamento cursoAcademico="46019660_2425" departamento="46019660_EQUIPODIRECTIVO"/>
         <cursoAcademicoDepartamento cursoAcademico="46019660_2425" departamento="46019660_JEFESESTUDIO"/>
 
-        <!-- Curso académico 2025-2026 -->
+        <!-- Curso académico 2025-2026 CIPFP Mislata -->
         <cursoAcademicoDepartamento cursoAcademico="46019660_2526" departamento="46019660_INFORMATICA" jefeDepartamento="salva"/>
         <cursoAcademicoDepartamento cursoAcademico="46019660_2526" departamento="46019660_ADMINISTRACION"/>
         <cursoAcademicoDepartamento cursoAcademico="46019660_2526" departamento="46019660_PEE"/>
         <cursoAcademicoDepartamento cursoAcademico="46019660_2526" departamento="46019660_JEFESDEPARTAMENTO"/>
         <cursoAcademicoDepartamento cursoAcademico="46019660_2526" departamento="46019660_EQUIPODIRECTIVO"/>
         <cursoAcademicoDepartamento cursoAcademico="46019660_2526" departamento="46019660_JEFESESTUDIO"/>
+
+        <!-- Curso académico 2024-2025 IES Serra Perenxisa -->
+        <cursoAcademicoDepartamento cursoAcademico="46019015_2425" departamento="46019015_INFORMATICA" jefeDepartamento="lorenzo"/>
+        <cursoAcademicoDepartamento cursoAcademico="46019015_2425" departamento="46019015_JARDINERIA" jefeDepartamento="pedro"/>
+        <cursoAcademicoDepartamento cursoAcademico="46019015_2425" departamento="46019015_ADMINISTRACION"/>
+        <cursoAcademicoDepartamento cursoAcademico="46019015_2425" departamento="46019015_PEE"/>
+        <cursoAcademicoDepartamento cursoAcademico="46019015_2425" departamento="46019015_JEFESDEPARTAMENTO"/>
+        <cursoAcademicoDepartamento cursoAcademico="46019015_2425" departamento="46019015_EQUIPODIRECTIVO"/>
+        <cursoAcademicoDepartamento cursoAcademico="46019015_2425" departamento="46019015_JEFESESTUDIO"/>
+
+        <!-- Curso académico 2025-2026 IES Serra Perenxisa -->
+        <cursoAcademicoDepartamento cursoAcademico="46019015_2526" departamento="46019015_INFORMATICA" jefeDepartamento="lorenzo"/>
+        <cursoAcademicoDepartamento cursoAcademico="46019015_2526" departamento="46019015_ADMINISTRACION"/>
+        <cursoAcademicoDepartamento cursoAcademico="46019015_2526" departamento="46019015_JEFESDEPARTAMENTO"/>
+        <cursoAcademicoDepartamento cursoAcademico="46019015_2526" departamento="46019015_EQUIPODIRECTIVO"/>
+        <cursoAcademicoDepartamento cursoAcademico="46019015_2526" departamento="46019015_JEFESESTUDIO"/>
     </cursoAcademicoDepartamentos>
 </datos>

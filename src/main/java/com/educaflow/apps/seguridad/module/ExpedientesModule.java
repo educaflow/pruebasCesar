@@ -1,9 +1,8 @@
 package com.educaflow.apps.seguridad.module;
 
 import com.axelor.app.AxelorModule;
-import com.axelor.auth.EduFlowAuthResolver;
 import com.axelor.auth.EduFlowAuthResolverRegistry;
-import com.educaflow.apps.seguridad.ExpedientesAuthResolver;
+import com.educaflow.apps.seguridad.EducaFlowAuthResolver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -14,7 +13,7 @@ public class ExpedientesModule extends AxelorModule {
     @Override
     protected void configure() {
         log.info("Registrando ExpedientesAuthResolver...");
-        EduFlowAuthResolverRegistry.register(new ExpedientesAuthResolver());
+        EduFlowAuthResolverRegistry.register(new EducaFlowAuthResolver());
         log.info("ExpedientesAuthResolver registrado correctamente.");
     }
 

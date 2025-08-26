@@ -5,7 +5,7 @@
   https://axelor.com/xml/ns/data-import/data-import_7.4.xsd">
 
 
-<!--    <input file="auth.xml" root="auth">
+    <input file="auth_configuracioncentro.xml" root="auth">
         <bind node="permissions/permission" type="com.axelor.auth.db.Permission"  create="true" search="self.name = :name">
             <bind node="@name" to="name" />
             <bind node="@object" to="object" />
@@ -25,6 +25,6 @@
                 <bind node="@name" to="name" alias="permissionName"/>
             </bind>
         </bind>
-    </input>-->
+    </input>
 
 </xml-inputs>

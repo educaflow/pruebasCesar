@@ -9,6 +9,12 @@
 
         <many-to-one name="jefeDepartamento" ref="com.axelor.auth.db.User" title="Jefe de departamento" required="false"/>
 
+        <one-to-many
+                name="cursoAcademicoCentroUsuarios"
+                ref="com.educaflow.apps.configuracioncentro.db.CursoAcademicoCentroUsuarioCursoAcademicoDepartamento"
+                mappedBy="cursoAcademicoDepartamento"
+                title="NO"/>
+
         <unique-constraint columns="cursoAcademico,departamento" name="uc_curso_academico_departamento" title="NO"/>
     </entity>
 

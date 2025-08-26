@@ -24,8 +24,6 @@
         <!-- Curso académico 2025-2026 -->
         <cursoAcademicoGrupo cursoAcademico="46019660_2526" grupo="46019660_1DAW" curso="DAW1"/>
         <cursoAcademicoGrupo cursoAcademico="46019660_2526" grupo="46019660_2DAW" curso="DAW2" tutor="salva" delegado="angela" subdelegado="marcos"/>
-        <cursoAcademicoGrupo cursoAcademico="46019660_2526" grupo="46019015_1SDAW" curso="DAW1"/>
-        <cursoAcademicoGrupo cursoAcademico="46019660_2526" grupo="46019015_2SDAW" curso="DAW2"/>
         <cursoAcademicoGrupo cursoAcademico="46019660_2526" grupo="46019660_1SDAM" curso="DAM1"/>
         <cursoAcademicoGrupo cursoAcademico="46019660_2526" grupo="46019660_2SDAM" curso="DAM2"/>
         <cursoAcademicoGrupo cursoAcademico="46019660_2526" grupo="46019660_1ASIR" curso="ASIR1"/>
@@ -36,5 +34,9 @@
         <cursoAcademicoGrupo cursoAcademico="46019660_2526" grupo="46019660_1SSMRB" curso="SMR1"/>
         <cursoAcademicoGrupo cursoAcademico="46019660_2526" grupo="46019660_2SSMRA" curso="SMR2"/>
         <cursoAcademicoGrupo cursoAcademico="46019660_2526" grupo="46019660_2SSMRB" curso="SMR2"/>
+
+        <cursoAcademicoGrupo cursoAcademico="46019015_2526" grupo="46019015_1SDAW" curso="DAW1"/>
+        <cursoAcademicoGrupo cursoAcademico="46019015_2526" grupo="46019015_2SDAW" curso="DAW2"/>
+
     </cursoAcademicoGrupos>
 </datos>

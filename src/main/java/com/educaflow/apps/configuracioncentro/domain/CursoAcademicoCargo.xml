@@ -7,6 +7,12 @@
         <many-to-one name="cursoAcademico" ref="com.educaflow.apps.configuracioncentro.db.CursoAcademico" required="true" title="NO"/>
         <many-to-one name="cargo" ref="com.educaflow.apps.configuracioncentro.db.Cargo" required="true" title="NO"/>
 
+        <one-to-many
+                name="cursoAcademicoCentroUsuarioCursoAcademicoCargos"
+                ref="com.educaflow.apps.configuracioncentro.db.CursoAcademicoCentroUsuarioCursoAcademicoCargo"
+                mappedBy="cursoAcademicoCargo"
+                title="NO"/>
+
         <unique-constraint columns="cursoAcademico,cargo" name="uc_curso_academico_cargo" title="NO"/>
     </entity>
 

@@ -73,6 +73,7 @@
         <bind node="grupos/grupo" type="com.educaflow.apps.configuracioncentro.db.Grupo" search="self.code = :code" create="true">
             <bind node="@code" to="code" />
             <bind node="@name" to="name" />
+            <bind node="@centro" to="centro" search="self.code = :centro" update="false" create="false"/>
             <bind node="@tipoGrupo" to="tipoGrupo" search="self.code = :tipoGrupo" update="false" create="false"/>
         </bind>
     </input>
@@ -132,7 +133,34 @@
         </bind>
     </input>
 
-
-
+    <input file="cursoAcademicoCentroUsuarioCursoAcademicoCargos.xml" root="datos">
+        <bind node="cursoAcademicoCentroUsuarioCursoAcademicoCargos/cursoAcademicoCentroUsuarioCursoAcademicoCargo"
+              type="com.educaflow.apps.configuracioncentro.db.CursoAcademicoCentroUsuarioCursoAcademicoCargo"
+              search="self.cursoAcademicoCentroUsuario.cursoAcademico.code = :cursoAcademico
+              AND self.cursoAcademicoCentroUsuario.centroUsuario.centro.code = :centro
+              AND self.cursoAcademicoCentroUsuario.centroUsuario.usuario.code = :usuario
+              AND self.cursoAcademicoCargo.cursoAcademico.code = :cursoAcademico
+              AND self.cursoAcademicoCargo.cargo.code = :cargo"
+              create="true">
+            <bind node="@cursoAcademico" to="cursoAcademicoCentroUsuario.cursoAcademico" search="self.code = :cursoAcademico" create="false"/>
+            <bind node="centroUsuario"
+                  to="cursoAcademicoCentroUsuario"
+                  search="self.cursoAcademico.code = :cursoAcademico
+                  AND self.centroUsuario.centro.code = :centro
+                  AND self.centroUsuario.usuario.code = :usuario"
+                  create="false">
+                <bind node="@centro" to="centro" search="self.code = :centro" create="false"/>
+                <bind node="@usuario" to="usuario" search="self.code = :usuario" create="false"/>
+                <bind node="../@cursoAcademico" to="cursoAcademico" search="self.code = :cursoAcademico" create="false"/>
+            </bind>
+            <bind node="cargo"
+                  search="self.cursoAcademico.code = :cursoAcademico AND self.cargo.code = :cargo"
+                  to="cursoAcademicoCargo"
+                  create="false">
+                <bind node="@code" to="cargo" search="self.code = :cargo" create="false"/>
+                <bind node="../@cursoAcademico" to="cursoAcademico" search="self.code = :cursoAcademico" create="false"/>
+            </bind>
+        </bind>
+    </input>
 
 </xml-inputs>

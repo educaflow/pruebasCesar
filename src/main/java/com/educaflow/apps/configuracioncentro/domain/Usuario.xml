@@ -4,7 +4,68 @@
 
     <module name="auth" package="com.axelor.auth.db"/>
     <entity name="User" id="Usuario">
+        <!-- Profesores o alumnos con dos centros en el mismo curso académico -->
         <many-to-one name="centroActivo" ref="com.educaflow.apps.configuracioncentro.db.Centro" title="Centro Actual" />
+        <one-to-many name="centroUsuario" ref="com.educaflow.apps.configuracioncentro.db.CentroUsuario" title="NO" mappedBy="usuario" />
+        <string name="tipoUsuarioCentroActivo" title="Tipo de Usuario en Centro Activo">
+            <![CDATA[
+if (centroActivo == null || centroUsuario == null) {
+    return null;
+}
+
+
+return centroUsuario.stream()
+        .filter(cu -> cu.getCentro() != null && cu.getCentro().equals(centroActivo))
+        .flatMap(cu -> cu.getCursoAcademicoCentroUsuarios().stream()) // CursoAcademicoCentroUsuario
+        .filter(cacu -> cacu.getCursoAcademico() != null
+                     && cacu.getCursoAcademico().equals(centroActivo.getCursoAcademicoActual()))
+        .map(cacu -> cacu.getCentroUsuario().getTipoUsuario()) // obtenemos TipoUsuario del CentroUsuario
+        .map(Enum::name)
+        .findFirst()
+        .orElse(null);
+]]>
+        </string>
+
+
+        <boolean name="adminCentroActivo" title="Es Administrador del Centro Actual" default="false">
+            <![CDATA[
+            return getCargosCentroActivo().stream()
+                    .anyMatch(Cargo::getAdminCentro);
+            ]]>
+        </boolean>
+
+        <extra-imports>
+            import java.util.List;
+            import java.util.Collections;
+            import java.util.stream.Collectors;
+            import com.educaflow.apps.configuracioncentro.db.Centro;
+            import com.educaflow.apps.configuracioncentro.db.CentroUsuario;
+            import com.educaflow.apps.configuracioncentro.db.CursoAcademicoCentroUsuario;
+            import com.educaflow.apps.configuracioncentro.db.CursoAcademicoCentroUsuarioCursoAcademicoCargo;
+            import com.educaflow.apps.configuracioncentro.db.CursoAcademicoCargo;
+            import com.educaflow.apps.configuracioncentro.db.Cargo;
+        </extra-imports>
+
+        <extra-code-model><![CDATA[
+
+// Devuelve los cargos del usuario en el centro activo
+public List<Cargo> getCargosCentroActivo() {
+    if (centroActivo == null || centroUsuario == null) {
+        return Collections.emptyList();
+    }
+
+    return centroUsuario.stream()
+            .filter(cu -> cu.getCentro() != null && cu.getCentro().equals(centroActivo))
+            .flatMap(cu -> cu.getCursoAcademicoCentroUsuarios().stream())
+            .flatMap(cacu -> cacu.getCursoAcademicoCentroUsuarioCursoAcademicoCargos().stream()
+                                  .map(ccuac -> ccuac.getCursoAcademicoCargo().getCargo()))
+            .collect(Collectors.toList());
+}
+
+
+
+        ]]>
+        </extra-code-model>
     </entity>
 
 </domain-models>

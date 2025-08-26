@@ -3,20 +3,18 @@
                xsi:schemaLocation="http://axelor.com/xml/ns/domain-models https://axelor.com/xml/ns/domain-models/domain-models_7.4.xsd">
 
     <module name="configuracioncentro" package="com.educaflow.apps.configuracioncentro.db"/>
-    <entity name="CentroUsuario">
+    <entity name="CentroUsuario" repository="abstract">
         <many-to-one name="centro" ref="com.educaflow.apps.configuracioncentro.db.Centro" required="true"/>
         <many-to-one name="usuario" ref="com.axelor.auth.db.User" required="true"/>
-        <enum name="tipoUsuario" ref="TipoUsuario" required="true"/>
+        <enum name="tipoUsuario" ref="com.educaflow.apps.configuracioncentro.db.TipoUsuario" title="Tipo Usuario" required="true"/>
+
+        <one-to-many
+                name="cursoAcademicoCentroUsuarios"
+                ref="com.educaflow.apps.configuracioncentro.db.CursoAcademicoCentroUsuario"
+                mappedBy="centroUsuario"
+                title="Cursos académicos"/>
 
         <unique-constraint columns="centro,usuario" name="uc_centro_usuario" title="NO"/>
     </entity>
-
-    <enum name="TipoUsuario">
-        <item name="PROFESOR" title="Docente"/>
-        <item name="ALUMNO" title="Estudiante"/>
-        <item name="ADMINISTRATIVO" title="Administración"/>
-        <item name="CONSERJE" title="Conserjería"/>
-        <item name="EXTERNO" title="Visitante"/>
-    </enum>
 
 </domain-models>

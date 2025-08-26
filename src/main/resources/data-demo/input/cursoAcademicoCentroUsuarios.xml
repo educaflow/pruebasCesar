@@ -1,7 +1,7 @@
 <?xml version="1.0" ?>
 <datos>
     <cursoAcademicoCentroUsuarios>
-        <!-- Curso académico 2024-2025 -->
+        <!-- Curso académico 2024-2025 CIPFP Mislata -->
         <cursoAcademicoCentroUsuario cursoAcademico="46019660_2425">
             <centroUsuario centro="46019660" usuario="cesar"/>
         </cursoAcademicoCentroUsuario>
@@ -42,7 +42,7 @@
             <centroUsuario centro="46019660" usuario="sole"/>
         </cursoAcademicoCentroUsuario>
 
-        <!-- Curso académico 2025-2026 -->
+        <!-- Curso académico 2025-2026 CIPFP Mislata -->
         <cursoAcademicoCentroUsuario cursoAcademico="46019660_2526">
             <centroUsuario centro="46019660" usuario="cesar"/>
         </cursoAcademicoCentroUsuario>
@@ -51,9 +51,6 @@
         </cursoAcademicoCentroUsuario>
         <cursoAcademicoCentroUsuario cursoAcademico="46019660_2526">
             <centroUsuario centro="46019660" usuario="salva"/>
-        </cursoAcademicoCentroUsuario>
-        <cursoAcademicoCentroUsuario cursoAcademico="46019660_2526">
-            <centroUsuario centro="46019660" usuario="raquel"/>
         </cursoAcademicoCentroUsuario>
         <cursoAcademicoCentroUsuario cursoAcademico="46019660_2526">
             <centroUsuario centro="46019660" usuario="luis"/>
@@ -89,6 +86,22 @@
 
         <cursoAcademicoCentroUsuario cursoAcademico="46019660_2526">
             <centroUsuario centro="46019660" usuario="maria"/>
+        </cursoAcademicoCentroUsuario>
+
+
+
+
+        <!-- Curso académico 2024-2025 IES Serra Perenxisa -->
+        <cursoAcademicoCentroUsuario cursoAcademico="46019015_2425">
+            <centroUsuario centro="46019015" usuario="pedro"/>
+        </cursoAcademicoCentroUsuario>
+
+        <!-- Curso académico 2025-2026 IES Serra Perenxisa -->
+        <cursoAcademicoCentroUsuario cursoAcademico="46019015_2526">
+            <centroUsuario centro="46019015" usuario="pedro"/>
+        </cursoAcademicoCentroUsuario>
+        <cursoAcademicoCentroUsuario cursoAcademico="46019015_2526">
+            <centroUsuario centro="46019015" usuario="lorenzo"/>
         </cursoAcademicoCentroUsuario>
     </cursoAcademicoCentroUsuarios>
 </datos>

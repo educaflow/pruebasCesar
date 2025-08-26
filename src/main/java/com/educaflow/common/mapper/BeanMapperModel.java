@@ -1,7 +1,12 @@
 package com.educaflow.common.mapper;
 
+import com.axelor.db.JpaRepository;
+import com.axelor.db.JpaSecurity;
 import com.axelor.db.Model;
+import com.axelor.inject.Beans;
+import com.educaflow.common.util.AxelorDBUtil;
 import org.apache.commons.beanutils.PropertyUtils;
+import org.apache.shiro.authz.UnauthorizedException;
 
 import java.beans.PropertyDescriptor;
 import java.lang.reflect.ParameterizedType;
@@ -234,6 +239,28 @@ public class BeanMapperModel {
         }
 
         valueDest.setId(originalId);
+    }
+
+
+    private static Model getModel(Class<? extends Model> classModel, Long id) {
+        System.out.println("ERROR:------>   TODO:Comprobar la seguridad de acceso a la base de datos al llamar a este método!!!!!!.");
+
+        // Comprobar seguridad
+        JpaSecurity security = Beans.get(JpaSecurity.class);
+
+        if (!security.isPermitted(JpaSecurity.AccessType.READ, classModel, id)) {
+            throw new UnauthorizedException("Acceso denegado al registro: " + classModel.getSimpleName() + " id=" + id);
+        }
+        System.out.println("ERROR:------>   TODO:Añadir Filtro????????????????");
+        // FIN Comprobar seguridad
+
+        JpaRepository jpaRepository= AxelorDBUtil.getRepository(classModel);
+        if (jpaRepository == null) {
+            throw new RuntimeException("No se encontró el repositorio para la clase: " + classModel);
+        }
+        Model model = jpaRepository.find(id);
+
+        return model;
     }
 
 

@@ -3,20 +3,16 @@
                xsi:schemaLocation="http://axelor.com/xml/ns/domain-models https://axelor.com/xml/ns/domain-models/domain-models_7.4.xsd">
 
     <module name="configuracioncentro" package="com.educaflow.apps.configuracioncentro.db"/>
-    <entity name="CursoAcademico">
-        <string name="code"  />
-        <string name="name" namecolumn="true" />
+    <entity name="CursoAcademico" repository="abstract">
+        <string name="code"/>
+        <string name="name" namecolumn="true"/>
 
         <many-to-one name="centro" ref="com.educaflow.apps.configuracioncentro.db.Centro" required="true"/>
 
-        <!--<one-to-many name="departamentos" ref="com.educaflow.apps.configuracioncentro.db.CursoAcademicoDepartamento" mappedBy="cursoAcademico"/>
-        <one-to-many name="cargos" ref="com.educaflow.apps.configuracioncentro.db.CursoAcademicoCargo" mappedBy="cursoAcademico"/>
-
-
-        <one-to-many name="cursoAcademicoCentroUsuarios" ref="com.educaflow.apps.configuracioncentro.db.CursoAcademicoCentroUsuario" mappedBy="cursoAcademico"/>
-
-
-        <one-to-many name="grupos" ref="com.educaflow.apps.configuracioncentro.db.CursoAcademicoGrupo" mappedBy="cursoAcademico"/>-->
+        <one-to-many name="cursoAcademicoCargos" ref="com.educaflow.apps.configuracioncentro.db.CursoAcademicoCargo" mappedBy="cursoAcademico" title="NO"/>
+        <one-to-many name="cursoAcademicoCentroUsuario" ref="com.educaflow.apps.configuracioncentro.db.CursoAcademicoCentroUsuario" mappedBy="cursoAcademico" title="NO"/>
+        <one-to-many name="cursoAcademicoDepartamentos" ref="com.educaflow.apps.configuracioncentro.db.CursoAcademicoDepartamento" mappedBy="cursoAcademico" title="NO"/>
+        <one-to-many name="cursoAcademicoGrupos" ref="com.educaflow.apps.configuracioncentro.db.CursoAcademicoGrupo" mappedBy="cursoAcademico" title="NO"/>
     </entity>
 
 </domain-models>

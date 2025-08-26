@@ -1,0 +1,21 @@
+<?xml version="1.0" ?>
+<datos>
+    <cursoAcademicoCentroUsuarioCursoAcademicoCargos>
+        <!-- Curso académico 2024-2025 -->
+        <cursoAcademicoCentroUsuarioCursoAcademicoCargo cursoAcademico="46019660_2425">
+            <centroUsuario centro="46019660" usuario="joaquin"/>
+            <cargo code="46019660_JEFEESTUDIOS"/>
+        </cursoAcademicoCentroUsuarioCursoAcademicoCargo>
+        <cursoAcademicoCentroUsuarioCursoAcademicoCargo cursoAcademico="46019660_2425">
+            <centroUsuario centro="46019660" usuario="joaquin"/>
+            <cargo code="46019660_ADMIN"/>
+        </cursoAcademicoCentroUsuarioCursoAcademicoCargo>
+
+        <!-- Curso académico 2025-2026 -->
+        <cursoAcademicoCentroUsuarioCursoAcademicoCargo cursoAcademico="46019660_2526">
+            <centroUsuario centro="46019660" usuario="joaquin"/>
+            <cargo code="46019660_ADMIN"/>
+        </cursoAcademicoCentroUsuarioCursoAcademicoCargo>
+
+    </cursoAcademicoCentroUsuarioCursoAcademicoCargos>
+</datos>

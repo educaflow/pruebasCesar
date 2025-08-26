@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+
+<auth>
+  <permissions>
+      <!--<permission name="currentUser.all"
+                  condition="self = ?"
+                  conditioParam = "__user__">
+              <can read="true" write="true" create="true" delete="true" export="true"/>
+      </permission>-->
+  </permissions>
+
+  <group code="users">
+    <permissions>
+        <!--<permission name="currentUser.all"/>
+        <permission name="configuracioncentro.admin"/>
+        <permission name="departamentos.admin"/>
+        <permission name="departamentos.all"/>
+        <permission name="tramite.all"/>
+        <permission name="tipoTramite.all"/>
+        <permission name="centros.all"/>
+        <permission name="user.read"/>
+        <permission name="user.write"/>
+        <permission name="ciclos.all"/>
+        <permission name="grupos.all"/>
+        <permission name="cursos.all"/>
+        <permission name="valoresAmbito.all"/>
+        <permission name="departamento.all"/>
+        <permission name="cargos.all"/>
+        <permission name="modulos.all"/>-->
+    </permissions>
+  </group>
+
+
+</auth>

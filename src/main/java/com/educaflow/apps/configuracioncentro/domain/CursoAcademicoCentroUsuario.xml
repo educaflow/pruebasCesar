@@ -6,7 +6,18 @@
     <entity name="CursoAcademicoCentroUsuario">
         <many-to-one name="cursoAcademico" ref="com.educaflow.apps.configuracioncentro.db.CursoAcademico" required="true" title="NO"/>
         <many-to-one name="centroUsuario" ref="com.educaflow.apps.configuracioncentro.db.CentroUsuario" required="true"/>
-        
+
+        <one-to-many
+                name="cursoAcademicoCentroUsuarioCursoAcademicoCargos"
+                ref="com.educaflow.apps.configuracioncentro.db.CursoAcademicoCentroUsuarioCursoAcademicoCargo"
+                mappedBy="cursoAcademicoCentroUsuario"
+                title="NO"/>
+        <one-to-many
+                name="cursoAcademicoCentroUsuarioCursoAcademicoDepartamentos"
+                ref="com.educaflow.apps.configuracioncentro.db.CursoAcademicoCentroUsuarioCursoAcademicoDepartamento"
+                mappedBy="cursoAcademicoCentroUsuario"
+                title="NO"/>
+
         <unique-constraint columns="cursoAcademico,centroUsuario" name="uc_curso_academico_centro_usuario" title="NO"/>
     </entity>
 
