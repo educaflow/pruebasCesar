@@ -3,36 +3,75 @@
               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
               xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_7.4.xsd">
 
-    <action-view name="mant-Centro-action" title="Centros" model="com.educaflow.apps.configuracioncentro.db.Centro">
+    <action-view
+            name="mant-Centro-action"
+            title="Centros"
+            model="com.educaflow.apps.configuracioncentro.db.Centro"
+    >
         <view type="grid" name="mant-Centro-grid"/>
         <view type="form" name="mant-Centro-form"/>
         <view-param name="forceEdit" value="true"/>
+        <domain>
+            self IN (
+                SELECT cacucac.cursoAcademicoCentroUsuario.centroUsuario.centro
+                FROM com.educaflow.apps.configuracioncentro.db.CursoAcademicoCentroUsuarioCursoAcademicoCargo cacucac
+                WHERE cacucac.cursoAcademicoCargo.cargo.adminCentro = TRUE
+                AND cacucac.cursoAcademicoCentroUsuario.centroUsuario.usuario = :usuario
+            )
+        </domain>
+        <context name="usuario" expr="eval:__user__"/>
     </action-view>
 
-    <grid name="mant-Centro-grid" title="Centro" model="com.educaflow.apps.configuracioncentro.db.Centro"
-          groups="admins,users"
-          editable="false" edit-icon="false" x-selector="none" canNew="true" canEdit="false" canDelete="false" canSave="false" canViewOnClick="true">
+    <grid
+            name="mant-Centro-grid"
+            title="Centros"
+            model="com.educaflow.apps.configuracioncentro.db.Centro"
+            groups="admins,users"
+            editable="false" edit-icon="false" x-selector="none" canNew="true" canEdit="false" canDelete="false" canSave="false" canViewOnClick="true"
+
+    >
         <hilite color="danger" if="archived"/>
-        <field name="code" width="200px" />
+        <!--<field name="code" width="200px" />-->
         <field name="name" />
         <field name="address"/>
         <field name="city"/>
         <field name="postalCode"/>
         <field name="country"/>
-        <field name="archived" width="100px" />
+        <!--<field name="archived" width="100px" />-->
     </grid>
 
-    <form name="mant-Centro-form" title="Centro" model="com.educaflow.apps.configuracioncentro.db.Centro"
+    <form name="mant-Centro-form" title="" model="com.educaflow.apps.configuracioncentro.db.Centro"
           groups="admins,users"
-          width="large" canAttach="false" canBack="false" canBackOnSave="true" canDelete="true" canNew="false">
-        <panel name="Centro" title="">
-            <field name="code" colSpan="3" />
-            <field name="name" colOffset="9" />
-            <field name="address"/>
-            <field name="city"/>
-            <field name="postalCode"/>
-            <field name="country"/>
-        </panel>
+          width="large" canAttach="false" canBack="false" canBackOnSave="true" canDelete="false" canNew="false">
+        <panel-tabs>
+            <panel name="Centro" title="Centro">
+                <field name="code" colSpan="3" required="true"/>
+                <field name="name" colOffset="9" required="true"/>
+                <field name="address"/>
+                <field name="city"/>
+                <field name="postalCode"/>
+                <field name="country"/>
+            </panel>
+            <panel-related
+                    field="departamentos"
+                    title="Departamentos"
+                    grid-view="mant-Departamento-grid"
+                    form-view="mant-Departamento-form"
+            />
+            <panel-related
+                    field="cargos"
+                    title="Cargos"
+                    grid-view="mant-Cargo-grid"
+                    form-view="mant-Cargo-form"
+            />
+            <panel-related
+                    field="grupos"
+                    title="Grupos"
+                    grid-view="mant-Centro-Grupo-grid"
+                    form-view="mant-Centro-Grupo-form"
+            />
+            <panel-related field="centroUsuarios" title="Usuarios" grid-view="mant-CentroUsuario-grid" canNew="false" canRemove="false"/>
+        </panel-tabs>
     </form>
 
     <grid name="search-Centro-grid" title="Centro" model="com.educaflow.apps.configuracioncentro.db.Centro"
@@ -41,4 +80,75 @@
           editable="false" edit-icon="false" x-selector="none" canNew="false" canEdit="false" canDelete="false" canSave="false" canViewOnClick="true">
         <field name="name" />
     </grid>
+
+    <!-- ******************************************************************************************************* -->
+    <!-- ***************************** Vistas de Departamentos hijos de Centro ********************************* -->
+    <!-- ******************************************************************************************************* -->
+
+    <!--<grid name="mant-Centro-Departamento-grid" title="Departamentos" model="com.educaflow.apps.configuracioncentro.db.Departamento"
+          groups="admins,users"
+          editable="false" edit-icon="false" x-selector="none" canNew="true" canEdit="false" canDelete="false" canSave="false" canViewOnClick="true">
+        <field name="code" width="150px" />
+        <field name="name" />
+    </grid>
+
+    <form name="mant-Centro-Departamento-form" title="Departamento" model="com.educaflow.apps.configuracioncentro.db.Departamento"
+          groups="admins,users"
+          width="large" onNew="mant-Centro-Departamento-onNew-action" canAttach="false">
+        <panel name="Departamento" title="Departamento">
+            <field name="code" colSpan="3" />
+            <field name="name" colOffset="9" colSpan="6"/>
+            <field name="centro" colOffset="6" colSpan="6" showIf="false"/>
+        </panel>
+    </form>
+
+    <action-record name="mant-Centro-Departamento-onNew-action" model="com.educaflow.apps.configuracioncentro.db.Departamento">
+        <field name="centro" expr="eval:__parent__"/>
+    </action-record>-->
+
+    <!-- ******************************************************************************************************* -->
+    <!-- ******************************* Vistas de Cargos hijos de Centro *************************************** -->
+    <!-- ******************************************************************************************************* -->
+
+    <!--<grid name="mant-Centro-Cargo-grid" title="Cargos" model="com.educaflow.apps.configuracioncentro.db.Cargo"
+          groups="admins,users"
+          editable="false" edit-icon="false" x-selector="none" canNew="true" canEdit="false" canDelete="false" canSave="false" canViewOnClick="true">
+        <field name="code" width="150px" />
+        <field name="name" />
+        <field name="adminCentro" title="Administrador"/>
+        <field name="directorCentro" title="Director"/>
+        <field name="secretarioCentro" title="Secretario"/>
+    </grid>-->
+
+    <!-- ******************************************************************************************************* -->
+    <!-- ******************************* Vistas de Grupos hijos de Centro *************************************** -->
+    <!-- ******************************************************************************************************* -->
+
+    <grid name="mant-Centro-Grupo-grid" title="Grupo" model="com.educaflow.apps.configuracioncentro.db.Grupo"
+          groups="admins,users"
+          editable="false" edit-icon="false" x-selector="none" canNew="true" canEdit="false" canDelete="false" canSave="false" canViewOnClick="true">
+        <hilite color="danger" if="archived"/>
+        <field name="ciclo" width="150px"/>
+        <field name="name"  title="Grupo"/>
+        <field name="tipoGrupo" width="200px" title="Tipo de grupo"/>
+    </grid>
+
+    <form name="mant-Centro-Grupo-form" title="Grupo" model="com.educaflow.apps.configuracioncentro.db.Grupo"
+          groups="admins,users"
+          width="large" canAttach="false" canBack="false" canBackOnSave="true" canDelete="true" canNew="false">
+    <panel name="Grupo" title="">
+        <field name="ciclo" colSpan="4" required="true" grid-view="search-Ciclo-grid"/>
+        <field name="code" colSpan="4" required="true"/>
+        <field name="tipoGrupo" colSpan="4" required="true"/>
+        <field name="name" required="true"/>
+    </panel>
+    </form>
+
+    <!--<grid name="search-Centro-Ciclo-grid" title="Grupo" model="com.educaflow.apps.configuracioncentro.db.Grupo"
+          groups="admins,users"
+          orderBy="name"
+          editable="false" edit-icon="false" x-selector="none" canNew="false" canEdit="false" canDelete="false" canSave="false" canViewOnClick="true">
+        <field name="name" />
+    </grid>-->
+
 </object-views>

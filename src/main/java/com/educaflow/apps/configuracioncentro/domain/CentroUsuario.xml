@@ -12,7 +12,8 @@
                 name="cursoAcademicoCentroUsuarios"
                 ref="com.educaflow.apps.configuracioncentro.db.CursoAcademicoCentroUsuario"
                 mappedBy="centroUsuario"
-                title="Cursos académicos"/>
+                title="Cursos académicos"
+        />
 
         <unique-constraint columns="centro,usuario" name="uc_centro_usuario" title="NO"/>
     </entity>

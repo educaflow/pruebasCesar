@@ -9,22 +9,48 @@
         <view-param name="forceEdit" value="true" />
     </action-view>
 
-    <grid name="mant-CursoAcademico-grid" title="Curso Académico" model="com.educaflow.apps.configuracioncentro.db.CursoAcademico"
+    <grid name="mant-CursoAcademico-grid"
+          title="Curso Académico"
+          model="com.educaflow.apps.configuracioncentro.db.CursoAcademico"
           groups="admins,users"
-          editable="false" edit-icon="false" x-selector="none" canNew="true" canEdit="false" canDelete="false" canSave="false" canViewOnClick="true">
-        <hilite color="danger" if="archived" />
-        <field name="code" width="200px" />
+          editable="false" edit-icon="false" x-selector="none" canNew="true" canEdit="false" canDelete="false" canSave="false" canViewOnClick="true"
+    >
         <field name="name" title="Curso Académico" />
-        <field name="archived" width="100px" />
     </grid>
 
     <form name="mant-CursoAcademico-form" title="Curso Académico" model="com.educaflow.apps.configuracioncentro.db.CursoAcademico"
           groups="admins,users"
           width="large" canAttach="false" canBack="false" canBackOnSave="true" canDelete="true" canNew="false">
         <panel name="CursoAcademico" title="Curso académico">
-            <field name="code" colSpan="3" />
             <field name="name" colOffset="9" />
         </panel>
+        <panel-tabs>
+            <panel-related
+                    field="cursoAcademicoDepartamentos"
+                    title="Departamentos"
+                    grid-view="mant-CursoAcademico-CursoAcademicoDepartamento-grid"
+                    form-view="mant-CursoAcademico-CursoAcademicoDepartamento-form"
+            />
+            <panel-related
+                    field="cursoAcademicoCargos"
+                    title="Cargos"
+                    grid-view="mant-CursoAcademico-CursoAcademicoCargo-grid"
+                    form-view="mant-CursoAcademico-CursoAcademicoCargo-form"
+            />
+            <panel-related
+                    field="cursoAcademicoGrupos"
+                    title="Grupos"
+                    grid-view="mant-CursoAcademico-CursoAcademicoGrupo-grid"
+                    form-view="mant-CursoAcademico-CursoAcademicoGrupo-form"
+            />
+            <panel-related
+                    field="cursoAcademicoCentroUsuarios"
+                    title="Usuarios"
+                    grid-view="mant-CursoAcademico-CursoAcademicoCentroUsuario-grid"
+                    form-view="mant-CursoAcademico-CursoAcademicoCentroUsuario-form"
+                    canNew="false"
+            />
+        </panel-tabs>
     </form>
 
     <grid name="search-CursoAcademico-grid" title="Curso Académico" model="com.educaflow.apps.configuracioncentro.db.CursoAcademico"
@@ -33,4 +59,388 @@
           editable="false" edit-icon="false" x-selector="none" canNew="false" canEdit="false" canDelete="false" canSave="false" canViewOnClick="true">
         <field name="name" />
     </grid>
+
+    <!-- ******************************************************************************************************* -->
+    <!-- ********************** Vistas de CursoAcademico -> CursoAcademicoDepartamento ************************* -->
+    <!-- ******************************************************************************************************* -->
+
+    <grid name="mant-CursoAcademico-CursoAcademicoDepartamento-grid" title="" model="com.educaflow.apps.configuracioncentro.db.CursoAcademicoDepartamento"
+          groups="admins,users"
+          editable="false" edit-icon="false" x-selector="none" canNew="true" canEdit="true" canDelete="true" canSave="true" canViewOnClick="true">
+        <field name="departamento" title="Departamento"/>
+        <field name="jefeDepartamento.cursoAcademicoCentroUsuario.centroUsuario.usuario.name" />
+    </grid>
+
+    <form name="mant-CursoAcademico-CursoAcademicoDepartamento-form"
+          title="Curso Académico"
+          model="com.educaflow.apps.configuracioncentro.db.CursoAcademicoDepartamento"
+          groups="admins,users"
+          width="large" canAttach="false" canBack="false" canBackOnSave="false" canDelete="false" canNew="false"
+          onNew="mant-CursoAcademico-CursoAcademicoDepartamento-onNew-action-record"
+    >
+        <panel name="CursoAcademicoDepartamento" title="Departamento">
+            <field name="departamento" title="Departamento" readonly="true"/>
+            <field
+                    name="jefeDepartamento"
+                    title="Jefe Departamento"
+                    target-name="cursoAcademicoCentroUsuario.centroUsuario.usuario.name"
+                    domain="self.cursoAcademicoDepartamento = :id"
+            />
+        </panel>
+        <panel-related
+                field="cursoAcademicoCentroUsuarios"
+                title="Profesores del departamento"
+                grid-view="mant-CursoAcademico-CursoAcademicoDepartamento-CursoAcademicoCentroUsuarioCursoAcademicoDepartamento-grid"
+                form-view="mant-CursoAcademico-CursoAcademicoDepartamento-CursoAcademicoCentroUsuarioCursoAcademicoDepartamento-form"
+                canNew="false"
+        />
+    </form>
+
+    <action-record
+            name="mant-CursoAcademico-CursoAcademicoDepartamento-onNew-action-record"
+            model="com.educaflow.apps.configuracioncentro.db.CursoAcademicoDepartamento">
+        <field name="cursoAcademico" expr="eval:__parent__"/>
+    </action-record>
+
+    <!-- ******************************************************************************************************* -->
+    <!-- Vistas de CursoAcademico -> CursoAcademicoDepartamento -> CursoAcademicoCentroUsuarioCursoAcademicoDepartamento -->
+    <!-- ******************************************************************************************************* -->
+
+    <grid name="mant-CursoAcademico-CursoAcademicoDepartamento-CursoAcademicoCentroUsuarioCursoAcademicoDepartamento-grid"
+          model="com.educaflow.apps.configuracioncentro.db.CursoAcademicoCentroUsuarioCursoAcademicoDepartamento"
+          title=""
+          groups="users, admins"
+    >
+        <field name="cursoAcademicoCentroUsuario" target-name="centroUsuario.usuario.name" title="Profesor"/>
+    </grid>
+
+
+    <form name="mant-CursoAcademico-CursoAcademicoDepartamento-CursoAcademicoCentroUsuarioCursoAcademicoDepartamento-form"
+          model="com.educaflow.apps.configuracioncentro.db.CursoAcademicoCentroUsuarioCursoAcademicoDepartamento"
+          title="Profesor"
+    >
+        <panel>
+            <field name="cursoAcademicoCentroUsuario.centroUsuario.usuario"/>
+        </panel>
+    </form>
+
+    <!-- ******************************************************************************************************* -->
+    <!-- ********************** Vistas de CursoAcademico -> CursoAcademicoCargo ************************* -->
+    <!-- ******************************************************************************************************* -->
+    <grid name="mant-CursoAcademico-CursoAcademicoCargo-grid" title="" model="com.educaflow.apps.configuracioncentro.db.CursoAcademicoCargo"
+          groups="admins,users"
+          editable="false" edit-icon="false" x-selector="none" canNew="true" canEdit="true" canDelete="true" canSave="true" canViewOnClick="true">
+        <field name="cargo" title="Cargo"/>
+    </grid>
+
+    <form name="mant-CursoAcademico-CursoAcademicoCargo-form"
+          title="Curso Académico"
+          model="com.educaflow.apps.configuracioncentro.db.CursoAcademicoCargo"
+          groups="admins,users"
+          width="large" canAttach="false" canBack="false" canBackOnSave="false" canDelete="false" canNew="false"
+          onNew="mant-CursoAcademico-CursoAcademicoCargo-onNew-action-record"
+    >
+        <panel name="CursoAcademicoCargo" title="Cargo">
+            <field name="cargo" title="Cargo" readonly="true"/>
+        </panel>
+        <panel-related
+                field="cursoAcademicoCentroUsuarios"
+                title="Profesores"
+                grid-view="mant-CursoAcademico-CursoAcademicoCargo-CursoAcademicoCentroUsuarioCursoAcademicoCargo-grid"
+                form-view="mant-CursoAcademico-CursoAcademicoCargo-CursoAcademicoCentroUsuarioCursoAcademicoCargo-form"
+                canNew="false"
+        />
+    </form>
+
+    <action-record
+            name="mant-CursoAcademico-CursoAcademicoCargo-onNew-action-record"
+            model="com.educaflow.apps.configuracioncentro.db.CursoAcademicoCargo">
+        <field name="cursoAcademico" expr="eval:__parent__"/>
+    </action-record>
+
+    <!-- ******************************************************************************************************* -->
+    <!-- Vistas de CursoAcademico -> CursoAcademicoCargo -> CursoAcademicoCentroUsuarioCursoAcademicoCargo -->
+    <!-- ******************************************************************************************************* -->
+
+    <grid name="mant-CursoAcademico-CursoAcademicoCargo-CursoAcademicoCentroUsuarioCursoAcademicoCargo-grid"
+          model="com.educaflow.apps.configuracioncentro.db.CursoAcademicoCentroUsuarioCursoAcademicoCargo"
+          title=""
+          groups="users, admins"
+    >
+        <field name="cursoAcademicoCentroUsuario" target-name="centroUsuario.usuario.name" title="Profesor"/>
+    </grid>
+
+
+    <form name="mant-CursoAcademico-CursoAcademicoCargo-CursoAcademicoCentroUsuarioCursoAcademicoCargo-form"
+          model="com.educaflow.apps.configuracioncentro.db.CursoAcademicoCentroUsuarioCursoAcademicoCargo"
+          title="Profesor"
+    >
+        <panel>
+            <field name="cursoAcademicoCentroUsuario.centroUsuario.usuario"/>
+        </panel>
+    </form>
+
+    <!-- ******************************************************************************************************* -->
+    <!-- ************************* Vistas de CursoAcademico -> CursoAcademicoGrupo ***************************** -->
+    <!-- ******************************************************************************************************* -->
+
+    <grid name="mant-CursoAcademico-CursoAcademicoGrupo-grid" title="" model="com.educaflow.apps.configuracioncentro.db.CursoAcademicoGrupo"
+          groups="admins,users"
+          editable="false" edit-icon="false" x-selector="none" canNew="true" canEdit="true" canDelete="true" canSave="true" canViewOnClick="true"
+    >
+        <field name="grupo" title="Grupo"/>
+        <field name="curso" title="Curso"/>
+        <field name="tutor.cursoAcademicoCentroUsuario.centroUsuario.usuario.name" title="Tutor"/>
+        <field name="delegado.cursoAcademicoCentroUsuario.centroUsuario.usuario.name" title="Delegado"/>
+        <field name="subdelegado.cursoAcademicoCentroUsuario.centroUsuario.usuario.name" title="Subdelegado"/>
+    </grid>
+
+    <form name="mant-CursoAcademico-CursoAcademicoGrupo-form"
+          title="Curso Académico"
+          model="com.educaflow.apps.configuracioncentro.db.CursoAcademicoGrupo"
+          groups="admins,users"
+          width="large" canAttach="false" canBack="false" canBackOnSave="false" canDelete="false" canNew="false"
+    >
+        <panel name="CursoAcademicoGrupo" title="Grupo">
+            <field name="grupo" title="Grupo" readonly="true"/>
+        </panel>
+        <!--<panel-related
+                field="cursoAcademicoCentroUsuarios"
+                title="Alumnos"
+                grid-view="mant-CursoAcademico-CursoAcademicoGrupo-CursoAcademicoCentroUsuarioCursoAcademicoGrupo-grid"
+                form-view="mant-CursoAcademico-CursoAcademicoGrupo-CursoAcademicoCentroUsuarioCursoAcademicoGrupo-form"
+                canNew="false"
+        />-->
+    </form>
+
+
+    <!-- ******************************************************************************************************* -->
+    <!-- ********************* Vistas de CursoAcademico -> CursoAcademicoCentroUsuario ************************* -->
+    <!-- ******************************************************************************************************* -->
+
+    <grid name="mant-CursoAcademico-CursoAcademicoCentroUsuario-grid" title="" model="com.educaflow.apps.configuracioncentro.db.CursoAcademicoCentroUsuario"
+          groups="admins,users"
+          canViewOnClick="false" canDelete="true" canSave="true" editable="false" canNew="false">
+        <field name="centroUsuario.usuario" title="Usuario"/>
+        <field name="centroUsuario.tipoUsuario" title="Tipo de usuario"/>
+
+    </grid>
+
+    <form name="mant-CursoAcademico-CursoAcademicoCentroUsuario-form" title="Usuarios" model="com.educaflow.apps.configuracioncentro.db.CursoAcademicoCentroUsuario"
+          groups="admins,users"
+          width="large" canAttach="false" canBack="false" canBackOnSave="false" canDelete="true" canNew="true"
+    >
+        <panel title="Usuario">
+            <field name="centroUsuario.usuario" readonly="true"/>
+            <field name="centroUsuario.tipoUsuario" readonly="true"/>
+        </panel>
+        <panel-tabs >
+            <panel-related
+                    field="cursoAcademicoCentroUsuarioCursoAcademicoDepartamentos"
+                    title="Departamentos"
+                    grid-view="mant-CursoAcademico-CursoAcademicoCentroUsuario-CursoAcademicoCentroUsuarioCursoAcademicoDepartamento-grid"
+                    form-view="mant-CursoAcademico-CursoAcademicoCentroUsuario-CursoAcademicoCentroUsuarioCursoAcademicoDepartamento-form"
+                    showIf="centroUsuario.tipoUsuario != 'ALUMNO' &amp;&amp; centroUsuario.tipoUsuario != 'EXTERNO'"
+            />
+            <panel-related
+                    field="cursoAcademicoCentroUsuarioCursoAcademicoCargos"
+                    title="Cargos"
+                    grid-view="mant-CursoAcademico-CursoAcademicoCentroUsuario-CursoAcademicoCentroUsuarioCursoAcademicoCargo-grid"
+                    form-view="mant-CursoAcademico-CursoAcademicoCentroUsuario-CursoAcademicoCentroUsuarioCursoAcademicoCargo-form"
+                    showIf="centroUsuario.tipoUsuario != 'EXTERNO'"
+            />
+            <panel-related
+                    field="cursoAcademicoCentroUsuarioCursoAcademicoGrupos"
+                    title="Grupos"
+                    grid-view="mant-CursoAcademico-CursoAcademicoCentroUsuario-CursoAcademicoCentroUsuarioCursoAcademicoGrupo-grid"
+                    form-view="mant-CursoAcademico-CursoAcademicoCentroUsuario-CursoAcademicoCentroUsuarioCursoAcademicoGrupo-form"
+                    showIf="centroUsuario.tipoUsuario == 'ALUMNO' || centroUsuario.tipoUsuario == 'PROFESOR'"
+            />
+        </panel-tabs>
+    </form>
+
+    <!-- ******************************************************************************************************* -->
+    <!-- * Vistas de CursoAcademico -> CursoAcademicoCentroUsuario -> CursoAcademicoCentroUsuarioCursoAcademicoDepartamento * -->
+    <!-- ******************************************************************************************************* -->
+
+    <grid name="mant-CursoAcademico-CursoAcademicoCentroUsuario-CursoAcademicoCentroUsuarioCursoAcademicoDepartamento-grid"
+          title=""
+          model="com.educaflow.apps.configuracioncentro.db.CursoAcademicoCentroUsuarioCursoAcademicoDepartamento"
+          groups="admins,users"
+          canViewOnClick="false" canDelete="true" canSave="true" editable="false" canNew="true"
+    >
+        <field name="cursoAcademicoDepartamento.departamento" title="Departamento"/>
+    </grid>
+
+    <form name="mant-CursoAcademico-CursoAcademicoCentroUsuario-CursoAcademicoCentroUsuarioCursoAcademicoDepartamento-form"
+          title=""
+          model="com.educaflow.apps.configuracioncentro.db.CursoAcademicoCentroUsuarioCursoAcademicoDepartamento"
+          groups="admins,users"
+          width="large" canAttach="false" canBack="false" canBackOnSave="false" canDelete="true" canNew="true"
+          onNew="mant-CursoAcademico-CursoAcademicoCentroUsuario-CursoAcademicoCentroUsuarioCursoAcademicoDepartamento-onNew-action-record,
+          mant-CursoAcademico-CursoAcademicoCentroUsuario-CursoAcademicoCentroUsuarioCursoAcademicoDepartamento-onNew-action-attrs"
+    >
+        <panel>
+            <field name="cursoAcademicoDepartamento" target-name="departamento.name" title="Departamento"/>
+        </panel>
+    </form>
+
+    <action-record
+            name="mant-CursoAcademico-CursoAcademicoCentroUsuario-CursoAcademicoCentroUsuarioCursoAcademicoDepartamento-onNew-action-record"
+            model="com.educaflow.apps.configuracioncentro.db.CursoAcademicoCentroUsuarioCursoAcademicoDepartamento">
+        <field name="cursoAcademicoCentroUsuario" expr="eval:__parent__"/>
+    </action-record>
+
+
+    <action-attrs name="mant-CursoAcademico-CursoAcademicoCentroUsuario-CursoAcademicoCentroUsuarioCursoAcademicoDepartamento-onNew-action-attrs">
+        <attribute for="cursoAcademicoDepartamento"
+                   name="domain"
+                   expr="eval:'self.cursoAcademico = ' + __parent__.cursoAcademico.id"/>
+    </action-attrs>
+
+    <!-- ******************************************************************************************************* -->
+    <!-- * Vistas de CursoAcademico -> CursoAcademicoCentroUsuario -> CursoAcademicoCentroUsuarioCursoAcademicoCargo * -->
+    <!-- ******************************************************************************************************* -->
+
+    <grid name="mant-CursoAcademico-CursoAcademicoCentroUsuario-CursoAcademicoCentroUsuarioCursoAcademicoCargo-grid"
+          title=""
+          model="com.educaflow.apps.configuracioncentro.db.CursoAcademicoCentroUsuarioCursoAcademicoCargo"
+          groups="admins,users"
+          canViewOnClick="false" canDelete="true" canSave="true" editable="false" canNew="true"
+    >
+        <field name="cursoAcademicoCargo.cargo" title="Cargo"/>
+    </grid>
+
+    <form name="mant-CursoAcademico-CursoAcademicoCentroUsuario-CursoAcademicoCentroUsuarioCursoAcademicoCargo-form"
+          title=""
+          model="com.educaflow.apps.configuracioncentro.db.CursoAcademicoCentroUsuarioCursoAcademicoCargo"
+          groups="admins,users"
+          width="large" canAttach="false" canBack="false" canBackOnSave="false" canDelete="true" canNew="true"
+          onNew="mant-CursoAcademico-CursoAcademicoCentroUsuario-CursoAcademicoCentroUsuarioCursoAcademicoCargo-onNew-action-record,
+          mant-CursoAcademico-CursoAcademicoCentroUsuario-CursoAcademicoCentroUsuarioCursoAcademicoCargo-onNew-action-attrs"
+    >
+        <panel>
+            <field name="cursoAcademicoCargo" target-name="cargo.name" title="Cargo"/>
+        </panel>
+    </form>
+
+    <action-record
+            name="mant-CursoAcademico-CursoAcademicoCentroUsuario-CursoAcademicoCentroUsuarioCursoAcademicoCargo-onNew-action-record"
+            model="com.educaflow.apps.configuracioncentro.db.CursoAcademicoCentroUsuarioCursoAcademicoCargo">
+        <field name="cursoAcademicoCentroUsuario" expr="eval:__parent__"/>
+    </action-record>
+
+
+    <action-attrs name="mant-CursoAcademico-CursoAcademicoCentroUsuario-CursoAcademicoCentroUsuarioCursoAcademicoCargo-onNew-action-attrs">
+        <attribute for="cursoAcademicoCargo"
+                   name="domain"
+                   expr="eval:'self.cursoAcademico = ' + __parent__.cursoAcademico.id"/>
+    </action-attrs>
+
+    <!-- ******************************************************************************************************* -->
+    <!-- * Vistas de CursoAcademico -> CursoAcademicoCentroUsuario -> CursoAcademicoCentroUsuarioCursoAcademicoGrupo * -->
+    <!-- ******************************************************************************************************* -->
+
+    <grid name="mant-CursoAcademico-CursoAcademicoCentroUsuario-CursoAcademicoCentroUsuarioCursoAcademicoGrupo-grid"
+          title=""
+          model="com.educaflow.apps.configuracioncentro.db.CursoAcademicoCentroUsuarioCursoAcademicoGrupo"
+          groups="admins,users"
+          canViewOnClick="false" canDelete="true" canSave="true" editable="false" canNew="true"
+    >
+        <field name="cursoAcademicoGrupo.grupo.ciclo" title="Ciclo"/>
+        <field name="cursoAcademicoGrupo.curso" title="Curso"/>
+        <field name="cursoAcademicoGrupo.grupo" title="Grupo"/>
+    </grid>
+
+    <form name="mant-CursoAcademico-CursoAcademicoCentroUsuario-CursoAcademicoCentroUsuarioCursoAcademicoGrupo-form"
+          title=""
+          model="com.educaflow.apps.configuracioncentro.db.CursoAcademicoCentroUsuarioCursoAcademicoGrupo"
+          groups="admins,users"
+          width="large" canAttach="false" canBack="false" canBackOnSave="false" canDelete="true" canNew="true"
+          onNew="mant-CursoAcademico-CursoAcademicoCentroUsuario-CursoAcademicoCentroUsuarioCursoAcademicoGrupo-onNew-action-record,
+          mant-CursoAcademico-CursoAcademicoCentroUsuario-CursoAcademicoCentroUsuarioCursoAcademicoGrupo-onNew-action-attrs"
+    >
+        <panel>
+            <field
+                    name="cursoAcademicoGrupo"
+                    target-name="grupo.name"
+                    title="Grupo"
+                    grid-view="search-cursoAcademico-CursoAcademicoCentroUsuario-CursoAcademicoCentroUsuarioCursoAcademicoGrupo-CursoAcademicoGrupo-form"/>
+        </panel>
+        <panel-related
+                field="cursoModulos"
+                title="Módulos"
+                grid-view="mant-cursoAcademico-CursoAcademicoCentroUsuario-CursoAcademicoCentroUsuarioCursoAcademicoGrupo-CursoAcademicoCentroUsuarioCursoAcademicoGrupoCursoModulo-grid"
+                form-view="mant-cursoAcademico-CursoAcademicoCentroUsuario-CursoAcademicoCentroUsuarioCursoAcademicoGrupo-CursoAcademicoCentroUsuarioCursoAcademicoGrupoCursoModulo-form"
+                showIf="cursoAcademicoCentroUsuario.centroUsuario.tipoUsuario == 'PROFESOR'"
+        />
+    </form>
+
+    <action-record
+            name="mant-CursoAcademico-CursoAcademicoCentroUsuario-CursoAcademicoCentroUsuarioCursoAcademicoGrupo-onNew-action-record"
+            model="com.educaflow.apps.configuracioncentro.db.CursoAcademicoCentroUsuarioCursoAcademicoGrupo">
+        <field name="cursoAcademicoCentroUsuario" expr="eval:__parent__"/>
+    </action-record>
+
+
+    <action-attrs name="mant-CursoAcademico-CursoAcademicoCentroUsuario-CursoAcademicoCentroUsuarioCursoAcademicoGrupo-onNew-action-attrs">
+        <attribute for="cursoAcademicoGrupo"
+                   name="domain"
+                   expr="eval:'self.cursoAcademico = ' + __parent__.cursoAcademico.id"/>
+    </action-attrs>
+
+    <!-- ******************************************************************************************************* -->
+    <!-- * Vistas de CursoAcademico -> CursoAcademicoCentroUsuario -> CursoAcademicoCentroUsuarioCursoAcademicoGrupo -> CursoAcademicoGrupo -->
+    <!-- ******************************************************************************************************* -->
+
+    <grid name="search-cursoAcademico-CursoAcademicoCentroUsuario-CursoAcademicoCentroUsuarioCursoAcademicoGrupo-CursoAcademicoGrupo-form"
+          title="Grupo"
+          model="com.educaflow.apps.configuracioncentro.db.CursoAcademicoGrupo"
+          groups="admins,users"
+          orderBy="grupo.ciclo, curso, grupo"
+          editable="false" edit-icon="false" x-selector="none" canNew="false" canEdit="false" canDelete="false" canSave="false" canViewOnClick="true"
+    >
+        <field name="grupo.ciclo" title="Ciclo"/>
+        <field name="curso" title="Curso"/>
+        <field name="grupo" title="Grupo"/>
+    </grid>
+
+    <!-- ******************************************************************************************************* -->
+    <!-- * Vistas de CursoAcademico -> CursoAcademicoCentroUsuario -> CursoAcademicoCentroUsuarioCursoAcademicoGrupo -> CursoAcademicoCentroUsuarioCursoAcademicoGrupoCursoModulo * -->
+    <!-- ******************************************************************************************************* -->
+
+    <grid name="mant-cursoAcademico-CursoAcademicoCentroUsuario-CursoAcademicoCentroUsuarioCursoAcademicoGrupo-CursoAcademicoCentroUsuarioCursoAcademicoGrupoCursoModulo-grid"
+          title=""
+          model="com.educaflow.apps.configuracioncentro.db.CursoAcademicoCentroUsuarioCursoAcademicoGrupoCursoModulo"
+          groups="admins,users"
+          canViewOnClick="false" canDelete="true" canSave="true" editable="false" canNew="true"
+    >
+        <field name="cursoModulo.curso" title="Curso"/>
+        <field name="cursoModulo.modulo" title="Módulo"/>
+    </grid>
+
+    <form name="mant-cursoAcademico-CursoAcademicoCentroUsuario-CursoAcademicoCentroUsuarioCursoAcademicoGrupo-CursoAcademicoCentroUsuarioCursoAcademicoGrupoCursoModulo-form"
+          title=""
+          model="com.educaflow.apps.configuracioncentro.db.CursoAcademicoCentroUsuarioCursoAcademicoGrupoCursoModulo"
+          groups="admins,users"
+          width="large" canAttach="false" canBack="false" canBackOnSave="false" canDelete="true" canNew="true"
+          onNew="mant-cursoAcademico-CursoAcademicoCentroUsuario-CursoAcademicoCentroUsuarioCursoAcademicoGrupo-CursoAcademicoCentroUsuarioCursoAcademicoGrupoCursoModulo-onNew-action-record,
+          mant-cursoAcademico-CursoAcademicoCentroUsuario-CursoAcademicoCentroUsuarioCursoAcademicoGrupo-CursoAcademicoCentroUsuarioCursoAcademicoGrupoCursoModulo-onNew-action-attrs"
+    >
+        <panel>
+            <field name="cursoModulo" target-name="modulo.name" title="Módulo"/>
+        </panel>
+    </form>
+
+    <action-record
+            name="mant-cursoAcademico-CursoAcademicoCentroUsuario-CursoAcademicoCentroUsuarioCursoAcademicoGrupo-CursoAcademicoCentroUsuarioCursoAcademicoGrupoCursoModulo-onNew-action-record"
+            model="com.educaflow.apps.configuracioncentro.db.CursoAcademicoCentroUsuarioCursoAcademicoGrupoCursoModulo">
+        <field name="cursoAcademicoCentroUsuarioCursoAcademicoGrupo" expr="eval:__parent__"/>
+    </action-record>
+
+    <action-attrs
+            name="mant-cursoAcademico-CursoAcademicoCentroUsuario-CursoAcademicoCentroUsuarioCursoAcademicoGrupo-CursoAcademicoCentroUsuarioCursoAcademicoGrupoCursoModulo-onNew-action-attrs">
+        <attribute for="cursoModulo.curso" name="domain" expr="eval:__parent__.cursoAcademicoGrupo.curso.id"/>
+    </action-attrs>
+
 </object-views>

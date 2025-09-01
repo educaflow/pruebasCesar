@@ -2,19 +2,25 @@
                xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                xsi:schemaLocation="http://axelor.com/xml/ns/domain-models https://axelor.com/xml/ns/domain-models/domain-models_7.4.xsd">
 
+
+
+
     <module name="configuracioncentro" package="com.educaflow.apps.configuracioncentro.db"/>
     <entity name="CursoAcademicoDepartamento">
-        <many-to-one name="cursoAcademico" ref="com.educaflow.apps.configuracioncentro.db.CursoAcademico" required="true" title="NO"/>
-        <many-to-one name="departamento" ref="com.educaflow.apps.configuracioncentro.db.Departamento" required="true" title="NO"/>
+        <many-to-one name="cursoAcademico" ref="com.educaflow.apps.configuracioncentro.db.CursoAcademico" required="true" title="Curso Académico 2"/>
+        <many-to-one name="departamento" ref="com.educaflow.apps.configuracioncentro.db.Departamento" required="true" title="Departamento 1"/>
 
-        <many-to-one name="jefeDepartamento" ref="com.axelor.auth.db.User" title="Jefe de departamento" required="false"/>
+        <many-to-one
+                name="jefeDepartamento"
+                ref="com.educaflow.apps.configuracioncentro.db.CursoAcademicoCentroUsuarioCursoAcademicoDepartamento"
+                title="Jefe de departamento"
+                required="false"/>
 
         <one-to-many
                 name="cursoAcademicoCentroUsuarios"
                 ref="com.educaflow.apps.configuracioncentro.db.CursoAcademicoCentroUsuarioCursoAcademicoDepartamento"
                 mappedBy="cursoAcademicoDepartamento"
                 title="NO"/>
-
         <unique-constraint columns="cursoAcademico,departamento" name="uc_curso_academico_departamento" title="NO"/>
     </entity>
 

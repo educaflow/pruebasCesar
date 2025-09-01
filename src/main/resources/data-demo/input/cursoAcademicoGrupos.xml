@@ -3,7 +3,7 @@
     <cursoAcademicoGrupos>
         <!-- Curso académico 2024-2025 -->
         <cursoAcademicoGrupo cursoAcademico="46019660_2425" grupo="46019660_1DAW" curso="DAW1"/>
-        <cursoAcademicoGrupo cursoAcademico="46019660_2425" grupo="46019660_2DAW" curso="DAW2" tutor="salva"/>
+        <cursoAcademicoGrupo cursoAcademico="46019660_2425" grupo="46019660_2DAW" curso="DAW2"/>
         <cursoAcademicoGrupo cursoAcademico="46019660_2425" grupo="46019660_1SDAM" curso="DAM1"/>
         <cursoAcademicoGrupo cursoAcademico="46019660_2425" grupo="46019660_2SDAM" curso="DAM2"/>
         <cursoAcademicoGrupo cursoAcademico="46019660_2425" grupo="46019660_1ASIR" curso="ASIR1"/>
@@ -23,7 +23,7 @@
 
         <!-- Curso académico 2025-2026 -->
         <cursoAcademicoGrupo cursoAcademico="46019660_2526" grupo="46019660_1DAW" curso="DAW1"/>
-        <cursoAcademicoGrupo cursoAcademico="46019660_2526" grupo="46019660_2DAW" curso="DAW2" tutor="salva" delegado="angela" subdelegado="marcos"/>
+        <cursoAcademicoGrupo cursoAcademico="46019660_2526" grupo="46019660_2DAW" curso="DAW2"/>
         <cursoAcademicoGrupo cursoAcademico="46019660_2526" grupo="46019660_1SDAM" curso="DAM1"/>
         <cursoAcademicoGrupo cursoAcademico="46019660_2526" grupo="46019660_2SDAM" curso="DAM2"/>
         <cursoAcademicoGrupo cursoAcademico="46019660_2526" grupo="46019660_1ASIR" curso="ASIR1"/>

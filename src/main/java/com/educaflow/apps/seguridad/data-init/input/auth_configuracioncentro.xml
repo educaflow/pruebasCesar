@@ -1,18 +1,17 @@
 <?xml version="1.0" ?>
 <auth>
     <permissions>
-        <!-- Permisos para usuarios -->
         <permission name="usuario.self"
                     object="com.axelor.auth.db.User"
                     condition="self = ?"
                     conditionParams="__user__">
-            <can read="true" write="true" create="false" delete="false" export="false" import="false"/>
+            <can read="true" write="true" create="false" remove="true" export="false" import="false"/>
         </permission>
         <permission name="usuario.centro"
                     object="com.axelor.auth.db.User"
                     condition="? = TRUE AND self.centroUsuario.centro = ?"
                     conditionParams="__user__.adminCentroActivo, __user__.centroActivo">
-            <can read="true" write="false" create="false" delete="false" export="false" import="false"/>
+            <can read="true" write="true" create="true" remove="false" export="true" import="true"/>
         </permission>
         <permission name="usuario.cursoAcademico"
                     object="com.axelor.auth.db.User"
@@ -24,7 +23,7 @@
                             WHERE cacu.centroUsuario.centro = ? AND cacu.cursoAcademico = ?
                     )"
                     conditionParams="__user__.adminCentroActivo,__user__.tipoUsuarioCentroActivo,__user__.centroActivo, __user__.centroActivo.cursoAcademicoActual">
-            <can read="true" write="false" create="false" delete="false" export="false" import="false"/>
+            <can read="true" write="false" create="false" remove="false" export="false" import="false"/>
         </permission>
 
         <!-- Permisos para centros -->
@@ -39,22 +38,81 @@
                         )"
                     conditionParams="__user__.tipoUsuarioCentroActivo,__user__"
         >
-            <can read="true" write="false" create="false" delete="false" export="false" import="false"/>
+            <can read="true" write="true" create="false" remove="false" export="false" import="false"/>
         </permission>
 
-        <!-- Permisos para cursos académicos -->
         <permission name="cursoAcademico.centro"
                     object="com.educaflow.apps.configuracioncentro.db.CursoAcademico"
                     condition="? = TRUE and self.centro = ?"
                     conditionParams="__user__.adminCentroActivo, __user__.centroActivo">
-            <can read="true" write="false" create="false" delete="false" export="false" import="false"/>
+            <can read="true" write="true" create="true" remove="true" export="true" import="true"/>
         </permission>
 
         <permission name="cursoAcademico.usuario"
                     object="com.educaflow.apps.configuracioncentro.db.CursoAcademico"
                     condition="? = FALSE AND ? IS NOT NULL AND self = ?"
                     conditionParams="__user__.adminCentroActivo, __user__.tipoUsuarioCentroActivo,__user__.centroActivo.cursoAcademicoActual">
-            <can read="true" write="false" create="false" delete="false" export="false" import="false"/>
+            <can read="true" write="false" create="false" remove="false" export="false" import="false"/>
+        </permission>
+
+        <permission name="cursoAcademicoDepartamento.centro"
+                    object="com.educaflow.apps.configuracioncentro.db.CursoAcademicoDepartamento"
+                    condition="? = TRUE AND ? IS NOT NULL AND self.cursoAcademico.centro = ?"
+                    conditionParams="__user__.adminCentroActivo,__user__.tipoUsuarioCentroActivo,__user__.centroActivo">
+            <can read="true" write="true" create="true" remove="true" export="true" import="true"/>
+        </permission>
+
+        <permission name="cursoAcademicoDepartamento.cursoAcademico"
+                    object="com.educaflow.apps.configuracioncentro.db.CursoAcademicoDepartamento"
+                    condition="? = FALSE AND ? IS NOT NULL AND self.cursoAcademico = ?"
+                    conditionParams="__user__.adminCentroActivo,__user__.tipoUsuarioCentroActivo,__user__.centroActivo.cursoAcademicoActual">
+            <can read="true" write="false" create="false" remove="false" export="false" import="false"/>
+        </permission>
+
+        <!--<permission name="cursoAcademicoCentroUsuario.centro"
+                    object="com.educaflow.apps.configuracioncentro.db.CursoAcademicoCentroUsuario"
+                    condition="? = TRUE AND ? IS NOT NULL AND self.cursoAcademico.centro = ?"
+                    conditionParams="__user__.adminCentroActivo,__user__.tipoUsuarioCentroActivo,__user__.centroActivo.cursoAcademicoActual">
+            <can read="true" write="false" create="false" remove="true" export="false" import="false"/>
+        </permission>
+        <permission name="cursoAcademicoCentroUsuario.cursoAcademico"
+                    object="com.educaflow.apps.configuracioncentro.db.CursoAcademicoCentroUsuario"
+                    condition="? = FALSE AND ? IS NOT NULL AND self.cursoAcademico = ?"
+                    conditionParams="__user__.adminCentroActivo,__user__.tipoUsuarioCentroActivo,__user__.centroActivo.cursoAcademicoActual">
+            <can read="true" write="false" create="false" remove="false" export="false" import="false"/>
+        </permission>-->
+
+        <permission name="cursoAcademicoCentroUsuario.all"
+                    object="com.educaflow.apps.configuracioncentro.db.CursoAcademicoCentroUsuario">
+            <can read="true" write="true" create="true" remove="true" export="false" import="false"/>
+        </permission>
+
+        <permission name="cursoAcademicoDepartamento.all" object="com.educaflow.apps.configuracioncentro.db.CursoAcademicoDepartamento">
+            <can read="true" write="true" create="true" remove="true" export="true" import="true"/>
+        </permission>
+        <permission name="cursoAcademicoCentroUsuarioCursoAcademicoDepartamento.all"
+                    object="com.educaflow.apps.configuracioncentro.db.CursoAcademicoCentroUsuarioCursoAcademicoDepartamento">
+            <can read="true" write="true" create="true" remove="true" export="false" import="false"/>
+        </permission>
+
+        <permission name="cursoAcademicoCargo.all" object="com.educaflow.apps.configuracioncentro.db.CursoAcademicoCargo">
+            <can read="true" write="true" create="true" remove="true" export="true" import="true"/>
+        </permission>
+        <permission name="cursoAcademicoCentroUsuarioCursoAcademicoCargo.all"
+                    object="com.educaflow.apps.configuracioncentro.db.CursoAcademicoCentroUsuarioCursoAcademicoCargo">
+            <can read="true" write="true" create="true" remove="true" export="false" import="false"/>
+        </permission>
+
+        <permission name="cursoAcademicoGrupo.all" object="com.educaflow.apps.configuracioncentro.db.CursoAcademicoGrupo">
+            <can read="true" write="true" create="true" remove="true" export="true" import="true"/>
+        </permission>
+        <permission name="cursoAcademicoCentroUsuarioCursoAcademicoGrupo.all"
+                    object="com.educaflow.apps.configuracioncentro.db.CursoAcademicoCentroUsuarioCursoAcademicoGrupo">
+            <can read="true" write="true" create="true" remove="true" export="false" import="false"/>
+        </permission>
+        <permission name="cursoAcademicoCentroUsuarioCursoAcademicoGrupoCursoModulo.all"
+                    object="com.educaflow.apps.configuracioncentro.db.CursoAcademicoCentroUsuarioCursoAcademicoGrupoCursoModulo">
+            <can read="true" write="true" create="true" remove="true" export="false" import="false"/>
         </permission>
     </permissions>
 
@@ -66,6 +124,19 @@
             <permission name="centro.all"/>
             <permission name="cursoAcademico.centro"/>
             <permission name="cursoAcademico.usuario"/>
+            <!--<permission name="cursoAcademicoDepartamento.centro"/>
+            <permission name="cursoAcademicoDepartamento.cursoAcademico"/>
+            <permission name="cursoAcademicoCentroUsuario.centro"/>
+            <permission name="cursoAcademicoCentroUsuario.cursoAcademico"/>-->
+
+            <permission name="cursoAcademicoCentroUsuario.all"/>
+            <permission name="cursoAcademicoDepartamento.all"/>
+            <permission name="cursoAcademicoCentroUsuarioCursoAcademicoDepartamento.all"/>
+            <permission name="cursoAcademicoCargo.all"/>
+            <permission name="cursoAcademicoCentroUsuarioCursoAcademicoCargo.all"/>
+            <permission name="cursoAcademicoGrupo.all"/>
+            <permission name="cursoAcademicoCentroUsuarioCursoAcademicoGrupo.all"/>
+            <permission name="cursoAcademicoCentroUsuarioCursoAcademicoGrupoCursoModulo.all"/>
         </permissions>
     </group>
 </auth>

@@ -7,6 +7,7 @@
         <string name="code"  />
         <string name="name" namecolumn="true" />
         <enum name="tipoGrupo" ref="com.educaflow.apps.configuracioncentro.db.TipoGrupo" title="Tipo de Grupo"/>
+        <many-to-one name="ciclo" ref="com.educaflow.apps.sistemaeducativo.db.Ciclo" title="Ciclo"/>
         <many-to-one name="centro" ref="com.educaflow.apps.configuracioncentro.db.Centro"/>
     </entity>
 

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_7.4.xsd">
+
+    <action-view name="mant-CentroUsuario-action" title="Centros-Usuarios" model="com.educaflow.apps.configuracioncentro.db.CentroUsuario">
+        <view type="grid" name="mant-CentroUsuario-grid" />
+        <view type="form" name="mant-CentroUsuario-form" />
+        <view-param name="forceEdit" value="true" />
+    </action-view>
+
+    <grid name="mant-CentroUsuario-grid" title="Centro-Usuarios" model="com.educaflow.apps.configuracioncentro.db.CentroUsuario"
+          groups="admins,users"
+          editable="false" edit-icon="false" x-selector="none" canNew="true" canEdit="false" canDelete="false" canSave="false" canViewOnClick="true">
+        <hilite color="danger" if="archived" />
+        <field name="centro" />
+        <field name="usuario" />
+        <field name="tipoUsuario" />
+        <!-- Usuario activo en el centro -->
+        <!--<field name="archived" width="100px" />-->
+    </grid>
+
+    <form name="mant-CentroUsuario-form" title="Centro-Usuario" model="com.educaflow.apps.configuracioncentro.db.CentroUsuario"
+          groups="admins,users"
+          width="large" canAttach="false" canBack="false" canBackOnSave="true" canDelete="false" canNew="false">
+        <panel name="CentroUsuario" title="Usuarios del centro">
+            <field name="centro" readonly="true" grid-view="search-Centro-grid" colSpan="6"/>
+            <field name="usuario" readonly="true" grid-view="search-Usuario-grid" colSpan="6"/>
+            <field name="tipoUsuario"/>
+        </panel>
+    </form>
+
+    <grid name="search-CentroUsuario-grid" title="Centro-Usuario" model="com.educaflow.apps.configuracioncentro.db.CentroUsuario"
+          groups="admins,users"
+          orderBy="usuario.name"
+          editable="false" edit-icon="false" x-selector="none" canNew="false" canEdit="false" canDelete="false" canSave="false" canViewOnClick="true">
+        <field name="usuario" />
+    </grid>
+</object-views>

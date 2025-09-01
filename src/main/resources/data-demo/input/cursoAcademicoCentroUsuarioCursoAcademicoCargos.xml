@@ -1,7 +1,7 @@
 <?xml version="1.0" ?>
 <datos>
     <cursoAcademicoCentroUsuarioCursoAcademicoCargos>
-        <!-- Curso académico 2024-2025 -->
+        <!-- Curso académico 2024-2025 CIPFP Mislata -->
         <cursoAcademicoCentroUsuarioCursoAcademicoCargo cursoAcademico="46019660_2425">
             <centroUsuario centro="46019660" usuario="joaquin"/>
             <cargo code="46019660_JEFEESTUDIOS"/>
@@ -11,10 +11,16 @@
             <cargo code="46019660_ADMIN"/>
         </cursoAcademicoCentroUsuarioCursoAcademicoCargo>
 
-        <!-- Curso académico 2025-2026 -->
+        <!-- Curso académico 2025-2026 CIPFP Mislata -->
         <cursoAcademicoCentroUsuarioCursoAcademicoCargo cursoAcademico="46019660_2526">
             <centroUsuario centro="46019660" usuario="joaquin"/>
             <cargo code="46019660_ADMIN"/>
+        </cursoAcademicoCentroUsuarioCursoAcademicoCargo>
+
+        <!-- Curso académico 2025-2026 IES Serra Perenxisa -->
+        <cursoAcademicoCentroUsuarioCursoAcademicoCargo cursoAcademico="46019015_2526">
+            <centroUsuario centro="46019015" usuario="pedro"/>
+            <cargo code="46019015_ADMIN"/>
         </cursoAcademicoCentroUsuarioCursoAcademicoCargo>
 
     </cursoAcademicoCentroUsuarioCursoAcademicoCargos>

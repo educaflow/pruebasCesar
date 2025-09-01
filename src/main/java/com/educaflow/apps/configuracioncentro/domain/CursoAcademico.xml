@@ -9,10 +9,23 @@
 
         <many-to-one name="centro" ref="com.educaflow.apps.configuracioncentro.db.Centro" required="true"/>
 
-        <one-to-many name="cursoAcademicoCargos" ref="com.educaflow.apps.configuracioncentro.db.CursoAcademicoCargo" mappedBy="cursoAcademico" title="NO"/>
-        <one-to-many name="cursoAcademicoCentroUsuario" ref="com.educaflow.apps.configuracioncentro.db.CursoAcademicoCentroUsuario" mappedBy="cursoAcademico" title="NO"/>
-        <one-to-many name="cursoAcademicoDepartamentos" ref="com.educaflow.apps.configuracioncentro.db.CursoAcademicoDepartamento" mappedBy="cursoAcademico" title="NO"/>
+        <one-to-many
+                name="cursoAcademicoDepartamentos"
+                ref="com.educaflow.apps.configuracioncentro.db.CursoAcademicoDepartamento"
+                mappedBy="cursoAcademico"
+                title="NO"/>
+        <one-to-many
+                name="cursoAcademicoCargos"
+                ref="com.educaflow.apps.configuracioncentro.db.CursoAcademicoCargo"
+                mappedBy="cursoAcademico"
+                title="NO"/>
         <one-to-many name="cursoAcademicoGrupos" ref="com.educaflow.apps.configuracioncentro.db.CursoAcademicoGrupo" mappedBy="cursoAcademico" title="NO"/>
+        <one-to-many
+                name="cursoAcademicoCentroUsuarios"
+                ref="com.educaflow.apps.configuracioncentro.db.CursoAcademicoCentroUsuario"
+                mappedBy="cursoAcademico"
+                title="NO"
+        />
     </entity>
 
 </domain-models>

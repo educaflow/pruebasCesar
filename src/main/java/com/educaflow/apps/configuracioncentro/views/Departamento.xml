@@ -13,17 +13,28 @@
           groups="admins,users"
           editable="false" edit-icon="false" x-selector="none" canNew="true" canEdit="false" canDelete="false" canSave="false" canViewOnClick="true">
         <hilite color="danger" if="archived"/>
-        <field name="code" width="200px" />
+        <!--<field name="centro" width="150px"/>-->
+        <!--<field name="code" width="150px"/>-->
         <field name="name" />
-        <field name="archived" width="100px" />
+        <field name="tipoDepartamento" />
+        <field name="familiaProfesional" />
+        <!--<field name="archived" width="100px" />-->
     </grid>
 
     <form name="mant-Departamento-form" title="Departamento" model="com.educaflow.apps.configuracioncentro.db.Departamento"
           groups="admins,users"
           width="large" canAttach="false" canBack="false" canBackOnSave="true" canDelete="true" canNew="false">
         <panel name="Departamento" title="">
-            <field name="code" colSpan="3" />
-            <field name="name" colOffset="9" />
+            <field name="code" colSpan="6" required="true"/>
+            <field name="name" colSpan="6" required="true"/>
+            <field name="tipoDepartamento" colSpan="6" required="true"/>
+            <field name="familiaProfesional"
+                   colSpan="6"
+                   grid-view="search-FamiliaProfesional-grid"
+                   showIf="tipoDepartamento == 'DOCENTE'"
+                   requiredIf="tipoDepartamento == 'DOCENTE'"
+
+            />
         </panel>
     </form>
 

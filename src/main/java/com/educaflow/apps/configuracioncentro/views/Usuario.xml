@@ -16,20 +16,22 @@
 
     >
         <hilite color="danger" if="archived"/>
-        <field name="code" width="200px" />
-        <field name="name" width="350px"/>
-        <!--<field name="tipoUsuarioCentroActivo"/>-->
-        <field name="centroUsuario.tipoUsuario" width="200px"/>
-        <field name="archived" width="100px" />
+        <!--<field name="code" width="200px" />-->
+        <field name="name" width="350px" title="Nombre"/>
+        <field name="tipoUsuarioCentroActivo" title="Tipo usuario"/>
+        <field name="adminCentroActivo" width="150px"/>
+        <!--<field name="centroUsuario.tipoUsuario" width="200px"/>
+        <field name="archived" width="100px" />-->
     </grid>
 
     <form name="mant-Usuario-form" title="Usuario" model="com.axelor.auth.db.User"
           groups="admins,users"
           width="large" canAttach="false" canBack="false" canBackOnSave="true" canDelete="true" canNew="false">
         <panel name="Usuario" title="">
-            <field name="code" colSpan="3" />
-            <field name="name" colOffset="3" />
-            <field name="centroUsuario.tipoUsuario" colOffset="6"/>
+            <field name="code" colSpan="6" />
+            <field name="name" colSpan="6" title="Nombre"/>
+            <field name="centroUsuario.tipoUsuario" colOffset="6" title="Tipo usuario"/>
+            <field name="adminCentroActivo" colOffset="6"/>
         </panel>
     </form>
 

@@ -103,5 +103,8 @@
         <cursoAcademicoCentroUsuario cursoAcademico="46019015_2526">
             <centroUsuario centro="46019015" usuario="lorenzo"/>
         </cursoAcademicoCentroUsuario>
+        <cursoAcademicoCentroUsuario cursoAcademico="46019015_2526">
+            <centroUsuario centro="46019015" usuario="joaquin"/>
+        </cursoAcademicoCentroUsuario>
     </cursoAcademicoCentroUsuarios>
 </datos>

@@ -13,17 +13,39 @@
           groups="admins,users"
           editable="false" edit-icon="false" x-selector="none" canNew="true" canEdit="false" canDelete="false" canSave="false" canViewOnClick="true">
         <hilite color="danger" if="archived"/>
-        <field name="code" width="200px" />
+        <!--<field name="code" width="150px" />-->
         <field name="name" />
-        <field name="archived" width="100px" />
+        <field name="tipoUsuario" width="150px" />
+        <field name="adminCentro" width="150px"/>
+        <field name="directorCentro" width="150px"/>
+        <field name="secretarioCentro" width="150px"/>
+        <!--<field name="archived" width="100px" />-->
     </grid>
 
     <form name="mant-Cargo-form" title="Cargo" model="com.educaflow.apps.configuracioncentro.db.Cargo"
           groups="admins,users"
           width="large" canAttach="false" canBack="false" canBackOnSave="true" canDelete="true" canNew="false">
         <panel name="Cargo" title="">
-            <field name="code" colSpan="3" />
-            <field name="name" colOffset="9" />
+            <field name="code" colSpan="6" required="true"/>
+            <field name="name" colSpan="6" required="true"/>
+            <field name="tipoUsuario" colSpan="3" required="true"/>
+            <field name="adminCentro"
+                   colSpan="3"
+                   title="Administrador"
+                   showIf="tipoUsuario == 'PROFESOR' || tipoUsuario == 'ADMINISTRATIVO'"
+            />
+            <field
+                    name="directorCentro"
+                    colSpan="3"
+                    title="Director"
+                    showIf="tipoUsuario == 'PROFESOR' || tipoUsuario == 'ADMINISTRATIVO'"
+            />
+            <field
+                    name="secretarioCentro"
+                    colSpan="3"
+                    title="Secretario"
+                    showIf="tipoUsuario == 'PROFESOR' || tipoUsuario == 'ADMINISTRATIVO'"
+            />
         </panel>
     </form>
 

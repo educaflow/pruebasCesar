@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_7.4.xsd">
+
+    <menuitem name="cursoacademico-menu" action="mant-CursoAcademico-action" title="Curso Académico"  groups="users, admins"  order="500"/>
+
+    <menuitem name="cursoacademico-Usuario-menu" parent="cursoacademico-menu" title="Usuarios" action="mant-Usuario-action" groups="users,admins" order="1"  />
+    <!--<menuitem name="cursoacademico-Departamento-menu" parent="cursoacademico-menu" title="Departamentos" action="mant-Departamento-action" groups="users,admins" order="2"  />
+    <menuitem name="cursoacademico-Grupo-menu" parent="cursoacademico-menu" title="Grupos" action="mant-Grupo-action" groups="users,admins" order="2"  />-->
+
+
+
+
+
+</object-views>

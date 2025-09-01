@@ -1,25 +1,25 @@
 <?xml version="1.0"?>
 <datos>
     <grupos>
-        <grupo code="46019660_1DAW" name="1DAW" tipoGrupo="PRESENCIAL" centro="46019660"/>
-        <grupo code="46019660_2DAW" name="2DAW" tipoGrupo="PRESENCIAL" centro="46019660"/>
-        <grupo code="46019660_1SDAM" name="1SDAM" tipoGrupo="SEMIPRESENCIAL" centro="46019660"/>
-        <grupo code="46019660_2SDAM" name="2SDAM" tipoGrupo="SEMIPRESENCIAL" centro="46019660"/>
-        <grupo code="46019660_1ASIR" name="1ASIR" tipoGrupo="PRESENCIAL" centro="46019660"/>
-        <grupo code="46019660_2ASIR" name="2ASIR" tipoGrupo="PRESENCIAL" centro="46019660"/>
-        <grupo code="46019660_1SMR" name="1SMR" tipoGrupo="PRESENCIAL" centro="46019660"/>
-        <grupo code="46019660_2SMR" name="2SMR" tipoGrupo="PRESENCIAL" centro="46019660"/>
-        <grupo code="46019660_1SSMRA" name="1SMRA" tipoGrupo="SEMIPRESENCIAL" centro="46019660"/>
-        <grupo code="46019660_1SSMRB" name="1SMRB" tipoGrupo="SEMIPRESENCIAL" centro="46019660"/>
-        <grupo code="46019660_2SSMRA" name="2SMRA" tipoGrupo="SEMIPRESENCIAL" centro="46019660"/>
-        <grupo code="46019660_2SSMRB" name="2SMRB" tipoGrupo="SEMIPRESENCIAL" centro="46019660"/>
-        <grupo code="46019660_1GAT" name="1GAT" tipoGrupo="PRESENCIAL" centro="46019660"/>
-        <grupo code="46019660_2GAT" name="2GAT" tipoGrupo="PRESENCIAL" centro="46019660"/>
-        <grupo code="46019660_1GIAT" name="1GIAT" tipoGrupo="PRESENCIAL" centro="46019660"/>
-        <grupo code="46019660_2GIAT" name="2GIAT" tipoGrupo="PRESENCIAL" centro="46019660"/>
-        <grupo code="46019660_1AVGA" name="1AVGA" tipoGrupo="PRESENCIAL" centro="46019660"/>
-        <grupo code="46019660_2AVGA" name="2AVGA" tipoGrupo="PRESENCIAL" centro="46019660"/>
-        <grupo code="46019015_1SDAW" name="1SDAW" tipoGrupo="SEMIPRESENCIAL" centro="46019015"/>
-        <grupo code="46019015_2SDAW" name="2SDAW" tipoGrupo="SEMIPRESENCIAL" centro="46019015"/>
+        <grupo code="46019660_1DAW" name="1DAW" tipoGrupo="PRESENCIAL" centro="46019660" ciclo="DAW"/>
+        <grupo code="46019660_2DAW" name="2DAW" tipoGrupo="PRESENCIAL" centro="46019660" ciclo="DAW"/>
+        <grupo code="46019660_1SDAM" name="1SDAM" tipoGrupo="SEMIPRESENCIAL" centro="46019660" ciclo="DAM"/>
+        <grupo code="46019660_2SDAM" name="2SDAM" tipoGrupo="SEMIPRESENCIAL" centro="46019660" ciclo="DAM"/>
+        <grupo code="46019660_1ASIR" name="1ASIR" tipoGrupo="PRESENCIAL" centro="46019660" ciclo="ASIR"/>
+        <grupo code="46019660_2ASIR" name="2ASIR" tipoGrupo="PRESENCIAL" centro="46019660" ciclo="ASIR"/>
+        <grupo code="46019660_1SMR" name="1SMR" tipoGrupo="PRESENCIAL" centro="46019660" ciclo="SMR"/>
+        <grupo code="46019660_2SMR" name="2SMR" tipoGrupo="PRESENCIAL" centro="46019660" ciclo="SMR"/>
+        <grupo code="46019660_1SSMRA" name="1SMRA" tipoGrupo="SEMIPRESENCIAL" centro="46019660" ciclo="SMR"/>
+        <grupo code="46019660_1SSMRB" name="1SMRB" tipoGrupo="SEMIPRESENCIAL" centro="46019660" ciclo="SMR"/>
+        <grupo code="46019660_2SSMRA" name="2SMRA" tipoGrupo="SEMIPRESENCIAL" centro="46019660" ciclo="SMR"/>
+        <grupo code="46019660_2SSMRB" name="2SMRB" tipoGrupo="SEMIPRESENCIAL" centro="46019660" ciclo="SMR"/>
+        <grupo code="46019660_1GAT" name="1GAT" tipoGrupo="PRESENCIAL" centro="46019660" ciclo="GAT"/>
+        <grupo code="46019660_2GAT" name="2GAT" tipoGrupo="PRESENCIAL" centro="46019660" ciclo="GAT"/>
+        <grupo code="46019660_1GIAT" name="1GIAT" tipoGrupo="PRESENCIAL" centro="46019660" ciclo="GIAT"/>
+        <grupo code="46019660_2GIAT" name="2GIAT" tipoGrupo="PRESENCIAL" centro="46019660" ciclo="GIAT"/>
+        <grupo code="46019660_1AVGA" name="1AVGA" tipoGrupo="PRESENCIAL" centro="46019660" ciclo="AVGA"/>
+        <grupo code="46019660_2AVGA" name="2AVGA" tipoGrupo="PRESENCIAL" centro="46019660" ciclo="AVGA"/>
+        <grupo code="46019015_1SDAW" name="1SDAW" tipoGrupo="SEMIPRESENCIAL" centro="46019015" ciclo="DAW"/>
+        <grupo code="46019015_2SDAW" name="2SDAW" tipoGrupo="SEMIPRESENCIAL" centro="46019015" ciclo="DAW"/>
     </grupos>
 </datos>

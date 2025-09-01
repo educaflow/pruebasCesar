@@ -13,17 +13,21 @@
           groups="admins,users"
           editable="false" edit-icon="false" x-selector="none" canNew="true" canEdit="false" canDelete="false" canSave="false" canViewOnClick="true">
         <hilite color="danger" if="archived"/>
-        <field name="code" width="200px" />
+        <field name="ciclo" width="150px"/>
+        <!--<field name="code" width="200px" />-->
         <field name="name" />
-        <field name="archived" width="100px" />
+        <field name="tipoGrupo" width="200px" />
+        <!--<field name="archived" width="100px" />-->
     </grid>
 
     <form name="mant-Grupo-form" title="Grupo" model="com.educaflow.apps.configuracioncentro.db.Grupo"
           groups="admins,users"
           width="large" canAttach="false" canBack="false" canBackOnSave="true" canDelete="true" canNew="false">
         <panel name="Grupo" title="">
-            <field name="code" colSpan="3" />
-            <field name="name" colOffset="9" />
+            <field name="ciclo" colSpan="4" required="true"/>
+            <field name="code" colSpan="4" required="true"/>
+            <field name="tipoGrupo" colSpan="4" required="true"/>
+            <field name="name" required="true"/>
         </panel>
     </form>
 

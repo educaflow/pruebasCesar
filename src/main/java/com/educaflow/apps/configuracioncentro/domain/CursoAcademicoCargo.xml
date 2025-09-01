@@ -8,7 +8,7 @@
         <many-to-one name="cargo" ref="com.educaflow.apps.configuracioncentro.db.Cargo" required="true" title="NO"/>
 
         <one-to-many
-                name="cursoAcademicoCentroUsuarioCursoAcademicoCargos"
+                name="cursoAcademicoCentroUsuarios"
                 ref="com.educaflow.apps.configuracioncentro.db.CursoAcademicoCentroUsuarioCursoAcademicoCargo"
                 mappedBy="cursoAcademicoCargo"
                 title="NO"/>

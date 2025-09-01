@@ -1,6 +1,7 @@
 <?xml version="1.0"?>
 <datos>
     <cargos>
+        <!-- Cargos para el centro CIPFP Mislata (46019660) -->
         <cargo code="46019660_DIRECTOR" name="Director" centro="46019660" tipoUsuario="PROFESOR" adminCentro="false"/>
         <cargo code="46019660_VICEDIRECTOR" name="vicedirector" centro="46019660" tipoUsuario="PROFESOR" adminCentro="false"/>
         <cargo code="46019660_JEFEESTUDIOS" name="Jefe de Estudios" centro="46019660" tipoUsuario="PROFESOR" adminCentro="false"/>
@@ -21,5 +22,8 @@
         <cargo code="46019660_DELEGADO" name="Delegado del curso" centro="46019660" tipoUsuario="ALUMNO" adminCentro="false"/>
         <cargo code="46019660_SUBDELEGADO" name="Subdelegado del curso" centro="46019660" tipoUsuario="ALUMNO" adminCentro="false"/>
         <cargo code="46019660_TUTOR" name="Tutor del curso" centro="46019660" tipoUsuario="PROFESOR" adminCentro="false"/>
+
+        <!-- Cargos para el centro IES Serra Perenxisa (46019015) -->
+        <cargo code="46019015_ADMIN" name="Administrador del centro" centro="46019015" tipoUsuario="PROFESOR" adminCentro="true"/>
     </cargos>
 </datos>

@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<datos>
+    <cicloLeyesEducativas>
+        <cicloLeyEducativa ciclo="DAW" leyEducativa="LOMLOE"/>
+        <cicloLeyEducativa ciclo="DAM" leyEducativa="LOMLOE"/>
+        <cicloLeyEducativa ciclo="ASIR" leyEducativa="LOMLOE"/>
+        <cicloLeyEducativa ciclo="SMR" leyEducativa="LOMLOE"/>
+        <cicloLeyEducativa ciclo="GAT" leyEducativa="LOMLOE"/>
+        <cicloLeyEducativa ciclo="GIAT" leyEducativa="LOMLOE"/>
+        <cicloLeyEducativa ciclo="AVGA" leyEducativa="LOMLOE"/>
+    </cicloLeyesEducativas>
+</datos>

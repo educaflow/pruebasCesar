@@ -8,9 +8,15 @@
         <many-to-one name="grupo" ref="com.educaflow.apps.configuracioncentro.db.Grupo" required="true" title="NO"/>
 
         <many-to-one name="curso" ref="com.educaflow.apps.sistemaeducativo.db.Curso" required="true"/>
-        <many-to-one name="tutor" ref="com.axelor.auth.db.User" />
-        <many-to-one name="delegado" ref="com.axelor.auth.db.User" />
-        <many-to-one name="subdelegado" ref="com.axelor.auth.db.User" />
+        <many-to-one name="tutor" ref="com.educaflow.apps.configuracioncentro.db.CursoAcademicoCentroUsuarioCursoAcademicoGrupo" />
+        <many-to-one name="delegado" ref="com.educaflow.apps.configuracioncentro.db.CursoAcademicoCentroUsuarioCursoAcademicoGrupo" />
+        <many-to-one name="subdelegado" ref="com.educaflow.apps.configuracioncentro.db.CursoAcademicoCentroUsuarioCursoAcademicoGrupo" />
+
+        <one-to-many
+                name="cursoAcademicoCentroUsuarios"
+                ref="com.educaflow.apps.configuracioncentro.db.CursoAcademicoCentroUsuarioCursoAcademicoGrupo"
+                mappedBy="cursoAcademicoGrupo"
+                title="NO"/>
 
         <unique-constraint columns="cursoAcademico,grupo" name="uc_curso_academico_grupo" title="NO"/>
     </entity>

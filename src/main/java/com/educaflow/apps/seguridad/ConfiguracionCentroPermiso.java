@@ -45,15 +45,13 @@ public class ConfiguracionCentroPermiso {
         Set<Permission> permissions = new HashSet<>();
 
         if (joinTables.containsKey(object)) {
-            System.out.println("Calculando permisos para: " + object);
-
             StringJoiner params = new StringJoiner(", ");
             String filter = getFilterForBaseEntity(params, object);
-            permissions.add(buildPermission(filter, params));
+            permissions.add(buildPermission(filter, params, true, false, false, false, false, false));
 
             params = new StringJoiner(", ");
             String adminFilter = getFilterForBaseEntityAdminCentro(params, object);
-            permissions.add(buildPermission(adminFilter, params));
+            permissions.add(buildPermission(adminFilter, params, true, true, true, true, true, true));
 
             cachePermisos.put(object, permissions);
             return Optional.of(permissions);
@@ -63,8 +61,8 @@ public class ConfiguracionCentroPermiso {
 
     }
 
-    private Permission buildPermission(String filter, StringJoiner params) {
-        Permission permission = createBasePermission(filter, true, false, false, false, false, false);
+    private Permission buildPermission(String filter, StringJoiner params, boolean canRead, boolean canWrite, boolean canCreate, boolean canRemove, boolean canImport, boolean canExport) {
+        Permission permission = createBasePermission(filter, canRead, canWrite, canCreate, canRemove, canImport, canExport);
         permission.setCondition(filter);
         permission.setConditionParams(params.toString());
         return  permission;
