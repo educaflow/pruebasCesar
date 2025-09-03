@@ -66,9 +66,9 @@
 
     <grid name="mant-CursoAcademico-CursoAcademicoDepartamento-grid" title="" model="com.educaflow.apps.configuracioncentro.db.CursoAcademicoDepartamento"
           groups="admins,users"
-          editable="false" edit-icon="false" x-selector="none" canNew="true" canEdit="true" canDelete="true" canSave="true" canViewOnClick="true">
+          editable="false" edit-icon="false" x-selector="none" canNew="true" canEdit="true" canDelete="true" canSave="true" canViewOnClick="false">
         <field name="departamento" title="Departamento"/>
-        <field name="jefeDepartamento.cursoAcademicoCentroUsuario.centroUsuario.usuario.name" />
+        <field name="jefeDepartamento.cursoAcademicoCentroUsuario.centroUsuario.usuario.name" title="Jefe departamento" />
     </grid>
 
     <form name="mant-CursoAcademico-CursoAcademicoDepartamento-form"
@@ -92,7 +92,7 @@
                 title="Profesores del departamento"
                 grid-view="mant-CursoAcademico-CursoAcademicoDepartamento-CursoAcademicoCentroUsuarioCursoAcademicoDepartamento-grid"
                 form-view="mant-CursoAcademico-CursoAcademicoDepartamento-CursoAcademicoCentroUsuarioCursoAcademicoDepartamento-form"
-                canNew="false"
+                canNew="false" canRemove="false" canEdit="false"
         />
     </form>
 
@@ -111,16 +111,14 @@
           title=""
           groups="users, admins"
     >
-        <field name="cursoAcademicoCentroUsuario" target-name="centroUsuario.usuario.name" title="Profesor"/>
+        <field name="cursoAcademicoCentroUsuario.centroUsuario.usuario.name" title="Profesor"/>
     </grid>
 
-
     <form name="mant-CursoAcademico-CursoAcademicoDepartamento-CursoAcademicoCentroUsuarioCursoAcademicoDepartamento-form"
-          model="com.educaflow.apps.configuracioncentro.db.CursoAcademicoCentroUsuarioCursoAcademicoDepartamento"
           title="Profesor"
-    >
+          model="com.educaflow.apps.configuracioncentro.db.CursoAcademicoCentroUsuarioCursoAcademicoDepartamento">
         <panel>
-            <field name="cursoAcademicoCentroUsuario.centroUsuario.usuario"/>
+            <field name="cursoAcademicoCentroUsuario" target-name="centroUsuario.usuario.name" title="Profesor" form-view="view-CursoAcademicoCentroUsuario-form"/>
         </panel>
     </form>
 
@@ -147,8 +145,8 @@
                 field="cursoAcademicoCentroUsuarios"
                 title="Profesores"
                 grid-view="mant-CursoAcademico-CursoAcademicoCargo-CursoAcademicoCentroUsuarioCursoAcademicoCargo-grid"
-                form-view="mant-CursoAcademico-CursoAcademicoCargo-CursoAcademicoCentroUsuarioCursoAcademicoCargo-form"
-                canNew="false"
+                form-view="view-CursoAcademicoCentroUsuario-form"
+                canNew="false" canEdit="false" canRemove="false"
         />
     </form>
 
@@ -171,14 +169,14 @@
     </grid>
 
 
-    <form name="mant-CursoAcademico-CursoAcademicoCargo-CursoAcademicoCentroUsuarioCursoAcademicoCargo-form"
+    <!--<form name="mant-CursoAcademico-CursoAcademicoCargo-CursoAcademicoCentroUsuarioCursoAcademicoCargo-form"
           model="com.educaflow.apps.configuracioncentro.db.CursoAcademicoCentroUsuarioCursoAcademicoCargo"
           title="Profesor"
     >
         <panel>
             <field name="cursoAcademicoCentroUsuario.centroUsuario.usuario"/>
         </panel>
-    </form>
+    </form>-->
 
     <!-- ******************************************************************************************************* -->
     <!-- ************************* Vistas de CursoAcademico -> CursoAcademicoGrupo ***************************** -->
@@ -206,15 +204,23 @@
             <field name="tutor"
                    title="Tutor"
                    target-name="cursoAcademicoCentroUsuario.centroUsuario.usuario.name"
-                   domain="self.cursoAcademicoCentroUsuario.centroUsuario.tipoUsuario == 'PROFESOR'"/>
-            <field name="delegado" title="Delegado" target-name="cursoAcademicoCentroUsuario.centroUsuario.usuario.name"/>
-            <field name="subdelegado" title="Subdelegado" target-name="cursoAcademicoCentroUsuario.centroUsuario.usuario.name"/>
+                   domain="self.cursoAcademicoGrupo = :id AND self.cursoAcademicoCentroUsuario.centroUsuario.tipoUsuario = 'PROFESOR'"/>
+            <field name="delegado"
+                   title="Delegado"
+                   target-name="cursoAcademicoCentroUsuario.centroUsuario.usuario.name"
+                   domain="self.cursoAcademicoGrupo = :id AND self.cursoAcademicoCentroUsuario.centroUsuario.tipoUsuario = 'ALUMNO'"
+            />
+            <field name="subdelegado"
+                   title="Subdelegado"
+                   target-name="cursoAcademicoCentroUsuario.centroUsuario.usuario.name"
+                     domain="self.cursoAcademicoGrupo = :id AND self.cursoAcademicoCentroUsuario.centroUsuario.tipoUsuario = 'ALUMNO'"
+            />
         </panel>
         <panel-related
                 field="cursoAcademicoCentroUsuarios"
-                title="Alumnos"
+                title="Usuarios"
                 grid-view="mant-CursoAcademico-CursoAcademicoGrupo-CursoAcademicoCentroUsuarioCursoAcademicoGrupo-grid"
-                form-view="mant-CursoAcademico-CursoAcademicoGrupo-CursoAcademicoCentroUsuarioCursoAcademicoGrupo-form"
+                form-view="view-CursoAcademicoCentroUsuario-form"
                 canNew="false"
         />
     </form>
@@ -229,24 +235,24 @@
           groups="users, admins"
     >
         <field name="cursoAcademicoCentroUsuario.centroUsuario.usuario.name" title="Usuario"/>
-        <field name="cursoAcademicoCentroUsuario.centroUsuario.tipoUsuario" title="Tipo de usuario"/>
+        <field name="cursoAcademicoCentroUsuario.centroUsuario.tipoUsuario.name" title="Tipo de usuario"/>
     </grid>
 
-    <form name="mant-CursoAcademico-CursoAcademicoGrupo-CursoAcademicoCentroUsuarioCursoAcademicoGrupo-form"
+    <!--<form name="mant-CursoAcademico-CursoAcademicoGrupo-CursoAcademicoCentroUsuarioCursoAcademicoGrupo-form"
           model="com.educaflow.apps.configuracioncentro.db.CursoAcademicoCentroUsuarioCursoAcademicoGrupo"
           title="Usuario"
     >
         <panel>
-            <field name="cursoAcademicoCentroUsuario" target-name="centroUsuario.usuario.name" readonly="true"/>
-            <field name="cursoAcademicoCentroUsuario" target-name="centroUsuario.usuario.tipoUsuario" readonly="true"/>
+            <field name="cursoAcademicoCentroUsuario" title="Usuario" target-name="centroUsuario.usuario.name" readonly="true"/>
+            <field name="cursoAcademicoCentroUsuario" title="Tipo Usuario" target-name="centroUsuario.usuario.tipoUsuario" readonly="true"/>
         </panel>
         <panel-related
                 field="cursoAcademicoCentroUsuarioCursoAcademicoGrupoCursoModulos"
                 title="Módulos"
                 grid-view="mant-CursoAcademico-CursoAcademicoGrupo-CursoAcademicoCentroUsuarioCursoAcademicoGrupo-CursoAcademicoCentroUsuarioCursoAcademicoGrupoCursoModulo-grid"
-                form-view="mant-CursoAcademico-CursoAcademicoGrupo-CursoAcademicoCentroUsuarioCursoAcademicoGrupo-CursoAcademicoCentroUsuarioCursoAcademicoGrupoCursoModulo-form"
+                canNew="false" canRemove="false" canEdit="false" canSelect="false" canView="false"
         />
-    </form>
+    </form>-->
 
     <!-- ******************************************************************************************************* -->
     <!-- ********************* Vistas de CursoAcademico -> CursoAcademicoCentroUsuario ************************* -->
@@ -315,7 +321,7 @@
           mant-CursoAcademico-CursoAcademicoCentroUsuario-CursoAcademicoCentroUsuarioCursoAcademicoDepartamento-onNew-action-attrs"
     >
         <panel>
-            <field name="cursoAcademicoDepartamento" target-name="departamento.name" title="Departamento"/>
+            <field name="cursoAcademicoDepartamento" target-name="departamento.name" title="Departamento" grid-view="search-CursoAcademicoDepartamento-grid"/>
         </panel>
     </form>
 
@@ -354,7 +360,7 @@
           mant-CursoAcademico-CursoAcademicoCentroUsuario-CursoAcademicoCentroUsuarioCursoAcademicoCargo-onNew-action-attrs"
     >
         <panel>
-            <field name="cursoAcademicoCargo" target-name="cargo.name" title="Cargo"/>
+            <field name="cursoAcademicoCargo" target-name="cargo.name" title="Cargo" grid-view="search-CursoAcademicoCargo-grid"/>
         </panel>
     </form>
 
@@ -381,7 +387,6 @@
           groups="admins,users"
           canViewOnClick="false" canDelete="true" canSave="true" editable="false" canNew="true"
     >
-        <field name="cursoAcademicoGrupo.grupo.ciclo" title="Ciclo"/>
         <field name="cursoAcademicoGrupo.curso" title="Curso"/>
         <field name="cursoAcademicoGrupo.grupo" title="Grupo"/>
     </grid>
@@ -399,7 +404,7 @@
                     name="cursoAcademicoGrupo"
                     target-name="grupo.name"
                     title="Grupo"
-                    grid-view="search-cursoAcademico-CursoAcademicoCentroUsuario-CursoAcademicoCentroUsuarioCursoAcademicoGrupo-CursoAcademicoGrupo-form"/>
+                    grid-view="search-CursoAcademicoGrupo-grid"/>
         </panel>
         <panel-related
                 field="cursoModulos"
@@ -422,21 +427,6 @@
                    expr="eval:'self.cursoAcademico = ' + __parent__.cursoAcademico.id"/>
     </action-attrs>
 
-    <!-- ******************************************************************************************************* -->
-    <!-- * Vistas de CursoAcademico -> CursoAcademicoCentroUsuario -> CursoAcademicoCentroUsuarioCursoAcademicoGrupo -> CursoAcademicoGrupo -->
-    <!-- ******************************************************************************************************* -->
-
-    <grid name="search-cursoAcademico-CursoAcademicoCentroUsuario-CursoAcademicoCentroUsuarioCursoAcademicoGrupo-CursoAcademicoGrupo-form"
-          title="Grupo"
-          model="com.educaflow.apps.configuracioncentro.db.CursoAcademicoGrupo"
-          groups="admins,users"
-          orderBy="grupo.ciclo, curso, grupo"
-          editable="false" edit-icon="false" x-selector="none" canNew="false" canEdit="false" canDelete="false" canSave="false" canViewOnClick="true"
-    >
-        <field name="grupo.ciclo" title="Ciclo"/>
-        <field name="curso" title="Curso"/>
-        <field name="grupo" title="Grupo"/>
-    </grid>
 
     <!-- ******************************************************************************************************* -->
     <!-- * Vistas de CursoAcademico -> CursoAcademicoCentroUsuario -> CursoAcademicoCentroUsuarioCursoAcademicoGrupo -> CursoAcademicoCentroUsuarioCursoAcademicoGrupoCursoModulo * -->
@@ -448,7 +438,6 @@
           groups="admins,users"
           canViewOnClick="false" canDelete="true" canSave="true" editable="false" canNew="true"
     >
-        <field name="cursoModulo.curso" title="Curso"/>
         <field name="cursoModulo.modulo" title="Módulo"/>
     </grid>
 
@@ -461,7 +450,11 @@
           mant-cursoAcademico-CursoAcademicoCentroUsuario-CursoAcademicoCentroUsuarioCursoAcademicoGrupo-CursoAcademicoCentroUsuarioCursoAcademicoGrupoCursoModulo-onNew-action-attrs"
     >
         <panel>
-            <field name="cursoModulo" target-name="modulo.name" title="Módulo" grid-view="search-cursoAcademico-CursoAcademicoCentroUsuario-CursoAcademicoCentroUsuarioCursoAcademicoGrupo-CursoAcademicoCentroUsuarioCursoAcademicoGrupoCursoModulo-CursoModulo-form"/>
+            <field name="cursoModulo"
+                   target-name="modulo.name"
+                   title="Módulo"
+                   grid-view="search-CursoModulo-grid"
+            />
         </panel>
     </form>
 
@@ -473,25 +466,10 @@
 
     <action-attrs
             name="mant-cursoAcademico-CursoAcademicoCentroUsuario-CursoAcademicoCentroUsuarioCursoAcademicoGrupo-CursoAcademicoCentroUsuarioCursoAcademicoGrupoCursoModulo-onNew-action-attrs">
-        <!--<attribute for="cursoModulo.curso" name="domain" expr="eval:__parent__.cursoAcademicoGrupo.curso.id"/>-->
         <attribute for="cursoModulo"
                    name="domain"
                    expr="eval:'self.curso = ' + __parent__.cursoAcademicoGrupo.curso.id"/>
     </action-attrs>
 
-
-    <!-- ******************************************************************************************************* -->
-    <!-- Vistas de CursoAcademico -> CursoAcademicoCentroUsuario -> CursoAcademicoCentroUsuarioCursoAcademicoGrupo -> CursoAcademicoCentroUsuarioCursoAcademicoGrupoCursoModulo -> CursoModulo -->
-    <!-- ******************************************************************************************************* -->
-
-    <grid name="search-cursoAcademico-CursoAcademicoCentroUsuario-CursoAcademicoCentroUsuarioCursoAcademicoGrupo-CursoAcademicoCentroUsuarioCursoAcademicoGrupoCursoModulo-CursoModulo-form"
-          title="Módulo"
-          model="com.educaflow.apps.sistemaeducativo.db.CursoModulo"
-          groups="admins,users"
-          orderBy="modulo.name"
-          editable="false" edit-icon="false" x-selector="none" canNew="false" canEdit="false" canDelete="false" canSave="false" canViewOnClick="true"
-    >
-        <field name="modulo" title="Módulo"/>
-    </grid>
 
 </object-views>

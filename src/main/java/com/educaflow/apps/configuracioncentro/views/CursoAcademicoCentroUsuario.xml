@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_7.4.xsd">
+
+    <form name="view-CursoAcademicoCentroUsuario-form" title="Usuarios" model="com.educaflow.apps.configuracioncentro.db.CursoAcademicoCentroUsuario"
+          groups="admins,users"
+          width="large" canAttach="false" canBack="false" canBackOnSave="false" canDelete="false" canNew="false" canEdit="false"
+    >
+        <panel title="Usuario">
+            <field name="centroUsuario.usuario" readonly="true"/>
+            <field name="centroUsuario.tipoUsuario" readonly="true"/>
+        </panel>
+        <panel-tabs >
+            <panel-related
+                    field="cursoAcademicoCentroUsuarioCursoAcademicoDepartamentos"
+                    title="Departamentos"
+                    grid-view="view-CursoAcademicoCentroUsuario-CursoAcademicoCentroUsuarioCursoAcademicoDepartamento-grid"
+                    showIf="centroUsuario.tipoUsuario != 'ALUMNO' &amp;&amp; centroUsuario.tipoUsuario != 'EXTERNO'"
+                    canEdit="false" canRemove="false" canNew="false"
+            />
+            <panel-related
+                    field="cursoAcademicoCentroUsuarioCursoAcademicoCargos"
+                    title="Cargos"
+                    grid-view="view-CursoAcademicoCentroUsuario-CursoAcademicoCentroUsuarioCursoAcademicoCargo-grid"
+                    showIf="centroUsuario.tipoUsuario != 'EXTERNO'"
+                    canEdit="false" canRemove="false" canNew="false"
+            />
+            <panel-related
+                    field="cursoAcademicoCentroUsuarioCursoAcademicoGrupos"
+                    title="Grupos"
+                    grid-view="view-CursoAcademicoCentroUsuario-CursoAcademicoCentroUsuarioCursoAcademicoGrupo-grid"
+                    showIf="centroUsuario.tipoUsuario == 'ALUMNO' || centroUsuario.tipoUsuario == 'PROFESOR'"
+                    canEdit="false" canRemove="false" canNew="false"
+            />
+        </panel-tabs>
+    </form>
+
+    <!-- ******************************************************************************************************* -->
+    <!-- *** Vistas de CursoAcademicoCentroUsuario -> CursoAcademicoCentroUsuarioCursoAcademicoDepartamento **** -->
+    <!-- ******************************************************************************************************* -->
+
+    <grid name="view-CursoAcademicoCentroUsuario-CursoAcademicoCentroUsuarioCursoAcademicoDepartamento-grid"
+          title=""
+          model="com.educaflow.apps.configuracioncentro.db.CursoAcademicoCentroUsuarioCursoAcademicoDepartamento"
+          groups="admins,users"
+          canViewOnClick="false" canDelete="true" canSave="true" editable="false" canNew="true"
+    >
+        <field name="cursoAcademicoDepartamento.departamento" title="Departamento"/>
+    </grid>
+
+    <!-- ******************************************************************************************************* -->
+    <!-- ********* Vistas CursoAcademicoCentroUsuario -> CursoAcademicoCentroUsuarioCursoAcademicoCargo ******** -->
+    <!-- ******************************************************************************************************* -->
+
+    <grid name="view-CursoAcademicoCentroUsuario-CursoAcademicoCentroUsuarioCursoAcademicoCargo-grid"
+          title=""
+          model="com.educaflow.apps.configuracioncentro.db.CursoAcademicoCentroUsuarioCursoAcademicoCargo"
+          groups="admins,users"
+          canViewOnClick="false" canDelete="true" canSave="true" editable="false" canNew="true"
+    >
+        <field name="cursoAcademicoCargo.cargo" title="Cargo"/>
+    </grid>
+
+
+    <!-- ******************************************************************************************************* -->
+    <!-- ******** Vistas CursoAcademicoCentroUsuario -> CursoAcademicoCentroUsuarioCursoAcademicoGrupo ********* -->
+    <!-- ******************************************************************************************************* -->
+
+    <grid name="view-CursoAcademicoCentroUsuario-CursoAcademicoCentroUsuarioCursoAcademicoGrupo-grid"
+          title=""
+          model="com.educaflow.apps.configuracioncentro.db.CursoAcademicoCentroUsuarioCursoAcademicoGrupo"
+          groups="admins,users"
+          canViewOnClick="false" canDelete="true" canSave="true" editable="false" canNew="true"
+    >
+        <field name="cursoAcademicoGrupo.curso" title="Curso"/>
+        <field name="cursoAcademicoGrupo.grupo" title="Grupo"/>
+    </grid>
+
+
+
+
+</object-views>

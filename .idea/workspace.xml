@@ -5,8 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ccd46f0e-f435-4b47-96f5-fcd7b1844396" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/educaflow/apps/configuracioncentro/views/CursoAcademicoCargo.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/educaflow/apps/configuracioncentro/views/CursoAcademicoCentroUsuario.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/educaflow/apps/configuracioncentro/views/CursoAcademicoDepartamento.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/educaflow/apps/configuracioncentro/views/CursoAcademicoGrupo.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/educaflow/apps/configuracioncentro/views/CursoAcademico.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/educaflow/apps/configuracioncentro/views/CursoAcademico.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/educaflow/apps/sistemaeducativo/views/CursoModulo.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/educaflow/apps/sistemaeducativo/views/CursoModulo.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -316,7 +321,9 @@
       <workItem from="1756618240791" duration="20277000" />
       <workItem from="1756709385182" duration="14574000" />
       <workItem from="1756736043755" duration="9626000" />
-      <workItem from="1756795225847" duration="329000" />
+      <workItem from="1756795225847" duration="3733000" />
+      <workItem from="1756823972742" duration="8605000" />
+      <workItem from="1756877988873" duration="5459000" />
     </task>
     <servers />
   </component>
